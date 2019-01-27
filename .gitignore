@@ -3,11 +3,6 @@ predator-prey
 .DS_Store
 */*.gch
 
-a.out
-predator-prey
-.DS_Store
-*/*.gch
-
 # Directories
 cmake-build-debug/
 .idea/
@@ -48,3 +43,4 @@ CMakeLists.txt
 *.exe
 *.out
 *.app
+
