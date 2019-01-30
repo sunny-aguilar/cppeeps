@@ -10,14 +10,19 @@
 
 #include "Ant.hpp"
 #include "Doodlebug.hpp"
+#include "Game.hpp"
 
 using std::cout;
 using std::endl;
 
 int main() {
 
+  srand(time(0));
+
   cout << "predator-prey" << endl;
   Ant ant;
   Doodlebug doodlebug;
+
+
   return 0;
 }

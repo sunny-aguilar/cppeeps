@@ -14,6 +14,28 @@ using std::endl;
 using std::stringstream;
 
 
+// this is how the menus are displayed and input is validated
+
+// startQuitMenu(); <-- menu prompts user
+// setStartQuitChoice(inputValidator(1,2)) <-- returns a validated value
+
+/***************************************************************************
+** Description:     default constructor with initialization
+***************************************************************************/
+
+Menu::Menu()
+{
+    bool numVerify = true;
+    string userInput = " ";
+    int startQuitChoice = 0;
+    int selection = 0;
+    int boardSize = 0;
+    int numAnts = 0;
+    int numDoodleBugs = 0;
+    int critterSteps = 0;
+    int continueStopChoice = 0;
+}
+
 /***************************************************************************
 ** Description:     prompt user to start or quit game
 ***************************************************************************/
@@ -42,6 +64,147 @@ void Menu::setStartQuitChoice(int startQuitChoice)
 int Menu::getStartQuitChoice()
 {
     return startQuitChoice;
+}
+
+/***************************************************************************
+** Description:     prompt user to for board size
+***************************************************************************/
+
+void Menu::boardSizeMenu()
+{
+    cout << "Please enter the size of the game board \n";
+    cout << "Enter the length and width of the board from 20 - 100 only\n";
+}
+
+/***************************************************************************
+** Description:     mutator function set length and width of board
+***************************************************************************/
+
+void Menu::setBoardSize(int boardSize)
+{
+    this->boardSize = boardSize;
+}
+
+/***************************************************************************
+** Description:   accessor function get size of board
+***************************************************************************/
+
+int Menu::getBoardSize()
+{
+    return boardSize;
+}
+
+/***************************************************************************
+** Description:     EXTRA CREDIT: prompt user for number of ants
+***************************************************************************/
+
+void Menu::numAntsMenu()
+{
+    cout << "Please enter the number of ants you would like to have\n";
+    cout << "Enter the number of ants from  100 - 500 only\n";
+}
+
+/***************************************************************************
+** Description:     EXTRA CREDIT: mutator function set length number of ants
+***************************************************************************/
+
+void Menu::setNumAnts(int numAnts)
+{
+    this->numAnts = numAnts;
+}
+
+/***************************************************************************
+** Description:   EXTRA CREDIT: accessor function get number of ants
+***************************************************************************/
+
+int Menu::getNumAnts()
+{
+    return numAnts;
+}
+
+/***************************************************************************
+** Description:     EXTRA CREDIT: prompt user for number of doodlebugs
+***************************************************************************/
+
+void Menu::numDoodleBugsMenu()
+{
+    cout << "Please enter the number of ants you would like to have\n";
+    cout << "Enter the number of ants from  5 - 100 only\n";
+}
+
+/***************************************************************************
+** Description:  EXTRA CREDIT: mutator function set length number of doodlebugs
+***************************************************************************/
+
+void Menu::setNumDoodleBugs(int numDoodleBugs)
+{
+    this->numDoodleBugs = numDoodleBugs;
+}
+
+/***************************************************************************
+** Description:  EXTRA CREDIT: accessor function get number of doodlebugs
+***************************************************************************/
+
+int Menu::getNumDoodleBugs()
+{
+    return numDoodleBugs;
+}
+
+/*********************************************************************
+** Description:  Ant steps prompt for total board movement
+*********************************************************************/
+
+void Menu::critterStepsPrompt()
+{
+    cout << "Enter the total number of steps the ant should walk from 1 through 20000 only" << endl;
+}
+
+/***************************************************************************
+** Description:  EXTRA CREDIT: mutator function set length number of doodlebugs
+***************************************************************************/
+
+void Menu::setCritterSteps(int critterSteps)
+{
+    this->critterSteps = critterSteps;
+}
+
+/*********************************************************************
+** Description:     get total ant steps on the board
+*********************************************************************/
+
+int Menu::getCritterSteps()
+{
+    return critterSteps;
+}
+
+/***************************************************************************
+** Description:   prompt user to continue or quit game
+***************************************************************************/
+
+void Menu::continueStopMenu()
+{
+    cout << "Would you like to continue playing\n";
+    cout << "Please enter a choice listed below\n";
+    cout << "1. Continue Playing\n";
+    cout << "2. Quit Game\n";
+}
+
+/***************************************************************************
+** Description:   mutator function set continue or quit choice option
+***************************************************************************/
+
+void Menu::setContinueStopChoice(int continueStopChoice)
+{
+    this->continueStopChoice = continueStopChoice;
+}
+
+/***************************************************************************
+** Description:   accessor function get continue or quit choice option
+***************************************************************************/
+
+int Menu::getContinueStopChoice()
+{
+    return continueStopChoice;
 }
 
 /****************************************************************************
