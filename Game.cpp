@@ -57,8 +57,8 @@ void Game::playGame() {
                     // entered by user; ask user to pick less critters
                     // if too many are chosen
                     if (totalUserCritters > maxCritters) {
-                        cout << "\nERROR - You can only enter a max of " << maxCritters
-                             << " ants and doodlebugs!" << endl;
+                        cout << "\nERROR! - YOU CAN ONLY ENTER A MAX OF " << maxCritters
+                             << " ANTS AND DOODLEBUGS!" << endl;
                         cout << setw(4) << antQty << " - Ants entered " << endl;
                         cout << setw(4) << doodlebugQty << " - Doodlebugs entered" << endl << endl;
                         askAgain = true;

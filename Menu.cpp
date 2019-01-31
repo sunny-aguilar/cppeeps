@@ -58,6 +58,7 @@ int Menu::getStartQuitChoice()
 ***************************************************************************/
 void Menu::boardSizeMenu()
 {
+    cout << "BOARD SIZE\n";
     cout << "Please enter the size of the game board \n";
     cout << "Enter the length and width of the board from 20 - 100 only\n";
     cout << ">> ";
@@ -84,6 +85,7 @@ int Menu::getBoardSize()
 ***************************************************************************/
 void Menu::numAntsMenu()
 {
+    cout << "ANTS\n";
     cout << "Enter the number of ants you would like to have\n";
     cout << "Enter the number of ants from  100 - 500 only\n";
     cout << ">> ";
@@ -110,6 +112,7 @@ int Menu::getNumAnts()
 ***************************************************************************/
 void Menu::numDoodleBugsMenu()
 {
+    cout << "DOODLEBUGS\n";
     cout << "Enter the number of doodlebugs you would like to have\n";
     cout << "Enter the number of ants from  5 - 100 only\n";
     cout << ">> ";
