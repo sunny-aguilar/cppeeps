@@ -7,21 +7,18 @@
 *********************************************************************/
 #include <iostream>
 
+#include "Game.hpp"
 #include "Ant.hpp"
 #include "Doodlebug.hpp"
-#include "Game.hpp"
 
 using std::cout;
 using std::endl;
 
 int main() {
-
-  srand(time(0));
-
-  cout << "predator-prey" << endl;
-  Ant ant;
-  Doodlebug doodlebug;
-
-
+    auto seed = static_cast<unsigned int>(time(nullptr));
+    srand(seed);                // create random number generator
+    cout << "predator-prey" << endl;
+    Ant ant;
+    Doodlebug doodlebug;
   return 0;
 }
