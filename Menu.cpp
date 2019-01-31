@@ -30,7 +30,7 @@ Menu::Menu() :
 ***************************************************************************/
 void Menu::startMenu()
 {
-    cout << "Welcome to Predator-Prey Simulation \n";
+    cout << "Welcome to Predator-Prey Simulation\n\n";
     cout << "Please enter a choice listed below\n";
     cout << "1. Play Game\n";
     cout << "2. Exit Game\n";
