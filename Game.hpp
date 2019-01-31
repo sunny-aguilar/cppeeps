@@ -18,6 +18,9 @@ private:
     Menu menu;
     Critter critter;
     bool playAgain;
+    int rows;
+    int col;
+    int steps;
 
 public:
     Game();

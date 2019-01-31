@@ -10,7 +10,7 @@
 /***************************************************************************
 ** Description:     default constructor using initialization list
 ***************************************************************************/
-Game::Game() : playAgain{true} {}
+Game::Game() : playAgain{true}, rows{0}, col{0}, steps{0} {}
 
 /*********************************************************************
 ** Description:     destructor
@@ -21,14 +21,29 @@ Game::~Game() {}
 ** Description:     description here
 *********************************************************************/
 void Game::playGame() {
-    cout << "predator-prey simulation" << endl;
+    // display start menu
+    menu.startMenu();
+    switch (menu.inputValidator(1,2)) {
+        case 1:
+            {
+                // set game parameters
+                cout << "Enter game params" << endl;
+                // start predator-prey simulation
+                while (!startSteps()) {
+                    // while startDay() returns true, simulation continues
+                    // if startDay() returns false, simulation ends
+                }
+            }
+            break;
+        case 2:
+            {
+                // display thanks for playing menu
 
-    while (!startSteps()) {
-        // while startDay() returns true, simulation continues
-        // if startDay() returns false, simulation ends
-        cout << "Starting Steps\n";
+            }
+            break;
+        default:
+            cout << "Unable to determine selection" << endl;
     }
-
 }
 
 /*********************************************************************
@@ -37,16 +52,14 @@ void Game::playGame() {
 bool Game::startSteps() {
     do {
         cout << "Working on steps\n";
+
+        // move ants
+
+        // move doodle bugs
+
+
+
         playAgain = goAgain();
-
-
-
-
-
-
-
-
-
     } while (playAgain);
 
     // if player quits, game ends

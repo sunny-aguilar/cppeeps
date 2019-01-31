@@ -28,9 +28,9 @@ Menu::Menu() :
 /***************************************************************************
 ** Description:     prompt user to start or quit game
 ***************************************************************************/
-void Menu::startQuitMenu()
+void Menu::startMenu()
 {
-    cout << "Welcome to Predator-Prey Game \n";
+    cout << "Welcome to Predator-Prey Simulation \n";
     cout << "Please enter a choice listed below\n";
     cout << "1. Play Game\n";
     cout << "2. Exit Game\n";

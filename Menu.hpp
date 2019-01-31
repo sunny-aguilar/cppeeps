@@ -34,7 +34,7 @@ private:
 public:
     Menu();
     int inputValidator(int min, int max);
-    void startQuitMenu();
+    void startMenu();
     void setStartQuitChoice(int startQuitChoice);
     int getStartQuitChoice();
     void boardSizeMenu();
