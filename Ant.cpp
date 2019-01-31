@@ -6,10 +6,6 @@
 ** Description: 		A
 *********************************************************************/
 #include "Ant.hpp"
-#include <iostream>
-
-using std::cout;
-using std::endl;
 
 // Constructor of the function
 Ant::Ant() {

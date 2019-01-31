@@ -8,6 +8,10 @@
 #ifndef ANT_HPP
 #define ANT_HPP
 
+#include <iostream>
+using std::cout;
+using std::endl;
+
 class Ant {
 	private:
 
