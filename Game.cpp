@@ -104,7 +104,8 @@ void Game::playGame() {
 void Game::startSteps() {
     int stepsTaken = 0;
     do {
-        cout << "Working on steps\n";
+        stepsTaken++;
+        cout << "Total steps taken " << stepsTaken << endl;
 
         // move ants
 
