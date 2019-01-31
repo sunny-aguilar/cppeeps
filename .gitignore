@@ -1,6 +1,5 @@
 a.out
 predator-prey
-.DS_Store
 */*.gch
 
 # Directories
@@ -10,6 +9,7 @@ cmake-build-debug/
 # Specific Files
 CMakeLists.txt
 *.DS_Store
+Readme.MD
 
 # Prerequisites
 *.d

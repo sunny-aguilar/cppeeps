@@ -1,9 +1,12 @@
-//
-// Created by Kuljot Singh Biring on 2019-01-30.
-//
-
-#ifndef GROUPPROJECT_CRITTER_HPP
-#define GROUPPROJECT_CRITTER_HPP
+/*********************************************************************
+** Program name: 		Critter.hpp
+** Author: 				Kuljot Biring, Rachel Schlick, Ryan Gross,
+** 						Sandro Aguilar, Jeesoo Ryoo
+** Date: 				02/17/2019
+** Description: 		Util functions can be used in multiple places
+*********************************************************************/
+#ifndef CRITTER_HPP
+#define CRITTER_HPP
 
 
 class Critter

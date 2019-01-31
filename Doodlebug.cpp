@@ -1,10 +1,10 @@
-/**********************************************************************************
-** Program name: Doodlebug.cpp
-** Author: Kuljot Biring, Rachel Schlick, Ryan Gross, Sandro Aguilar, Jeesoo Ryoo
-** Date: 02/17/2019
-** Description: 
-
-**********************************************************************************/
+/*********************************************************************
+** Program name: 		Doodlebug.cpp
+** Author: 				Kuljot Biring, Rachel Schlick, Ryan Gross,
+** 						Sandro Aguilar, Jeesoo Ryoo
+** Date: 				02/17/2019
+** Description: 		d
+*********************************************************************/
 #include <iostream>
 
 #include "Doodlebug.hpp"

@@ -1,7 +1,10 @@
-//
-// Created by Kuljot Singh Biring on 2019-01-30.
-//
-
+/*********************************************************************
+** Program name: 		Critter.cpp
+** Author: 				Kuljot Biring, Rachel Schlick, Ryan Gross,
+** 						Sandro Aguilar, Jeesoo Ryoo
+** Date: 				02/17/2019
+** Description: 		d
+*********************************************************************/
 #include "Critter.hpp"
 
 /***************************************************************************
