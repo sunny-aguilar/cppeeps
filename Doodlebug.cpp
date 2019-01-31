@@ -5,11 +5,9 @@
 ** Description: 
 
 **********************************************************************************/
-
 #include <iostream>
 
 #include "Doodlebug.hpp"
-
 using std::cout;
 using std::endl;
 

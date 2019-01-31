@@ -4,7 +4,6 @@
 ** Date: 02/17/2019
 ** Description: The header file for the Doodlebug class
 **********************************************************************************/
-
 #ifndef DOODLEBUG_HPP
 #define DOODLEBUG_HPP
 

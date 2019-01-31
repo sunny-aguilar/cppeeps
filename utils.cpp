@@ -6,10 +6,8 @@
 Util functions can be used in multiple places
 
 *********************************************************************/
-
-#include <random>
-
 #include "utils.hpp"
+#include <random>
 
 /***************************************************************************
 Description: generating random function in ranges

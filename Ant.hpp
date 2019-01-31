@@ -4,7 +4,6 @@
 ** Date: 02/17/2019
 ** Description: The header file for the Ant class
 **********************************************************************************/
-
 #ifndef ANT_HPP
 #define ANT_HPP
 
