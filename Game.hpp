@@ -15,10 +15,12 @@
 class Game {
 private:
     Menu menu;
+    Critter critter;
 
 public:
     Game();
     ~Game();
+    void startGame();
 };
 
-#endif //GROUPPROJECT_GAME_HPP
+#endif //GAME_HPP

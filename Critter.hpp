@@ -8,6 +8,9 @@
 #ifndef CRITTER_HPP
 #define CRITTER_HPP
 
+#include "Doodlebug.hpp"
+#include "Ant.hpp"
+
 class Critter
 {
 protected:
