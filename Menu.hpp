@@ -3,7 +3,7 @@
 ** Author: 				Kuljot Biring, Rachel Schlick, Ryan Gross,
 ** 						Sandro Aguilar, Jeesoo Ryoo
 ** Date: 				02/17/2019
-** Description: 		Util functions can be used in multiple places
+** Description:         Menu class description here
 *********************************************************************/
 #ifndef GROUPPROJECT_MENU_HPP
 #define GROUPPROJECT_MENU_HPP
