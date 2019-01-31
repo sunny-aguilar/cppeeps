@@ -19,5 +19,4 @@ public:
     virtual void breed();
 };
 
-
-#endif //GROUPPROJECT_CRITTER_HPP
+#endif //CRITTER_HPP

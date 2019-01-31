@@ -5,8 +5,8 @@
 ** Date: 				02/17/2019
 ** Description:         Menu class description here
 *********************************************************************/
-#ifndef GROUPPROJECT_MENU_HPP
-#define GROUPPROJECT_MENU_HPP
+#ifndef MENU_HPP
+#define MENU_HPP
 
 #include <iostream>
 #include <string>
@@ -54,4 +54,4 @@ public:
     int getContinueStopChoice();
 };
 
-#endif //GROUPPROJECT_MENU_HPP
+#endif //MENU_HPP

@@ -15,7 +15,10 @@
 class Game {
 private:
     Menu menu;
+
 public:
+    Game();
+    ~Game();
 };
 
 #endif //GROUPPROJECT_GAME_HPP

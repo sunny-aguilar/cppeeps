@@ -22,4 +22,4 @@ class Ant {
 		~Ant();
 };
 
-#endif
+#endif //ANT_HPP

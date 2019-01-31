@@ -22,4 +22,4 @@ class Doodlebug {
 		~Doodlebug();
 };
 
-#endif
+#endif // DOODLEBUG_HPP

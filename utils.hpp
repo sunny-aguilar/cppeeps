@@ -11,4 +11,4 @@
 int generateRandomNumber(int min, int max);
 int generateRandomNumber(int max);
 
-#endif
+#endif // UTILS_HPP
