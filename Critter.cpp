@@ -3,7 +3,7 @@
 ** Author: 				Kuljot Biring, Rachel Schlick, Ryan Gross,
 ** 						Sandro Aguilar, Jeesoo Ryoo
 ** Date: 				02/17/2019
-** Description: 		d
+** Description: 		Critter class description here
 *********************************************************************/
 #include "Critter.hpp"
 

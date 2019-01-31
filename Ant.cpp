@@ -3,7 +3,7 @@
 ** Author:				Kuljot Biring, Rachel Schlick, Ryan Gross,
 **						Sandro Aguilar, Jeesoo Ryoo
 ** Date: 				02/17/2019
-** Description: 		A
+** Description: 		Ant class description here
 *********************************************************************/
 #include "Ant.hpp"
 

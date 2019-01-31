@@ -3,7 +3,7 @@
 ** Author: 				Kuljot Biring, Rachel Schlick, Ryan Gross,
 ** 						Sandro Aguilar, Jeesoo Ryoo
 ** Date: 				02/17/2019
-** Description: 		Util functions can be used in multiple places
+** Description: 		Critter class description here
 *********************************************************************/
 #ifndef CRITTER_HPP
 #define CRITTER_HPP
