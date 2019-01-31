@@ -18,8 +18,8 @@ int main() {
     auto seed = static_cast<unsigned int>(time(nullptr));
     srand(seed);                // random number generator
     Game game;
-    game.startGame();
-    
+    game.playGame();
+
     Ant ant;
     Doodlebug doodlebug;
     return 0;

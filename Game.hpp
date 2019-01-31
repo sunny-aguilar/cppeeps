@@ -17,11 +17,14 @@ class Game {
 private:
     Menu menu;
     Critter critter;
+    bool playAgain;
 
 public:
     Game();
     ~Game();
-    void startGame();
+    void playGame();
+    bool startSteps();
+    bool goAgain();
 };
 
 #endif //GAME_HPP

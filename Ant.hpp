@@ -13,13 +13,13 @@ using std::cout;
 using std::endl;
 
 class Ant {
-	private:
+private:
 
-	protected:
+protected:
 
-	public:
-		Ant();
-		~Ant();
+public:
+    Ant();
+    ~Ant();
 };
 
 #endif //ANT_HPP

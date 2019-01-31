@@ -49,7 +49,7 @@ public:
     void critterStepsPrompt();
     void setCritterSteps(int critterSteps);
     int getCritterSteps();
-    void continueStopMenu();
+    void menuPlayAgain();
     void setContinueStopChoice(int continueStopChoice);
     int getContinueStopChoice();
 };

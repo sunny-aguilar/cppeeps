@@ -13,13 +13,13 @@ using std::cout;
 using std::endl;
 
 class Doodlebug {
-	private:
+private:
 
-	protected:
+protected:
 
-	public:
-		Doodlebug();
-		~Doodlebug();
+public:
+    Doodlebug();
+    ~Doodlebug();
 };
 
 #endif // DOODLEBUG_HPP

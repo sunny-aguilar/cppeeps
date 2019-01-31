@@ -154,11 +154,11 @@ int Menu::getCritterSteps()
 /***************************************************************************
 ** Description:   prompt user to continue or quit game
 ***************************************************************************/
-void Menu::continueStopMenu()
+void Menu::menuPlayAgain()
 {
-    cout << "Would you like to continue playing\n";
+    cout << "Would you like to run the simulation again?\n";
     cout << "Please enter a choice listed below\n";
-    cout << "1. Continue Playing\n";
+    cout << "1. Restart Simulation\n";
     cout << "2. Quit Game\n";
 }
 
