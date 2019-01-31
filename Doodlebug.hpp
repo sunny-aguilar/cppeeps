@@ -8,6 +8,10 @@
 #ifndef DOODLEBUG_HPP
 #define DOODLEBUG_HPP
 
+#include <iostream>
+using std::cout;
+using std::endl;
+
 class Doodlebug {
 	private:
 

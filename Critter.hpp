@@ -8,7 +8,6 @@
 #ifndef CRITTER_HPP
 #define CRITTER_HPP
 
-
 class Critter
 {
 protected:
@@ -16,8 +15,8 @@ protected:
 public:
     Critter();
     virtual  ~Critter();
-    virtual move();
-    virtual breed();
+    virtual void move();
+    virtual void breed();
 };
 
 

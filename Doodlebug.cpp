@@ -5,11 +5,7 @@
 ** Date:            02/17/2019
 ** Description:     Doodlebug class description here
 *********************************************************************/
-#include <iostream>
-
 #include "Doodlebug.hpp"
-using std::cout;
-using std::endl;
 
 // Constructor of the function
 Doodlebug::Doodlebug() {

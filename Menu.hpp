@@ -8,8 +8,14 @@
 #ifndef GROUPPROJECT_MENU_HPP
 #define GROUPPROJECT_MENU_HPP
 
+#include <iostream>
 #include <string>
-
+#include <sstream>
+#include <cstdlib>
+using std::cin;
+using std::cout;
+using std::endl;
+using std::stringstream;
 using std::string;
 
 class Menu

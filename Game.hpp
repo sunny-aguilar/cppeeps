@@ -8,11 +8,14 @@
 #ifndef GAME_HPP
 #define GAME_HPP
 
+#include "Menu.hpp"
+#include "Critter.hpp"
 #include <ctime>
 
 class Game {
-
+private:
+    Menu menu;
+public:
 };
-
 
 #endif //GROUPPROJECT_GAME_HPP

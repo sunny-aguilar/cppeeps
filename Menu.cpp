@@ -7,14 +7,7 @@
 *********************************************************************/
 #include "Menu.hpp"
 
-#include <iostream>
-#include <sstream>
-#include <cstdlib>
 
-using std::cin;
-using std::cout;
-using std::endl;
-using std::stringstream;
 
 
 // this is how the menus are displayed and input is validated
