@@ -52,8 +52,6 @@ public:
     void continueStopMenu();
     void setContinueStopChoice(int continueStopChoice);
     int getContinueStopChoice();
-
 };
-
 
 #endif //GROUPPROJECT_MENU_HPP

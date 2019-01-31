@@ -6,36 +6,28 @@
 ** Description:     Meny class description here
 *********************************************************************/
 #include "Menu.hpp"
-
-
-
-
 // this is how the menus are displayed and input is validated
-
 // startQuitMenu(); <-- menu prompts user
 // setStartQuitChoice(inputValidator(1,2)) <-- returns a validated value
 
 /***************************************************************************
-** Description:     default constructor with initialization
+** Description:     default constructor using initialization list
 ***************************************************************************/
-
-Menu::Menu()
-{
-    bool numVerify = true;
-    string userInput = " ";
-    int startQuitChoice = 0;
-    int selection = 0;
-    int boardSize = 0;
-    int numAnts = 0;
-    int numDoodleBugs = 0;
-    int critterSteps = 0;
-    int continueStopChoice = 0;
+Menu::Menu() :
+    numVerify{true},
+    userInput{},
+    startQuitChoice{0},
+    selection{0},
+    boardSize{0},
+    numAnts{0},
+    numDoodleBugs{0},
+    critterSteps{0},
+    continueStopChoice{0} {
 }
 
 /***************************************************************************
 ** Description:     prompt user to start or quit game
 ***************************************************************************/
-
 void Menu::startQuitMenu()
 {
     cout << "Welcome to Predator-Prey Game \n";
@@ -47,7 +39,6 @@ void Menu::startQuitMenu()
 /***************************************************************************
 ** Description:     mutator function set play or quit choice option
 ***************************************************************************/
-
 void Menu::setStartQuitChoice(int startQuitChoice)
 {
     this->startQuitChoice = startQuitChoice;
@@ -56,7 +47,6 @@ void Menu::setStartQuitChoice(int startQuitChoice)
 /***************************************************************************
 ** Description:   accessor function get play or quit choice option
 ***************************************************************************/
-
 int Menu::getStartQuitChoice()
 {
     return startQuitChoice;
@@ -65,7 +55,6 @@ int Menu::getStartQuitChoice()
 /***************************************************************************
 ** Description:     prompt user to for board size
 ***************************************************************************/
-
 void Menu::boardSizeMenu()
 {
     cout << "Please enter the size of the game board \n";
@@ -75,7 +64,6 @@ void Menu::boardSizeMenu()
 /***************************************************************************
 ** Description:     mutator function set length and width of board
 ***************************************************************************/
-
 void Menu::setBoardSize(int boardSize)
 {
     this->boardSize = boardSize;
@@ -84,7 +72,6 @@ void Menu::setBoardSize(int boardSize)
 /***************************************************************************
 ** Description:   accessor function get size of board
 ***************************************************************************/
-
 int Menu::getBoardSize()
 {
     return boardSize;
@@ -93,7 +80,6 @@ int Menu::getBoardSize()
 /***************************************************************************
 ** Description:     EXTRA CREDIT: prompt user for number of ants
 ***************************************************************************/
-
 void Menu::numAntsMenu()
 {
     cout << "Please enter the number of ants you would like to have\n";
@@ -103,7 +89,6 @@ void Menu::numAntsMenu()
 /***************************************************************************
 ** Description:     EXTRA CREDIT: mutator function set length number of ants
 ***************************************************************************/
-
 void Menu::setNumAnts(int numAnts)
 {
     this->numAnts = numAnts;
@@ -112,7 +97,6 @@ void Menu::setNumAnts(int numAnts)
 /***************************************************************************
 ** Description:   EXTRA CREDIT: accessor function get number of ants
 ***************************************************************************/
-
 int Menu::getNumAnts()
 {
     return numAnts;
@@ -121,7 +105,6 @@ int Menu::getNumAnts()
 /***************************************************************************
 ** Description:     EXTRA CREDIT: prompt user for number of doodlebugs
 ***************************************************************************/
-
 void Menu::numDoodleBugsMenu()
 {
     cout << "Please enter the number of ants you would like to have\n";
@@ -131,7 +114,6 @@ void Menu::numDoodleBugsMenu()
 /***************************************************************************
 ** Description:  EXTRA CREDIT: mutator function set length number of doodlebugs
 ***************************************************************************/
-
 void Menu::setNumDoodleBugs(int numDoodleBugs)
 {
     this->numDoodleBugs = numDoodleBugs;
@@ -140,7 +122,6 @@ void Menu::setNumDoodleBugs(int numDoodleBugs)
 /***************************************************************************
 ** Description:  EXTRA CREDIT: accessor function get number of doodlebugs
 ***************************************************************************/
-
 int Menu::getNumDoodleBugs()
 {
     return numDoodleBugs;
@@ -149,7 +130,6 @@ int Menu::getNumDoodleBugs()
 /*********************************************************************
 ** Description:  Ant steps prompt for total board movement
 *********************************************************************/
-
 void Menu::critterStepsPrompt()
 {
     cout << "Enter the total number of steps the ant should walk from 1 through 20000 only" << endl;
@@ -158,7 +138,6 @@ void Menu::critterStepsPrompt()
 /***************************************************************************
 ** Description:  EXTRA CREDIT: mutator function set length number of doodlebugs
 ***************************************************************************/
-
 void Menu::setCritterSteps(int critterSteps)
 {
     this->critterSteps = critterSteps;
@@ -167,7 +146,6 @@ void Menu::setCritterSteps(int critterSteps)
 /*********************************************************************
 ** Description:     get total ant steps on the board
 *********************************************************************/
-
 int Menu::getCritterSteps()
 {
     return critterSteps;
@@ -176,7 +154,6 @@ int Menu::getCritterSteps()
 /***************************************************************************
 ** Description:   prompt user to continue or quit game
 ***************************************************************************/
-
 void Menu::continueStopMenu()
 {
     cout << "Would you like to continue playing\n";
@@ -188,7 +165,6 @@ void Menu::continueStopMenu()
 /***************************************************************************
 ** Description:   mutator function set continue or quit choice option
 ***************************************************************************/
-
 void Menu::setContinueStopChoice(int continueStopChoice)
 {
     this->continueStopChoice = continueStopChoice;
@@ -197,7 +173,6 @@ void Menu::setContinueStopChoice(int continueStopChoice)
 /***************************************************************************
 ** Description:   accessor function get continue or quit choice option
 ***************************************************************************/
-
 int Menu::getContinueStopChoice()
 {
     return continueStopChoice;
@@ -212,7 +187,6 @@ int Menu::getContinueStopChoice()
 ** three conditions are violated and if so jumps back to the top of the
 ** loop resetting the bool flag to true.
 ****************************************************************************/
-
 int Menu::inputValidator(int min, int max)
 {
     do
@@ -232,8 +206,8 @@ int Menu::inputValidator(int min, int max)
 
         if (numVerify)  // if boolean value still true
         {
-            stringstream stringstream(userInput);   // create string stream object
-            stringstream >> selection;  // put string into integer
+            stringstream sstream(userInput);   // create string stream object
+            sstream >> selection;  // put string into integer
         }
         // if number is out of range of acceptable values
         if(!numVerify || selection < min || selection > max)
