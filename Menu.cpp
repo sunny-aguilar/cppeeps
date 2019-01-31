@@ -1,9 +1,9 @@
 /*********************************************************************
-** Program name: 		Menu.cpp
-** Author: 				Kuljot Biring, Rachel Schlick, Ryan Gross,
-** 						Sandro Aguilar, Jeesoo Ryoo
-** Date: 				02/17/2019
-** Description: 		Overall program descrition here
+** Program name: 	Menu.cpp
+** Author:          Kuljot Biring, Rachel Schlick, Ryan Gross,
+**                  Sandro Aguilar, Jeesoo Ryoo
+** Date:            02/17/2019
+** Description: 	Overall program descrition here
 *********************************************************************/
 #include "Menu.hpp"
 
