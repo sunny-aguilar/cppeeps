@@ -26,8 +26,22 @@ void Game::playGame() {
     switch (menu.inputValidator(1,2)) {
         case 1:
             {
-                // set game parameters
                 cout << "Enter game params" << endl;
+                // set game parameters
+                // set board rows and columns
+                menu.boardSizeMenu();
+                rows = col = menu.inputValidator(20, 100);
+
+                // set total ants
+
+                
+                // set total doodlebugs
+
+
+                // set total steps to simulate
+                menu.critterStepsPrompt();
+                steps = menu.inputValidator(1,20000);
+
                 // start predator-prey simulation
                 while (!startSteps()) {
                     // while startDay() returns true, simulation continues

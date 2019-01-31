@@ -193,7 +193,7 @@ int Menu::inputValidator(int min, int max)
     {
         numVerify = true; // reset bool value when loop repeats
         cin.clear();      // clear buffer
-        cout << "Please enter a number from " << min << " to " << max << endl;
+//        cout << "Please enter a number from " << min << " to " << max << endl;
         getline(cin, userInput);
 
         for (unsigned int numCheck = 0; numCheck < userInput.length(); numCheck++)
