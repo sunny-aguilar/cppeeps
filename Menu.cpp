@@ -30,7 +30,7 @@ Menu::Menu() :
 ***************************************************************************/
 void Menu::startMenu()
 {
-    cout << "Welcome to Predator-Prey Simulation\n\n";
+    cout << "\nWELCOME TO THE PREDATOR-PREY SIMULATION\n\n";
     cout << "Please enter a choice listed below\n";
     cout << "1. Play Game\n";
     cout << "2. Exit Game\n";
@@ -58,7 +58,7 @@ int Menu::getStartQuitChoice()
 ***************************************************************************/
 void Menu::boardSizeMenu()
 {
-    cout << "BOARD SIZE\n";
+    cout << "\nBOARD SIZE\n";
     cout << "Please enter the size of the game board \n";
     cout << "Enter the length and width of the board from 20 - 100 only\n";
     cout << ">> ";
@@ -85,7 +85,7 @@ int Menu::getBoardSize()
 ***************************************************************************/
 void Menu::numAntsMenu()
 {
-    cout << "ANTS\n";
+    cout << "\nANTS\n";
     cout << "Enter the number of ants you would like to have\n";
     cout << "Enter the number of ants from  100 - 500 only\n";
     cout << ">> ";
@@ -112,7 +112,7 @@ int Menu::getNumAnts()
 ***************************************************************************/
 void Menu::numDoodleBugsMenu()
 {
-    cout << "DOODLEBUGS\n";
+    cout << "\nDOODLEBUGS\n";
     cout << "Enter the number of doodlebugs you would like to have\n";
     cout << "Enter the number of ants from  5 - 100 only\n";
     cout << ">> ";
@@ -139,6 +139,7 @@ int Menu::getNumDoodleBugs()
 *********************************************************************/
 void Menu::critterStepsPrompt()
 {
+    cout << "\nSTEPS\n";
     cout << "Enter the total number of steps the ant should walk from 1 through 20000 only" << endl;
 }
 
@@ -163,7 +164,7 @@ int Menu::getCritterSteps()
 ***************************************************************************/
 void Menu::menuPlayAgain()
 {
-    cout << "Would you like to run the simulation again?\n";
+    cout << "\nWould you like to run the simulation again?\n";
     cout << "Please enter a choice listed below\n";
     cout << "1. Restart Simulation\n";
     cout << "2. Quit Game\n";

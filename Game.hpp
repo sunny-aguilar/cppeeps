@@ -29,7 +29,7 @@ public:
     Game();
     ~Game();
     void playGame();
-    bool startSteps();
+    void startSteps();
     bool goAgain();
 };
 
