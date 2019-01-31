@@ -9,6 +9,7 @@
 #define GAME_HPP
 
 #include "Menu.hpp"
+#include "utils.hpp"
 #include "Critter.hpp"
 #include <ctime>
 

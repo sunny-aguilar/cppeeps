@@ -16,8 +16,10 @@ using std::endl;
 
 int main() {
     auto seed = static_cast<unsigned int>(time(nullptr));
-    srand(seed);                        // random number generator
+    srand(seed);                // random number generator
     Game game;
+    game.startGame();
+    
     Ant ant;
     Doodlebug doodlebug;
     return 0;
