@@ -20,5 +20,5 @@ int main() {
     cout << "predator-prey" << endl;
     Ant ant;
     Doodlebug doodlebug;
-  return 0;
+    return 0;
 }
