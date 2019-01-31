@@ -34,6 +34,7 @@ void Menu::startMenu()
     cout << "Please enter a choice listed below\n";
     cout << "1. Play Game\n";
     cout << "2. Exit Game\n";
+    cout << ">> ";
 }
 
 /***************************************************************************
@@ -59,6 +60,7 @@ void Menu::boardSizeMenu()
 {
     cout << "Please enter the size of the game board \n";
     cout << "Enter the length and width of the board from 20 - 100 only\n";
+    cout << ">> ";
 }
 
 /***************************************************************************
@@ -82,8 +84,9 @@ int Menu::getBoardSize()
 ***************************************************************************/
 void Menu::numAntsMenu()
 {
-    cout << "Please enter the number of ants you would like to have\n";
+    cout << "Enter the number of ants you would like to have\n";
     cout << "Enter the number of ants from  100 - 500 only\n";
+    cout << ">> ";
 }
 
 /***************************************************************************
@@ -107,8 +110,9 @@ int Menu::getNumAnts()
 ***************************************************************************/
 void Menu::numDoodleBugsMenu()
 {
-    cout << "Please enter the number of ants you would like to have\n";
+    cout << "Enter the number of doodlebugs you would like to have\n";
     cout << "Enter the number of ants from  5 - 100 only\n";
+    cout << ">> ";
 }
 
 /***************************************************************************

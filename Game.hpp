@@ -20,6 +20,9 @@ private:
     bool playAgain;
     int rows;
     int col;
+    int doodlebugQty;
+    int antQty;
+    int maxCritters;
     int steps;
 
 public:

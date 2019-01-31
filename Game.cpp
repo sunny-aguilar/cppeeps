@@ -10,7 +10,13 @@
 /***************************************************************************
 ** Description:     default constructor using initialization list
 ***************************************************************************/
-Game::Game() : playAgain{true}, rows{0}, col{0}, steps{0} {}
+Game::Game() :
+    playAgain{true},
+    rows{0},
+    col{0},
+    doodlebugQty{0},
+    antQty{0},
+    steps{0} {}
 
 /*********************************************************************
 ** Description:     destructor
@@ -26,16 +32,42 @@ void Game::playGame() {
     switch (menu.inputValidator(1,2)) {
         case 1:
             {
-                cout << "Enter game params" << endl;
                 // set game parameters
                 // set board rows and columns
                 menu.boardSizeMenu();
                 rows = col = menu.inputValidator(20, 100);
+                maxCritters = rows * col;
 
-                // set total ants
+                // make sure that total critters entered by user does
+                // not exceed board space
+                bool askAgain = true;
+                do {
+                    // set total ants
+                    menu.numAntsMenu();
+                    antQty = menu.inputValidator(100, 1000);
 
-                
-                // set total doodlebugs
+                    // set total doodlebugs
+                    menu.numDoodleBugsMenu();
+                    doodlebugQty = menu.inputValidator(5, 500);
+
+                    // add total critters entered by user
+                    int totalUserCritters = doodlebugQty + antQty;
+
+                    // compare max critters allowed with total critters
+                    // entered by user; ask user to pick less critters
+                    // if too many are chosen
+                    if (totalUserCritters > maxCritters) {
+                        cout << "\nERROR - You can only enter a max of " << maxCritters
+                             << " ants and doodlebugs!" << endl;
+                        cout << setw(4) << antQty << " - Ants entered " << endl;
+                        cout << setw(4) << doodlebugQty << " - Doodlebugs entered" << endl << endl;
+                        askAgain = true;
+                    }
+                    else if (totalUserCritters <= maxCritters) {
+                        askAgain = false;
+                    }
+
+                } while (askAgain);
 
 
                 // set total steps to simulate

@@ -12,11 +12,13 @@
 #include <string>
 #include <sstream>
 #include <cstdlib>
+#include <iomanip>
 using std::cin;
 using std::cout;
 using std::endl;
 using std::stringstream;
 using std::string;
+using std::setw;
 
 class Menu
 {
