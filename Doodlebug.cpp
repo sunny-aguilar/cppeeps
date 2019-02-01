@@ -39,8 +39,12 @@ string Doodlebug::getCritterType() {
 /*********************************************************************
 ** Description:     description
 *********************************************************************/
-void Doodlebug::eat(Critter *ant) {
+void Doodlebug::eat(Critter *bug) {
+	if (bug->getCritterType() == "O") {
+		// logic to show that ant has been eaten
 
+		
+	}
 }
 
 /*********************************************************************

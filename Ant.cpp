@@ -40,7 +40,7 @@ string Ant::getCritterType() {
 ** Description:     this function being inherited from base class
 ** 					however it will not be used by the ant.
 *********************************************************************/
-void Ant::eat(Critter *ant) {
+void Ant::eat(Critter *bug) {
 	// leave empty
 }
 
