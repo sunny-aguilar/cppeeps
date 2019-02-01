@@ -20,7 +20,7 @@ Ant::Ant(int row, int col) : Critter{"ant", row, col}
 {
 	// this is being used for debugging
 	static int num = 1;
-	cout << "Ant #" << num << " created!" << endl;
+	cout << "Ant #" << num << " created on Board[" << row << "][" << col << "]" << endl;
 	num++;
 }
 

@@ -20,7 +20,7 @@ Doodlebug::Doodlebug(int row, int col) : Critter{"doodlebug", row, col}
 {
 	// this is being used for debugging
 	static int num = 1;
-	cout << "Doodlebug #" << num << " created!" << endl;
+	cout << "Doodlebug #" << num << " created on Board[" << row << "][" << col << "]" << endl;
 	num++;
 }
 
