@@ -182,10 +182,11 @@ void Menu::menuDisplayBoard(int col) {
 ***************************************************************************/
 void Menu::menuPlayAgain()
 {
-    cout << "\nWould you like to run the simulation again?\n";
+    cout << "\nWould you like to run the simulation again using using"
+            "a different number of steps?\n";
     cout << "Please enter a choice listed below\n";
-    cout << "1. Restart Simulation\n";
-    cout << "2. Quit Game\n";
+    cout << "1. Changes Step count and rerun Simulation\n";
+    cout << "2. Quit Simulation\n";
 }
 
 /***************************************************************************
