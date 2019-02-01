@@ -235,8 +235,16 @@ void Game::moveCritters() {
 *********************************************************************/
 void Game::displayBoard() {
     menu.menuDisplayBoard(col);
+
+    // built top wall
+    for (int index = 0; index < row; index++) {
+        cout << "__";
+    }
+    cout << endl;
+
+    // build board
     for (int r_index = 0; r_index < row; r_index++) {
-        cout << "|";
+        cout << "|"; // build left wall
         for (int c_index = 0; c_index < col; c_index++) {
             if (board[r_index][c_index] != nullptr) {
                 if (board[r_index][c_index]->getCritterType() == "X") {
@@ -247,10 +255,16 @@ void Game::displayBoard() {
                 }
             }
             else {
-                cout << " |";
+                cout << " |"; // build right wall
             }
         }
         cout << endl;
+    }
+
+    // build bottom wall
+    cout << endl;
+    for (int index = 0; index < row; index++) {
+        cout << "__";
     }
 }
 
