@@ -11,6 +11,7 @@
 ** Description:     default constructor using initialization list
 ***************************************************************************/
 Game::Game() :
+    board{nullptr},
     playAgain{true},
     rows{0},
     col{0},
@@ -41,6 +42,9 @@ void Game::playGame() {
                 // make sure that total critters entered
                 // by user does not exceed board space
                 setCritters();
+
+                // board set-up
+                initializeCritters();
 
                 // set total steps to simulate
                 menu.critterStepsPrompt();
@@ -96,6 +100,22 @@ void Game::setCritters() {
             askAgain = false;
         }
     } while (askAgain);
+}
+
+/*********************************************************************
+** Description:     dynamically create a board using the rows and col
+**                  private variables for the dimensions
+*********************************************************************/
+void Game::initializeCritters() {
+    // create the rows
+    board = new Critter *[rows];
+
+    // create the columns per row
+    for (int index = 0; index < rows; index++) {
+        board[index] = new Critter[col];
+    }
+
+    //
 }
 
 /*********************************************************************

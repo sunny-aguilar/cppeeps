@@ -16,6 +16,7 @@
 class Game {
 private:
     Menu menu;
+    Critter **board;
     Critter critter;
     bool playAgain;
     int rows;
@@ -30,6 +31,7 @@ public:
     ~Game();
     void playGame();
     void setCritters();
+    void initializeCritters();
     void moveCritters();
     bool goAgain();
 };
