@@ -8,9 +8,10 @@
 #include "Ant.hpp"
 
 /*********************************************************************
-** Description:     no-args default constructor
+** Description:     no-args default constructor with base class
+** 					initialization list
 *********************************************************************/
-Ant::Ant()
+Ant::Ant() : Critter{}
 {
 	// this is being used for debugging
 	static int num = 1;

@@ -35,6 +35,7 @@ public:
     void setCritters();
     void initializeCritters();
     void nonrandomPlacement();
+    void critterRandomPlacement();
     void moveCritters();
     bool goAgain();
 };

@@ -18,6 +18,8 @@ class Critter
 protected:
     std::string critterType;
     int stepsSurvived;
+    int row;
+    int col;
 
 public:
     Critter();

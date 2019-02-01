@@ -175,6 +175,15 @@ void Game::nonrandomPlacement() {
 }
 
 /*********************************************************************
+** Description:     this function creates ants and doodle bug
+**                  instances and adds them to the board in a
+**                  a non-random fashion
+*********************************************************************/
+void Game::critterRandomPlacement() {
+
+}
+
+/*********************************************************************
 ** Description:     description here
 *********************************************************************/
 void Game::moveCritters() {
