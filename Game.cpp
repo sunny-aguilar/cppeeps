@@ -21,7 +21,7 @@ Game::Game() :
     steps{0} {}
 
 /*********************************************************************
-** Description:     destructor
+** Description:     destructor frees heap memory
 *********************************************************************/
 Game::~Game() {
     for (int r_index = 0; r_index < row; r_index++) {
@@ -118,11 +118,18 @@ void Game::setCritters() {
 *********************************************************************/
 void Game::initializeCritters() {
     // create the rows
-    board = new Critter *[row];
+    board = new Critter **[row];
 
     // create the columns per row
     for (int index = 0; index < row; index++) {
-        board[index] = new Critter[col];
+        board[index] = new Critter *[col];
+    }
+
+    // set the pointers equal to null
+    for (int r_index = 0; r_index < row; r_index++) {
+        for (int c_index = 0; c_index < col; c_index++) {
+            board[r_index][c_index] = nullptr;
+        }
     }
 
     // this functions adds the critters to the board in a non-random
@@ -131,7 +138,9 @@ void Game::initializeCritters() {
 }
 
 /*********************************************************************
-** Description:     description here
+** Description:     this function creates ants and doodle bug
+**                  instances and adds them to the board in a
+**                  a non-random fashion
 *********************************************************************/
 void Game::nonrandomPlacement() {
     // add the doodlebugs and ants to the array
@@ -143,7 +152,7 @@ void Game::nonrandomPlacement() {
 
     for (rows; rows < row; rows++) {
         for (cols = 0; cols < col; cols++) {
-            board[rows][cols] = Ant();
+            board[rows][cols] = new Ant();
             antsAdded++;
             cout << "[" << rows << "][" << cols << "]" << endl;
             if (antsAdded == antQty) { break; }
@@ -156,7 +165,7 @@ void Game::nonrandomPlacement() {
 
     for (rows; rows < row; rows++) {
         for (cols = 0; cols < col; cols++) {
-            board[rows][cols] = Doodlebug();
+            board[rows][cols] = new Doodlebug();
             doodlesAdded++;
             cout << "[" << rows << "][" << cols << "]" << endl;
             if (doodlesAdded == doodlebugQty) { break; }

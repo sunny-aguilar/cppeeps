@@ -18,7 +18,7 @@
 class Game {
 private:
     Menu menu;
-    Critter **board;
+    Critter ***board;
     bool playAgain;
     int row;
     int col;

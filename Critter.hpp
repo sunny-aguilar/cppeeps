@@ -16,6 +16,7 @@ class Critter
 {
 protected:
     std::string critterType;
+    int stepsSurvived;
 
 public:
     Critter();

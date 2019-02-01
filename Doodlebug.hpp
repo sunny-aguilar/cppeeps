@@ -20,6 +20,8 @@ protected:
 public:
     Doodlebug();
     ~Doodlebug();
+    void move() override;
+    void breed() override;
 };
 
 #endif // DOODLEBUG_HPP

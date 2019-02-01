@@ -19,6 +19,8 @@ protected:
 public:
     Ant();
     ~Ant();
+    void move() override;
+    void breed() override;
 };
 
 #endif //ANT_HPP
