@@ -165,7 +165,7 @@ int Menu::getCritterSteps()
 void Menu::menuDisplayBoard(int col) {
     cout << "\nDISPLAYING BOARD ";
     for (int count = 0; count < col; count++) {
-        cout << "**";
+        cout << "* ";
     }
     cout << endl;
 }

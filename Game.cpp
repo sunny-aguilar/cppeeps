@@ -262,9 +262,8 @@ void Game::displayBoard() {
     }
 
     // build bottom wall
-    cout << endl;
     for (int index = 0; index < row; index++) {
-        cout << "__";
+        cout << "--";
     }
 }
 
