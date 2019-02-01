@@ -32,8 +32,8 @@ void Menu::startMenu()
 {
     cout << "\nWELCOME TO THE PREDATOR-PREY SIMULATION\n\n";
     cout << "Please enter a choice listed below\n";
-    cout << "1. Play Game\n";
-    cout << "2. Exit Game\n";
+    cout << "1. Run Simulation\n";
+    cout << "2. Exit Simulation\n";
     cout << ">> ";
 }
 
