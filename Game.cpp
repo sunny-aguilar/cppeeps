@@ -38,44 +38,17 @@ void Game::playGame() {
                 rows = col = menu.inputValidator(20, 100);
                 maxCritters = rows * col;
 
-                // make sure that total critters entered by user does
-                // not exceed board space
-                bool askAgain = true;
-                do {
-                    // set total ants
-                    menu.numAntsMenu();
-                    antQty = menu.inputValidator(100, 1000);
-
-                    // set total doodlebugs
-                    menu.numDoodleBugsMenu();
-                    doodlebugQty = menu.inputValidator(5, 500);
-
-                    // add total critters entered by user
-                    int totalUserCritters = doodlebugQty + antQty;
-
-                    // compare max critters allowed with total critters
-                    // entered by user; ask user to pick less critters
-                    // if too many are chosen
-                    if (totalUserCritters > maxCritters) {
-                        cout << "\nERROR! - YOU CAN ONLY ENTER A MAX OF " << maxCritters
-                        << " ANTS AND DOODLEBUGS!" << endl;
-                        cout << setw(4) << antQty << " - Ants entered " << endl;
-                        cout << setw(4) << doodlebugQty << " - Doodlebugs entered" << endl;
-                        askAgain = true;
-                    }
-                    else if (totalUserCritters <= maxCritters) {
-                        askAgain = false;
-                    }
-
-                } while (askAgain);
+                // make sure that total critters entered
+                // by user does not exceed board space
+                setCritters();
 
                 // set total steps to simulate
                 menu.critterStepsPrompt();
                 steps = menu.inputValidator(1,20000);
 
-                // start predator-prey steps
-                startSteps();
-    
+                // move critters
+                moveCritters();
+
                 // run simulation again
                 playAgain = goAgain();
             } while (playAgain);
@@ -95,7 +68,40 @@ void Game::playGame() {
 /*********************************************************************
 ** Description:     description here
 *********************************************************************/
-void Game::startSteps() {
+void Game::setCritters() {
+    bool askAgain = true;
+    do {
+        // set total ants
+        menu.numAntsMenu();
+        antQty = menu.inputValidator(100, 1000);
+
+        // set total doodlebugs
+        menu.numDoodleBugsMenu();
+        doodlebugQty = menu.inputValidator(5, 500);
+
+        // add total critters entered by user
+        int totalUserCritters = doodlebugQty + antQty;
+
+        // compare max critters allowed with total critters
+        // entered by user; ask user to pick less critters
+        // if too many are chosen
+        if (totalUserCritters > maxCritters) {
+            cout << "\nERROR! - YOU CAN ONLY ENTER A MAX OF " << maxCritters
+                 << " ANTS AND DOODLEBUGS!" << endl;
+            cout << setw(4) << antQty << " - Ants entered " << endl;
+            cout << setw(4) << doodlebugQty << " - Doodlebugs entered" << endl;
+            askAgain = true;
+        }
+        else if (totalUserCritters <= maxCritters) {
+            askAgain = false;
+        }
+    } while (askAgain);
+}
+
+/*********************************************************************
+** Description:     description here
+*********************************************************************/
+void Game::moveCritters() {
     int stepsTaken = 0;
     do {
         stepsTaken++;

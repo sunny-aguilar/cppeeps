@@ -29,7 +29,8 @@ public:
     Game();
     ~Game();
     void playGame();
-    void startSteps();
+    void setCritters();
+    void moveCritters();
     bool goAgain();
 };
 
