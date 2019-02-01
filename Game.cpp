@@ -134,6 +134,7 @@ void Game::initializeCritters() {
 
     // this functions adds the critters to the board in a non-random
     // fashion (only temporary, must place them randomly)
+    // critterRandomPlacement()
     nonrandomPlacement();
 }
 
@@ -177,12 +178,24 @@ void Game::nonrandomPlacement() {
 }
 
 /*********************************************************************
-** Description:     this function creates ants and doodle bug
-**                  instances and adds them to the board in a
-**                  a non-random fashion
+** Description:     creates doodlebugs and ants and randomly places
+**                  them on the board
 *********************************************************************/
 void Game::critterRandomPlacement() {
+    int r_index = generateRandomNumber(0, row-1);
+    int c_index = generateRandomNumber(0, col-1);
 
+    for (int ant = 0; ant < antQty; ant++) {
+        while (board[r_index][c_index] != nullptr) {
+            board[r_index][c_index] = new Ant(r_index, c_index);
+        }
+    }
+
+    for (int doodlebug = 0; doodlebug < doodlebugQty; doodlebug++) {
+        while (board[r_index][c_index] != nullptr) {
+            board[r_index][c_index] = new Doodlebug(r_index, c_index);
+        }
+    }
 }
 
 /*********************************************************************
