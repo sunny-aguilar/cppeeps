@@ -14,6 +14,7 @@
 class Critter
 {
 protected:
+    std::string critterType;
 
 public:
     Critter();

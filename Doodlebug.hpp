@@ -14,7 +14,7 @@ using std::endl;
 
 class Doodlebug {
 private:
-    std::string critterType;
+
 
 protected:
 

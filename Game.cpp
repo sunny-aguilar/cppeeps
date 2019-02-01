@@ -115,7 +115,10 @@ void Game::initializeCritters() {
         board[index] = new Critter[col];
     }
 
-    //
+    // add the doodlebugs and ants to the array
+
+
+
 }
 
 /*********************************************************************
