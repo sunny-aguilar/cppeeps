@@ -16,7 +16,7 @@ Doodlebug::Doodlebug() {}
 ** Description:     two-arg default constructor with base class
 ** 					initialization list
 *********************************************************************/
-Doodlebug::Doodlebug(int row, int col) : Critter{row, col}
+Doodlebug::Doodlebug(int row, int col) : Critter{"doodlebug", row, col}
 {
 	// this is being used for debugging
 	static int num = 1;

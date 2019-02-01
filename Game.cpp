@@ -152,7 +152,8 @@ void Game::nonrandomPlacement() {
 
     for (rows; rows < row; rows++) {
         for (cols = 0; cols < col; cols++) {
-            board[rows][cols] = new Ant();
+            // create a ant and pass in row and col location
+            board[rows][cols] = new Ant(rows, cols);
             antsAdded++;
             cout << "[" << rows << "][" << cols << "]" << endl;
             if (antsAdded == antQty) { break; }
@@ -165,7 +166,8 @@ void Game::nonrandomPlacement() {
 
     for (rows; rows < row; rows++) {
         for (cols = 0; cols < col; cols++) {
-            board[rows][cols] = new Doodlebug();
+            // create a doodlebug and pass in row and col location
+            board[rows][cols] = new Doodlebug(rows, cols);
             doodlesAdded++;
             cout << "[" << rows << "][" << cols << "]" << endl;
             if (doodlesAdded == doodlebugQty) { break; }

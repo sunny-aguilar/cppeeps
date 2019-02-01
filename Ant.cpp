@@ -16,7 +16,7 @@ Ant::Ant() {}
 ** Description:     two-arg default constructor with base class
 ** 					initialization list
 *********************************************************************/
-Ant::Ant(int row, int col) : Critter{row, col}
+Ant::Ant(int row, int col) : Critter{"ant", row, col}
 {
 	// this is being used for debugging
 	static int num = 1;
