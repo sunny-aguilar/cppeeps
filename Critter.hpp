@@ -3,7 +3,8 @@
 ** Author:          Kuljot Biring, Rachel Schlick, Ryan Gross,
 **                  Sandro Aguilar, Jeesoo Ryoo
 ** Date:            02/17/2019
-** Description:     Critter class description here
+** Description:     Critter class description here. Critter is an
+**                  abstract base class
 *********************************************************************/
 #ifndef CRITTER_HPP
 #define CRITTER_HPP
@@ -21,8 +22,8 @@ protected:
 public:
     Critter();
     virtual  ~Critter();
-    virtual void move();
-    virtual void breed();
+    virtual void move() = 0;
+    virtual void breed() = 0;
 };
 
 #endif //CRITTER_HPP
