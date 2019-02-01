@@ -18,6 +18,7 @@ protected:
 
 public:
     Ant();
+    Ant(int row, int col);
     ~Ant();
     void move() override;
     void breed() override;

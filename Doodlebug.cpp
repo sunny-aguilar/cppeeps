@@ -8,10 +8,15 @@
 #include "Doodlebug.hpp"
 
 /*********************************************************************
-** Description:     no-args default constructor with base class
+** Description:     no-args default constructor
+*********************************************************************/
+Doodlebug::Doodlebug() {}
+
+/*********************************************************************
+** Description:     two-arg default constructor with base class
 ** 					initialization list
 *********************************************************************/
-Doodlebug::Doodlebug() : Critter{}
+Doodlebug::Doodlebug(int row, int col) : Critter{row, col}
 {
 	// this is being used for debugging
 	static int num = 1;

@@ -23,6 +23,7 @@ protected:
 
 public:
     Critter();
+    Critter(int row, int col);
     virtual  ~Critter();
     virtual void move() = 0;
     virtual void breed() = 0;

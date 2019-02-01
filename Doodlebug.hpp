@@ -19,6 +19,7 @@ protected:
 
 public:
     Doodlebug();
+    Doodlebug(int row, int col);
     ~Doodlebug();
     void move() override;
     void breed() override;
