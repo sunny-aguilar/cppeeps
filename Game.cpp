@@ -43,19 +43,20 @@ void Game::playGame() {
     menu.startMenu();
     switch (menu.inputValidator(1,2)) {
         case 1:
-                // set game parameters
-                // set board rows and columns
-                menu.boardSizeMenu();
-                row = col = menu.inputValidator(20, 100);
-                maxCritters = row * col;
+            // set game parameters
+            // set board rows and columns
+            menu.boardSizeMenu();
+            row = col = menu.inputValidator(20, 100);
+            maxCritters = row * col;
 
-                // make sure that total critters entered
-                // by user does not exceed board space
-                setCritters();
+            // make sure that total critters entered
+            // by user does not exceed board space
+            setCritters();
 
-                // board set-up
-                initializeCritters();
+            // board set-up
+            initializeCritters();
 
+            // repeat simulation; only change steps
             do {
                 // set total steps to simulate
                 menu.critterStepsPrompt();
@@ -139,7 +140,7 @@ void Game::initializeCritters() {
     critterRandomPlacement();
     // nonrandomPlacement();
 
-    // display the board
+    // display the initial board
     displayBoard();
 }
 
