@@ -171,6 +171,13 @@ void Menu::menuPlayAgain()
 }
 
 /***************************************************************************
+** Description:   prompt user to continue or quit game
+***************************************************************************/
+void Menu::menuExitGameMessage() {
+    cout << "\nNow exiting the predator-prey simulation" << endl;
+}
+
+/***************************************************************************
 ** Description:   mutator function set continue or quit choice option
 ***************************************************************************/
 void Menu::setContinueStopChoice(int continueStopChoice)

@@ -27,74 +27,68 @@ Game::~Game() {}
 ** Description:     description here
 *********************************************************************/
 void Game::playGame() {
+    // display start menu
+    menu.startMenu();
+    switch (menu.inputValidator(1,2)) {
+        case 1:
+            do {
+                // set game parameters
+                // set board rows and columns
+                menu.boardSizeMenu();
+                rows = col = menu.inputValidator(20, 100);
+                maxCritters = rows * col;
 
-    do {
-        // display start menu
-        menu.startMenu();
-        switch (menu.inputValidator(1,2)) {
-            case 1:
-                {
-                    // set game parameters
-                    // set board rows and columns
-                    menu.boardSizeMenu();
-                    rows = col = menu.inputValidator(20, 100);
-                    maxCritters = rows * col;
+                // make sure that total critters entered by user does
+                // not exceed board space
+                bool askAgain = true;
+                do {
+                    // set total ants
+                    menu.numAntsMenu();
+                    antQty = menu.inputValidator(100, 1000);
 
-                    // make sure that total critters entered by user does
-                    // not exceed board space
-                    bool askAgain = true;
-                    do {
-                        // set total ants
-                        menu.numAntsMenu();
-                        antQty = menu.inputValidator(100, 1000);
+                    // set total doodlebugs
+                    menu.numDoodleBugsMenu();
+                    doodlebugQty = menu.inputValidator(5, 500);
 
-                        // set total doodlebugs
-                        menu.numDoodleBugsMenu();
-                        doodlebugQty = menu.inputValidator(5, 500);
+                    // add total critters entered by user
+                    int totalUserCritters = doodlebugQty + antQty;
 
-                        // add total critters entered by user
-                        int totalUserCritters = doodlebugQty + antQty;
+                    // compare max critters allowed with total critters
+                    // entered by user; ask user to pick less critters
+                    // if too many are chosen
+                    if (totalUserCritters > maxCritters) {
+                        cout << "\nERROR! - YOU CAN ONLY ENTER A MAX OF " << maxCritters
+                        << " ANTS AND DOODLEBUGS!" << endl;
+                        cout << setw(4) << antQty << " - Ants entered " << endl;
+                        cout << setw(4) << doodlebugQty << " - Doodlebugs entered" << endl;
+                        askAgain = true;
+                    }
+                    else if (totalUserCritters <= maxCritters) {
+                        askAgain = false;
+                    }
 
-                        // compare max critters allowed with total critters
-                        // entered by user; ask user to pick less critters
-                        // if too many are chosen
-                        if (totalUserCritters > maxCritters) {
-                            cout << "\nERROR! - YOU CAN ONLY ENTER A MAX OF " << maxCritters
-                                 << " ANTS AND DOODLEBUGS!" << endl;
-                            cout << setw(4) << antQty << " - Ants entered " << endl;
-                            cout << setw(4) << doodlebugQty << " - Doodlebugs entered" << endl;
-                            askAgain = true;
-                        }
-                        else if (totalUserCritters <= maxCritters) {
-                            askAgain = false;
-                        }
+                } while (askAgain);
 
-                    } while (askAgain);
+                // set total steps to simulate
+                menu.critterStepsPrompt();
+                steps = menu.inputValidator(1,20000);
 
-
-                    // set total steps to simulate
-                    menu.critterStepsPrompt();
-                    steps = menu.inputValidator(1,20000);
-
-                    // start predator-prey steps
-                    startSteps();
-                }
-                break;
-            case 2:
-                {
-                    // display thanks for playing menu
-
-                }
-                break;
-            default:
-                cout << "Unable to determine selection" << endl;
-        }
-        playAgain = goAgain();
-    } while (playAgain);
-
-    // if player quits, game ends
-    if (!playAgain) {
-        // quit game menu
+                // start predator-prey steps
+                startSteps();
+    
+                // run simulation again
+                playAgain = goAgain();
+            } while (playAgain);
+            break;
+        case 2:
+            {
+                // display thanks for playing menu
+                menu.menuExitGameMessage();
+                playAgain = false;
+            }
+            break;
+        default:
+            cout << "Unable to determine selection" << endl;
     }
 }
 
