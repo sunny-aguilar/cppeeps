@@ -21,6 +21,7 @@ public:
     Doodlebug();
     Doodlebug(int row, int col);
     ~Doodlebug();
+    string getCritterType() override;
     void move() override;
     void breed() override;
 };

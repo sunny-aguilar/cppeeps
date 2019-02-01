@@ -138,6 +138,9 @@ void Game::initializeCritters() {
     // fashion (only temporary, must place them randomly)
     critterRandomPlacement();
     // nonrandomPlacement();
+
+    // display the board
+    displayBoard();
 }
 
 /*********************************************************************
@@ -187,6 +190,7 @@ void Game::critterRandomPlacement() {
 
     for (int ant = 0; ant < antQty; ant++) {
         do {
+            // create random row and col num using util.cpp
             r_index = generateRandomNumber(0, row-1);
             c_index = generateRandomNumber(0, col-1);
         } while (board[r_index][c_index] != nullptr);
@@ -195,6 +199,7 @@ void Game::critterRandomPlacement() {
 
     for (int doodlebug = 0; doodlebug < doodlebugQty; doodlebug++) {
         do {
+            // create random row and col num using util.cpp
             r_index = generateRandomNumber(0, row-1);
             c_index = generateRandomNumber(0, col-1);
         } while (board[r_index][c_index] != nullptr);
@@ -223,6 +228,30 @@ void Game::moveCritters() {
 
 
     } while (stepsTaken < steps);
+}
+
+/*********************************************************************
+** Description:     description
+*********************************************************************/
+void Game::displayBoard() {
+    menu.menuDisplayBoard(col);
+    for (int r_index = 0; r_index < row; r_index++) {
+        cout << "|";
+        for (int c_index = 0; c_index < col; c_index++) {
+            if (board[r_index][c_index] != nullptr) {
+                if (board[r_index][c_index]->getCritterType() == "X") {
+                    cout << "X|";
+                }
+                else if (board[r_index][c_index]->getCritterType() == "O") {
+                    cout << "O|";
+                }
+            }
+            else {
+                cout << " |";
+            }
+        }
+        cout << endl;
+    }
 }
 
 /*********************************************************************

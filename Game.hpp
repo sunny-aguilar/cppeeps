@@ -37,6 +37,7 @@ public:
     void nonrandomPlacement();
     void critterRandomPlacement();
     void moveCritters();
+    void displayBoard();
     bool goAgain();
 };
 

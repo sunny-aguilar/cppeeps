@@ -15,7 +15,7 @@ Critter::Critter() {}
 /*********************************************************************
 ** Description:     two-arg default constructor
 *********************************************************************/
-Critter::Critter(std::string type, int row, int col) :
+Critter::Critter(string type, int row, int col) :
     critterType{type},
     row{row},
     col{col},

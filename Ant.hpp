@@ -20,6 +20,7 @@ public:
     Ant();
     Ant(int row, int col);
     ~Ant();
+    string getCritterType() override;
     void move() override;
     void breed() override;
 };

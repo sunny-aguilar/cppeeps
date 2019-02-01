@@ -10,6 +10,8 @@
 #define CRITTER_HPP
 
 #include <iostream>
+#include <string>
+using std::string;
 using std::cout;
 using std::endl;
 
@@ -23,8 +25,9 @@ protected:
 
 public:
     Critter();
-    Critter(std::string type, int row, int col);
+    Critter(string type, int row, int col);
     virtual  ~Critter();
+    virtual string getCritterType() = 0;
     virtual void move() = 0;
     virtual void breed() = 0;
 };

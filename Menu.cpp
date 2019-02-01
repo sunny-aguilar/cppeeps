@@ -159,6 +159,17 @@ int Menu::getCritterSteps()
     return critterSteps;
 }
 
+/*********************************************************************
+** Description:     description
+*********************************************************************/
+void Menu::menuDisplayBoard(int col) {
+    cout << "\nDISPLAYING BOARD ";
+    for (int count = 0; count < col; count++) {
+        cout << "**";
+    }
+    cout << endl;
+}
+
 /***************************************************************************
 ** Description:   prompt user to continue or quit game
 ***************************************************************************/
