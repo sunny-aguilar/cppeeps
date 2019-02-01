@@ -119,6 +119,13 @@ void Menu::numDoodleBugsMenu()
 }
 
 /***************************************************************************
+** Description:  description
+***************************************************************************/
+void Menu::menuRandomPlacement() {
+    cout << "\nAnts and Doodlebugs have been randomly placed on the board\n";
+}
+
+/***************************************************************************
 ** Description:  EXTRA CREDIT: mutator function set length number of doodlebugs
 ***************************************************************************/
 void Menu::setNumDoodleBugs(int numDoodleBugs)

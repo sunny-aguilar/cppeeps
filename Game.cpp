@@ -185,6 +185,8 @@ void Game::nonrandomPlacement() {
 **                  them on the board
 *********************************************************************/
 void Game::critterRandomPlacement() {
+    menu.menuRandomPlacement();
+
     int r_index = 0;
     int c_index = 0;
 
@@ -216,16 +218,21 @@ void Game::moveCritters() {
         stepsTaken++;
         cout << "Total steps taken " << stepsTaken << endl;
 
-        // move ants
+        // eat ants
 
-        // spawn ants
 
         // move doodlebugs
 
-        // eat ants
 
         // spawn doodlebugs
 
+
+        // move ants
+
+
+        // spawn ants
+
+        
 
     } while (stepsTaken < steps);
 }

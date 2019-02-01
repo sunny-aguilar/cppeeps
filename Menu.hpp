@@ -46,6 +46,7 @@ public:
     void setNumAnts(int numAnts);
     int getNumAnts();
     void numDoodleBugsMenu();
+    void menuRandomPlacement();
     void setNumDoodleBugs(int numDoodleBugs);
     int getNumDoodleBugs();
     void critterStepsPrompt();

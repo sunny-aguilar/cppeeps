@@ -30,21 +30,28 @@ Doodlebug::Doodlebug(int row, int col) : Critter{"X", row, col}
 Doodlebug::~Doodlebug() {}
 
 /*********************************************************************
-** Description:     destructor
+** Description:     description
 *********************************************************************/
 string Doodlebug::getCritterType() {
 	return critterType;
 }
 
 /*********************************************************************
-** Description:     destructor
+** Description:     description
+*********************************************************************/
+void Doodlebug::eat(Critter *ant) {
+
+}
+
+/*********************************************************************
+** Description:     description
 *********************************************************************/
 void Doodlebug::move() {
 
 }
 
 /*********************************************************************
-** Description:     destructor
+** Description:     description
 *********************************************************************/
 void Doodlebug::breed() {
 
