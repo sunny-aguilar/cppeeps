@@ -8,9 +8,6 @@
 #include <iostream>
 
 #include "Game.hpp"
-#include "Ant.hpp"
-#include "Doodlebug.hpp"
-
 using std::cout;
 using std::endl;
 
