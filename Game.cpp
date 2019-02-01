@@ -109,10 +109,16 @@ void Game::startSteps() {
 
         // move ants
 
-        // move doodle bugs
+        // spawn ants
+
+        // move doodlebugs
+
+        // eat ants
+
+        // spawn doodlebugs
 
 
-    } while (stepsTaken <= steps);
+    } while (stepsTaken < steps);
 }
 
 /*********************************************************************
