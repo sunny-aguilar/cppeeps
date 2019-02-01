@@ -19,8 +19,5 @@ int main() {
     srand(seed);                // random number generator
     Game game;
     game.playGame();
-
-    Ant ant;
-    Doodlebug doodlebug;
     return 0;
 }
