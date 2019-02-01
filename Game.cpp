@@ -13,16 +13,25 @@
 Game::Game() :
     board{nullptr},
     playAgain{true},
-    rows{0},
+    row{0},
     col{0},
     doodlebugQty{0},
     antQty{0},
+    totalCritters{0},
     steps{0} {}
 
 /*********************************************************************
 ** Description:     destructor
 *********************************************************************/
-Game::~Game() {}
+Game::~Game() {
+    for (int r_index = 0; r_index < row; r_index++) {
+        for (int c_index = 0; c_index < col; c_index++) {
+            delete board[c_index];
+        }
+        delete [] board[r_index];
+    }
+    delete [] board;
+}
 
 /*********************************************************************
 ** Description:     description here
@@ -36,8 +45,8 @@ void Game::playGame() {
                 // set game parameters
                 // set board rows and columns
                 menu.boardSizeMenu();
-                rows = col = menu.inputValidator(20, 100);
-                maxCritters = rows * col;
+                row = col = menu.inputValidator(20, 100);
+                maxCritters = row * col;
 
                 // make sure that total critters entered
                 // by user does not exceed board space
@@ -85,6 +94,7 @@ void Game::setCritters() {
 
         // add total critters entered by user
         int totalUserCritters = doodlebugQty + antQty;
+        totalCritters = totalUserCritters;
 
         // compare max critters allowed with total critters
         // entered by user; ask user to pick less critters
@@ -108,17 +118,51 @@ void Game::setCritters() {
 *********************************************************************/
 void Game::initializeCritters() {
     // create the rows
-    board = new Critter *[rows];
+    board = new Critter *[row];
 
     // create the columns per row
-    for (int index = 0; index < rows; index++) {
+    for (int index = 0; index < row; index++) {
         board[index] = new Critter[col];
     }
 
+    // this functions adds the critters to the board in a non-random
+    // fashion (only temporary, must place them randomly)
+    nonrandomPlacement();
+}
+
+/*********************************************************************
+** Description:     description here
+*********************************************************************/
+void Game::nonrandomPlacement() {
     // add the doodlebugs and ants to the array
+    // NOTE! - need to place them randomly on board
+    int rows = 0;
+    int cols = 0;
+    int antsAdded = 0;
+    int doodlesAdded = 0;
 
+    for (rows; rows < row; rows++) {
+        for (cols = 0; cols < col; cols++) {
+            board[rows][cols] = Ant();
+            antsAdded++;
+            cout << "[" << rows << "][" << cols << "]" << endl;
+            if (antsAdded == antQty) { break; }
+        }
+        if (antsAdded == antQty) { break; }
+    }
+    cout << "Row value " << rows << endl;
+    cout << "Col value " << cols << endl;
+    rows++;
 
-
+    for (rows; rows < row; rows++) {
+        for (cols = 0; cols < col; cols++) {
+            board[rows][cols] = Doodlebug();
+            doodlesAdded++;
+            cout << "[" << rows << "][" << cols << "]" << endl;
+            if (doodlesAdded == doodlebugQty) { break; }
+        }
+        if (doodlesAdded == doodlebugQty) { break; }
+    }
 }
 
 /*********************************************************************

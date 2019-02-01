@@ -9,20 +9,22 @@
 #define GAME_HPP
 
 #include "Menu.hpp"
-#include "utils.hpp"
 #include "Critter.hpp"
+#include "Ant.hpp"
+#include "Doodlebug.hpp"
+#include "utils.hpp"
 #include <ctime>
 
 class Game {
 private:
     Menu menu;
     Critter **board;
-    Critter critter;
     bool playAgain;
-    int rows;
+    int row;
     int col;
     int doodlebugQty;
     int antQty;
+    int totalCritters;
     int maxCritters;
     int steps;
 
@@ -32,6 +34,7 @@ public:
     void playGame();
     void setCritters();
     void initializeCritters();
+    void nonrandomPlacement();
     void moveCritters();
     bool goAgain();
 };

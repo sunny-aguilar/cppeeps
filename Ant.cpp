@@ -10,8 +10,12 @@
 /*********************************************************************
 ** Description:     no-args default constructor
 *********************************************************************/
-Ant::Ant() {
-	cout << "Ant created!" << endl;
+Ant::Ant()
+{
+	// this is being used for debugging
+	static int num = 1;
+	cout << "Ant #" << num << " created!" << endl;
+	num++;
 }
 
 /*********************************************************************

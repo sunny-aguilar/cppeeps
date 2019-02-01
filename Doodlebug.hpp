@@ -8,11 +8,10 @@
 #ifndef DOODLEBUG_HPP
 #define DOODLEBUG_HPP
 
-#include <iostream>
-using std::cout;
-using std::endl;
+#include "Critter.hpp"
 
-class Doodlebug {
+class Doodlebug : public Critter
+{
 private:
 
 

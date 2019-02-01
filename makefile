@@ -11,16 +11,29 @@ CXXFLAGS += -g
 CXXFLAGS += -std=c++0x
 
 OBJECTS = main.o
-OBJECTS += Ant.o
+OBJECTS += Game.o
+OBJECTS += Menu.o
+OBJECTS += Critter.o
 OBJECTS += Doodlebug.o
+OBJECTS += Ant.o
+OBJECTS += utils.o
 
 HPPs = Ant.hpp
+HPPs += Game.hpp
+HPPs += Menu.hpp
+HPPs += Critter.hpp
 HPPs += Doodlebug.hpp
+HPPs += Ant.hpp
+HPPs += utils.hpp
 
 CPPs = main.cpp
 CPPs += Ant.cpp
+CPPs += Game.cpp
+CPPs += Menu.cpp
+CPPs += Critter.cpp
 CPPs += Doodlebug.cpp
-
+CPPs += Ant.cpp
+CPPs += utils.cpp
 
 # Targets needed to bring the executable up to date
 predator-prey: $(OBJECTS)
@@ -31,7 +44,17 @@ main.o: main.cpp $(HPPs)
 
 Ant.o: Ant.hpp
 
+Game.o: Game.cpp
+
+Menu.o: Menu.cpp
+
+Critter: Critter.cpp
+
 Doodlebug.o: Doodlebug.hpp
+
+Ant.o: Ant.cpp
+
+Utils.o: utils.cpp
 
 
 # Clean-up operations

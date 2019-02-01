@@ -8,11 +8,10 @@
 #ifndef ANT_HPP
 #define ANT_HPP
 
-#include <iostream>
-using std::cout;
-using std::endl;
+#include "Critter.hpp"
 
-class Ant {
+class Ant : public Critter
+{
 private:
 
 protected:

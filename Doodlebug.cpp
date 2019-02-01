@@ -10,8 +10,12 @@
 /*********************************************************************
 ** Description:     no-args default constructor
 *********************************************************************/
-Doodlebug::Doodlebug() {
-	cout << "Doodlebug created!" << endl;
+Doodlebug::Doodlebug()
+{
+	// this is being used for debugging
+	static int num = 1;
+	cout << "Doodlebug #" << num << " created!" << endl;
+	num++;
 }
 
 /*********************************************************************

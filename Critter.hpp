@@ -8,8 +8,9 @@
 #ifndef CRITTER_HPP
 #define CRITTER_HPP
 
-#include "Doodlebug.hpp"
-#include "Ant.hpp"
+#include <iostream>
+using std::cout;
+using std::endl;
 
 class Critter
 {
