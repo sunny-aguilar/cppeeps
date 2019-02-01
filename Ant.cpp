@@ -18,7 +18,7 @@ Ant::Ant() {}
 *********************************************************************/
 Ant::Ant(int row, int col) : Critter{"O", row, col}
 {
-	// this is being used for debugging
+	// this is being used for debugging - DELETE AFTER DEBUGGED
 	static int num = 1;
 	cout << "Ant #" << num << " created on Board[" << row << "][" << col << "]" << endl;
 	num++;
