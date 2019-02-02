@@ -51,7 +51,7 @@ void Doodlebug::eat(Critter *bug) {
 ** Description:     description
 *********************************************************************/
 void Doodlebug::move() {
-    
+
 
 }
 
