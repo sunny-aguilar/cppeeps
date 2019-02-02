@@ -15,7 +15,7 @@ using std::string;
 using std::cout;
 using std::endl;
 
-enum Direction {NORTH = 1, SOUTH, EAST, WEST};
+enum Direction {NORTH = 1, EAST, SOUTH, WEST};
 
 class Critter
 {
