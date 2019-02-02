@@ -289,8 +289,10 @@ void Game::moveDoodlebugs() {
     cout << "Moving doodlebugs" << endl;
     for (int r_index = 0; r_index < row; r_index++) {
         for (int c_index = 0; c_index < col; c_index++) {
-            if (board[r_index][c_index]->getCritterType() == "X") {
-                board[r_index][c_index]->move();
+            if (board[r_index][c_index] != nullptr) {
+                if (board[r_index][c_index]->getCritterType() == "X") {
+                    board[r_index][c_index]->move();
+                }
             }
         }
     }
