@@ -303,6 +303,15 @@ void Game::moveDoodlebugs() {
 *********************************************************************/
 void Game::moveAnts() {
     cout << "Moving ants" << endl;
+    for (int r_index = 0; r_index < row; r_index++) {
+        for (int c_index = 0; c_index < col; c_index++) {
+            if (board[r_index][c_index] != nullptr) {
+                if (board[r_index][c_index]->getCritterType() == "O") {
+                    board[r_index][c_index]->move();
+                }
+            }
+        }
+    }
 }
 
 /*********************************************************************
