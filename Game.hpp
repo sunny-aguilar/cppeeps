@@ -36,7 +36,12 @@ public:
     void initializeCritters();
     void nonrandomPlacement();
     void critterRandomPlacement();
-    void moveCritters();
+    void critterActivities();
+    void eatAnts();
+    void moveDoodlebugs();
+    void moveAnts();
+    void spawnDoodlebugs();
+    void spawnAnts();
     void displayBoard();
     bool goAgain();
 };

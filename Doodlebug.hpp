@@ -22,7 +22,7 @@ public:
     Doodlebug(int row, int col);
     ~Doodlebug();
     string getCritterType() override;
-    void eat(Critter *ant) override;
+    void eat(Critter *ant);
     void move() override;
     void breed() override;
 };

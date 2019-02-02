@@ -43,7 +43,7 @@ void Doodlebug::eat(Critter *bug) {
 	if (bug->getCritterType() == "O") {
 		// logic to show that ant has been eaten
 
-		
+
 	}
 }
 

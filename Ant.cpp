@@ -16,8 +16,7 @@ Ant::Ant() {}
 ** Description:     two-arg default constructor with base class
 ** 					initialization list
 *********************************************************************/
-Ant::Ant(int row, int col) : Critter{"O", row, col}
-{
+Ant::Ant(int row, int col) : Critter{"O", row, col} {
 	// this is being used for debugging - DELETE AFTER DEBUGGED
 	static int num = 1;
 	cout << "Ant #" << num << " created on Board[" << row << "][" << col << "]" << endl;
@@ -34,14 +33,6 @@ Ant::~Ant() {}
 *********************************************************************/
 string Ant::getCritterType() {
 	return critterType;
-}
-
-/*********************************************************************
-** Description:     this function being inherited from base class
-** 					however it will not be used by the ant.
-*********************************************************************/
-void Ant::eat(Critter *bug) {
-	// leave empty
 }
 
 /*********************************************************************

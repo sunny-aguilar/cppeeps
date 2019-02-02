@@ -62,8 +62,8 @@ void Game::playGame() {
                 menu.critterStepsPrompt();
                 steps = menu.inputValidator(1,20000);
 
-                // move critters
-                moveCritters();
+                // perform critter activities (move, eat, spawn)
+                critterActivities();
 
                 // run simulation again
                 playAgain = goAgain();
@@ -213,7 +213,7 @@ void Game::critterRandomPlacement() {
 /*********************************************************************
 ** Description:     description here
 *********************************************************************/
-void Game::moveCritters() {
+void Game::critterActivities() {
     int stepsTaken = 0;
     do {
         stepsTaken++;
@@ -223,16 +223,16 @@ void Game::moveCritters() {
 
 
         // move doodlebugs
-
+        moveDoodlebugs();
 
         // spawn doodlebugs
-
+        spawnDoodlebugs();
 
         // move ants
-
+        moveAnts();
 
         // spawn ants
-
+        spawnAnts();
 
 
     } while (stepsTaken < steps);
@@ -273,6 +273,41 @@ void Game::displayBoard() {
     for (int index = 0; index < row; index++) {
         cout << "--";
     }
+}
+
+/*********************************************************************
+** Description:     description here
+*********************************************************************/
+void Game::eatAnts() {
+    cout << "Doodlebugs are eating the ants" << endl;
+}
+
+/*********************************************************************
+** Description:     description
+*********************************************************************/
+void Game::moveDoodlebugs() {
+    cout << "Moving doodlebugs" << endl;
+}
+
+/*********************************************************************
+** Description:     description
+*********************************************************************/
+void Game::moveAnts() {
+    cout << "Moving ants" << endl;
+}
+
+/*********************************************************************
+** Description:     description
+*********************************************************************/
+void Game::spawnDoodlebugs() {
+    cout << "Spawning doodlebugs" << endl;
+}
+
+/*********************************************************************
+** Description:     description
+*********************************************************************/
+void Game::spawnAnts() {
+    cout << "Spawning ants" << endl;
 }
 
 /*********************************************************************

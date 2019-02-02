@@ -21,7 +21,6 @@ public:
     Ant(int row, int col);
     ~Ant();
     string getCritterType() override;
-    void eat(Critter *ant) override;
     void move() override;
     void breed() override;
 };
