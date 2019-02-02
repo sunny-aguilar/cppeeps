@@ -52,6 +52,10 @@ void Doodlebug::eat(Critter *bug) {
 *********************************************************************/
 void Doodlebug::move() {
 	cout << "Row " << row << " Col " << col << endl;
+	// for every time step, the doodlebug randomly moves up, down,
+	// left, right. If the neighboring cell in the selected direction
+	// is occupied, or would move the ant off the grid, then the
+	// doodlebug stays in the current cell
 
 }
 
@@ -59,5 +63,7 @@ void Doodlebug::move() {
 ** Description:     description
 *********************************************************************/
 void Doodlebug::breed() {
-
+	// if a doodlebug survives for eight time steps, at the end of the
+	// time step, it will spawn off a new doodlebug in the same manner
+	// as the ant (only bree into an adjacent empty cell)
 }
