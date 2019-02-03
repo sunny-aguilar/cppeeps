@@ -303,61 +303,13 @@ void Game::moveDoodlebugs() {
 //                    switch (direction) {
 //                        case 1:
 //                            {
-//                                // get NORTH square
-//                                if ( (r_index - 1) < 0 ) {  // if out of bounds NORTH wall
-//                                    if (board[row - 1][c_index] == nullptr) {   // go to last row
-//                                        cout << "Move NORTH available, " << "Move to [" << row-1 << "][" << c_index << "]" << endl;
-//                                    }
-//                                    else {
-//                                        cout << "Move NORTH unavailable\n";
-//                                    }
-//                                }
-//                                else {
-//                                    if (board[r_index-1][c_index] == nullptr) {
-//                                        cout << "Move NORTH available\n";
-//                                        cout << "Move NORTH available, " << "Move to [" << r_index-1 << "][" << c_index << "]" << endl;
+//                                
 //
-//                                        // move doodlebug
-//                                        board[r_index-1][c_index] = board[r_index][c_index];
-//
-//                                        // delete old pointer
-//                                        // delete board[r_index][c_index];
-//
-//                                        // set old pointer to null
-//                                        board[r_index][c_index] = nullptr;
-//                                    }
-//                                    else {
-//                                        cout << "Move NORTH unavailable\n";
-//                                    }
-//                                }
 //                            }
 //                            break;
 //                        case 2:
 //                            {
-//                                // get EAST square
-//                                if ( (c_index + 1) > col ) {  // if out of bounds EAST wall
-//                                    if (board[r_index][0] == nullptr) {   // go to first col
-//                                        cout << "Move EAST available, " << "Move to [" << r_index << "][" << 0 << "]" << endl;
-//                                    }
-//                                    else {
-//                                        cout << "Move EAST unavailable\n";
-//                                    }
-//                                }
-//                                else {
-//                                    if (board[r_index][c_index + 1] == nullptr) {
-//                                        cout << "Move EAST available\n";
-//                                        cout << "Move EAST available, " << "Move to [" << r_index << "][" << c_index+1 << "]" << endl;
 //
-//                                        // move doodlebug
-//                                        board[r_index][c_index+1] = board[r_index][c_index];
-//
-//                                        // set old pointer to null
-//                                        board[r_index][c_index] = nullptr;
-//                                    }
-//                                    else {
-//                                        cout << "Move EAST unavailable\n";
-//                                    }
-//                                }
 //                            }
 //                            break;
 //                        case 3:
@@ -415,53 +367,53 @@ void Game::moveDoodlebugs() {
 
 
                     // get EAST square
-                    if ( (c_index + 1) >= col ) {  // if out of bounds EAST wall
-                        if (board[r_index][0] == nullptr) {   // go to first col
-                            cout << "Move EAST available, " << "Move to [" << r_index << "][" << 0 << "]" << endl;
-
-                            // check if critter has already moved during time step
-                            if (board[r_index][c_index]->getCritterMoved()) {
-                                // if critter already moved, do not move it again
-                            }
-                            else {
-                                // set critter moved bool in Doodlebug to true
-                                board[r_index][c_index]->setCritterMoved(true);
-
-                                // move doodlebug
-                                board[r_index][c_index+1] = board[r_index][c_index];
-
-                                // set old pointer to null
-                                board[r_index][c_index] = nullptr;
-                            }
-                        }
-                        else {
-                            cout << "Move EAST unavailable\n";
-                        }
-                    }
-                    else {
-                        if (board[r_index][c_index + 1] == nullptr) {
-
-                            cout << "Move EAST available, " << "Move to [" << r_index << "][" << c_index + 1 << "]" << endl;
-
-                            // check if critter has already moved during time step
-                            if (board[r_index][c_index]->getCritterMoved()) {
-                                // if critter already moved, do not move it again
-                            }
-                            else {
-                                // set critter moved bool in Doodlebug (must set bool before moving)
-                                board[r_index][c_index]->setCritterMoved(true);
-
-                                // move doodlebug
-                                board[r_index][c_index+1] = board[r_index][c_index];
-
-                                // set old pointer to null
-                                board[r_index][c_index] = nullptr;
-                            }
-                        }
-                        else {
-                            cout << "Move EAST unavailable\n";
-                        }
-                    }
+//                    if ( (c_index + 1) >= col ) {  // if out of bounds EAST wall
+//                        if (board[r_index][0] == nullptr) {   // go to first col
+//                            cout << "Move EAST available, " << "Move to [" << r_index << "][" << 0 << "]" << endl;
+//
+//                            // check if critter has already moved during time step
+//                            if (board[r_index][c_index]->getCritterMoved()) {
+//                                // if critter already moved, do not move it again
+//                            }
+//                            else {
+//                                // set critter moved bool in Doodlebug to true
+//                                board[r_index][c_index]->setCritterMoved(true);
+//
+//                                // move doodlebug
+//                                board[r_index][0] = board[r_index][c_index];
+//
+//                                // set old pointer to null
+//                                board[r_index][c_index] = nullptr;
+//                            }
+//                        }
+//                        else {
+//                            cout << "Move EAST unavailable\n";
+//                        }
+//                    }
+//                    else {
+//                        if (board[r_index][c_index + 1] == nullptr) {
+//
+//                            cout << "Move EAST available, " << "Move to [" << r_index << "][" << c_index + 1 << "]" << endl;
+//
+//                            // check if critter has already moved during time step
+//                            if (board[r_index][c_index]->getCritterMoved()) {
+//                                // if critter already moved, do not move it again
+//                            }
+//                            else {
+//                                // set critter moved bool in Doodlebug (must set bool before moving)
+//                                board[r_index][c_index]->setCritterMoved(true);
+//
+//                                // move doodlebug
+//                                board[r_index][c_index+1] = board[r_index][c_index];
+//
+//                                // set old pointer to null
+//                                board[r_index][c_index] = nullptr;
+//                            }
+//                        }
+//                        else {
+//                            cout << "Move EAST unavailable\n";
+//                        }
+//                    }
 
 
 
