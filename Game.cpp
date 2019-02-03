@@ -417,11 +417,20 @@ void Game::moveDoodlebugs() {
                         if (board[r_index][0] == nullptr) {   // go to first col
                             cout << "Move EAST available, " << "Move to [" << r_index << "][" << 0 << "]" << endl;
 
-                            // move doodlebug
-                            board[r_index][c_index+1] = board[r_index][c_index];
+                            // check if critter has already moved during time step
+                            if (board[r_index][c_index]->getCritterMoved()) {
+                                // if critter already moved, do not move it again
+                            }
+                            else {
+                                // move doodlebug
+                                board[r_index][c_index+1] = board[r_index][c_index];
 
-                            // set old pointer to null
-                            board[r_index][c_index] = nullptr;
+                                // set old pointer to null
+                                board[r_index][c_index] = nullptr;
+
+                                // set critter moved bool in Doodlebug to true
+                                board[r_index][c_index]->setCritterMoved(true);
+                            }
                         }
                         else {
                             cout << "Move EAST unavailable\n";
@@ -431,6 +440,9 @@ void Game::moveDoodlebugs() {
                         if (board[r_index][c_index + 1] == nullptr) {
 
                             cout << "Move EAST available, " << "Move to [" << r_index << "][" << c_index + 1 << "]" << endl;
+
+                            // set critter moved bool in Doodlebug (must set bool before moving)
+                            board[r_index][c_index]->setCritterMoved(true);
 
                             // move doodlebug
                             board[r_index][c_index+1] = board[r_index][c_index];

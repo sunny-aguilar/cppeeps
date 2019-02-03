@@ -62,6 +62,20 @@ void Doodlebug::move() {
 /*********************************************************************
 ** Description:     description
 *********************************************************************/
+void Doodlebug::setCritterMoved(bool moved) {
+	critterMoved = moved;
+}
+
+/*********************************************************************
+** Description:     description
+*********************************************************************/
+bool Doodlebug::getCritterMoved() {
+	return critterMoved;
+}
+
+/*********************************************************************
+** Description:     description
+*********************************************************************/
 void Doodlebug::breed() {
 	// if a doodlebug survives for eight time steps, at the end of the
 	// time step, it will spawn off a new doodlebug in the same manner

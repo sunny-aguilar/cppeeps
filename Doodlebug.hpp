@@ -24,6 +24,8 @@ public:
     string getCritterType() override;
     void eat(Critter *ant);
     void move() override;
+    void setCritterMoved(bool moved) override;
+    bool getCritterMoved() override;
     void breed() override;
 };
 

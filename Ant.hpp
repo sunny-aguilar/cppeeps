@@ -22,6 +22,8 @@ public:
     ~Ant();
     string getCritterType() override;
     void move() override;
+    void setCritterMoved(bool moved) override;
+    bool getCritterMoved() override;
     void breed() override;
 };
 

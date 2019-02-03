@@ -23,6 +23,7 @@ protected:
     // Direction direction;
     std::string critterType;
     int stepsSurvived;
+    bool critterMoved;
     int row;
     int col;
 
@@ -32,6 +33,8 @@ public:
     virtual  ~Critter();
     virtual string getCritterType() = 0;
     virtual void move() = 0;
+    virtual void setCritterMoved(bool moved) = 0;
+    virtual bool getCritterMoved() = 0;
     virtual void breed() = 0;
 };
 
