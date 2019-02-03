@@ -51,11 +51,11 @@ void Doodlebug::eat(Critter *bug) {
 ** Description:     description
 *********************************************************************/
 void Doodlebug::move() {
-	cout << "Row " << row << " Col " << col << endl;
 	// for every time step, the doodlebug randomly moves up, down,
 	// left, right. If the neighboring cell in the selected direction
 	// is occupied, or would move the ant off the grid, then the
 	// doodlebug stays in the current cell
+	cout << "Row " << row << " Col " << col << endl;
 
 }
 

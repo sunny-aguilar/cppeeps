@@ -39,11 +39,11 @@ string Ant::getCritterType() {
 ** Description:     destructor
 *********************************************************************/
 void Ant::move() {
-    cout << "Row " << row << " Col " << col << endl;
     // for every time step, the ant randomly moves up, down,
-    // left, right. If the neighboring cell in the selected direction
-    // is occupied, or would move the ant off the grid, then the ant
-    // stays in the current cell
+	// left, right. If the neighboring cell in the selected direction
+	// is occupied, or would move the ant off the grid, then the ant
+	// stays in the current cell
+	cout << "Row " << row << " Col " << col << endl;
 }
 
 /*********************************************************************
