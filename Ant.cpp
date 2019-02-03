@@ -18,9 +18,9 @@ Ant::Ant() {}
 *********************************************************************/
 Ant::Ant(int row, int col) : Critter{"O", row, col} {
 	// this is being used for debugging - DELETE AFTER DEBUGGED
-	static int num = 1;
-	cout << "Ant #" << num << " created on Board[" << row << "][" << col << "]" << endl;
-	num++;
+//	static int num = 1;
+//	cout << "Ant #" << num << " created on Board[" << row << "][" << col << "]" << endl;
+//	num++;
 }
 
 /*********************************************************************
@@ -43,7 +43,7 @@ void Ant::move() {
 	// left, right. If the neighboring cell in the selected direction
 	// is occupied, or would move the ant off the grid, then the ant
 	// stays in the current cell
-	cout << "Row " << row << " Col " << col << endl;
+	// cout << "Ant Row " << row << " Col " << col << endl;
 }
 
 /*********************************************************************

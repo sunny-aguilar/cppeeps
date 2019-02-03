@@ -234,6 +234,9 @@ void Game::critterActivities() {
         // spawn ants
         spawnAnts();
 
+        // display updated board
+        displayBoard();
+
 
     } while (stepsTaken < steps);
 }
@@ -296,12 +299,21 @@ void Game::moveDoodlebugs() {
                     // get NORTH square
                     if ( (r_index - 1) < 0 ) {  // if out of bounds north wall
                         if (board[row - 1][c_index] == nullptr) {   // go to last row
-
+                            cout << "Move NORTH available, " << "Move to [" << row-1 << "][" << c_index << "]" << endl;
+                        }
+                        else {
+                            cout << "Move NORTH unavailable\n";
                         }
                     }
                     else {
                         if (board[r_index-1][c_index] == nullptr) {
-
+                            cout << "Move NORTH available\n";
+                            cout << "Move NORTH available, " << "Move to [" << r_index-1 << "][" << c_index << "]" << endl;
+                            board[r_index-1][c_index] = board[r_index][c_index];
+                            board[r_index][c_index] = nullptr;
+                        }
+                        else {
+                            cout << "Move NORTH unavailable\n";
                         }
                     }
 
@@ -311,8 +323,8 @@ void Game::moveDoodlebugs() {
 
                     // get WEST square
 
-
-                    board[r_index][c_index]->move();
+                    // call doodlebug move function
+                    //board[r_index][c_index]->move();
                 }
             }
         }
