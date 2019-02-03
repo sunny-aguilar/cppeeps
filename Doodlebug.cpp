@@ -55,7 +55,7 @@ void Doodlebug::move() {
 	// left, right. If the neighboring cell in the selected direction
 	// is occupied, or would move the ant off the grid, then the
 	// doodlebug stays in the current cell
-	cout << "Doodlebug Row " << row << " Col " << col << endl;
+	// cout << "Doodlebug Row " << row << " Col " << col << endl;
 
 }
 
