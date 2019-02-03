@@ -283,7 +283,8 @@ void Game::eatAnts() {
 }
 
 /*********************************************************************
-** Description:     description
+** Description:     this function iterates through the board to find
+**                  all of the doodlebugs. Implement PACMAN style.
 *********************************************************************/
 void Game::moveDoodlebugs() {
     cout << "Moving doodlebugs" << endl;
@@ -291,6 +292,26 @@ void Game::moveDoodlebugs() {
         for (int c_index = 0; c_index < col; c_index++) {
             if (board[r_index][c_index] != nullptr) {
                 if (board[r_index][c_index]->getCritterType() == "X") {
+                    // get surrounding spaces to see if available
+                    // get NORTH square
+                    if ( (r_index - 1) < 0 ) {  // if out of bounds north wall
+                        if (board[row - 1][c_index] == nullptr) {   // go to last row
+
+                        }
+                    }
+                    else {
+                        if (board[r_index-1][c_index] == nullptr) {
+
+                        }
+                    }
+
+                    // get EAST square
+
+                    // get SOUTH square
+
+                    // get WEST square
+
+
                     board[r_index][c_index]->move();
                 }
             }
@@ -299,7 +320,8 @@ void Game::moveDoodlebugs() {
 }
 
 /*********************************************************************
-** Description:     description
+** Description:     this function iterates through the board to find
+**                  all of the ants.
 *********************************************************************/
 void Game::moveAnts() {
     cout << "Moving ants" << endl;

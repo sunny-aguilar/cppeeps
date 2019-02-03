@@ -15,10 +15,13 @@
 #include "utils.hpp"
 #include <ctime>
 
+enum Move {NONE, NORTH, EAST, SOUTH, WEST};
+
 class Game {
 private:
     Menu menu;
     Critter ***board;
+    Move move;
     bool playAgain;
     int row;
     int col;
