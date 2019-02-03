@@ -454,7 +454,7 @@ void Game::moveDoodlebugs() {
                             cout << "Move WEST available, " << "Move to [" << r_index << "][" << col - 1 << "]" << endl;
 
                             // move doodlebug
-                            board[r_index][c_index - 1] = board[r_index][c_index];
+                            board[r_index][col - 1] = board[r_index][c_index];
 
                             // set old pointer to null
                             board[r_index][c_index] = nullptr;
