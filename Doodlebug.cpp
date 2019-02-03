@@ -19,9 +19,9 @@ Doodlebug::Doodlebug() {}
 Doodlebug::Doodlebug(int row, int col) : Critter{"X", row, col}
 {
 	// this is being used for debugging - DELETE AFTER DEBUGGED
-//	static int num = 1;
-//	cout << "Doodlebug #" << num << " created on Board[" << row << "][" << col << "]" << endl;
-//	num++;
+	static int num = 1;
+	cout << "Doodlebug #" << num << " created on Board[" << row << "][" << col << "]" << endl;
+	num++;
 }
 
 /*********************************************************************
