@@ -167,13 +167,12 @@ void Game::nonrandomPlacement() {
     // add the doodlebugs and ants to the array
     // NOTE! - need to place them randomly on board, see function
     // critterRandomPlacement()
-    int r_index = 0;
-    int c_index = 0;
+
     int antsAdded = 0;
     int doodlesAdded = 0;
 
-    for (r_index = 0; r_index < row; r_index++) {
-        for (c_index = 0; c_index < col; c_index++) {
+    for (int r_index = 0; r_index < row; r_index++) {
+        for (int c_index = 0; c_index < col; c_index++) {
             // create a ant and pass in row and col location
             if (antsAdded < antQty) {
                 board[r_index][c_index] = new Ant(r_index, c_index);
