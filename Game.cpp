@@ -343,7 +343,7 @@ void Game::moveCritters(string critterType) {
                     int direction;
                     direction = generateRandomNumber(1,4);
 
-                    // use switch statement to select which direction to go - DEBUGGIN, DELETE WHEN SUBMITTING
+                    // use switch statement to display which direction critter went - DEBUGGING, DELETE WHEN SUBMITTING
                     switch (direction) {
                         case 1:
                             //cout << critter << " randomly selected to go NORTH\n";
