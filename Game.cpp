@@ -390,6 +390,9 @@ void Game::moveCritters(string critterType) {
                                             board[row - 1][c_index]->setRow( row - 1 );
                                             board[row - 1][c_index]->setCol( c_index );
 
+                                            // update doodlebug move counter in doodlebug class
+                                            board[row - 1][c_index]->setStepsSurvived();
+
                                             // DEBUGGING - DELETE WHEN DONE
                                             //cout << "OLD Row " << board[r_index][c_index]->getRow() << " Col " << board[r_index][c_index]->getCol() << endl;
                                             //cout << "NEW Row " << board[row - 1][c_index]->getRow() << " Col " << board[row - 1][c_index]->getCol() << endl;
@@ -690,6 +693,13 @@ void Game::moveCritters(string critterType) {
 *********************************************************************/
 void Game::spawnDoodlebugs() {
     cout << "Spawning doodlebugs" << endl;
+    for (int r_index = 0; r_index < row; r_index++) {
+        for (int c_index = 0; c_index < col; c_index++) {
+            if (board[r_index][c_index] != nullptr) {
+
+            }
+        }
+    }
 }
 
 /*********************************************************************

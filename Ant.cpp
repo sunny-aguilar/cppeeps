@@ -59,6 +59,23 @@ void Ant::setCol(int col) {
 /*********************************************************************
 ** Description:     description
 *********************************************************************/
+void Ant::setStepsSurvived() {
+	stepsSurvived++;
+	if (stepsSurvived <= 3) {
+		readyToBreed = true;
+	}
+}
+
+/*********************************************************************
+** Description:     description
+*********************************************************************/
+int Ant::getStepsSurvived() {
+
+}
+
+/*********************************************************************
+** Description:     description
+*********************************************************************/
 string Ant::getCritterType() {
 	return critterType;
 }

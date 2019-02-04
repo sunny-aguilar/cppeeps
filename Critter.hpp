@@ -23,6 +23,7 @@ protected:
     // Direction direction;
     std::string critterType;
     int stepsSurvived;
+    int readyToBreed;
     bool critterMoved;
     int row;
     int col;
@@ -35,6 +36,8 @@ public:
     virtual int getCol() = 0;
     virtual void setRow(int row) = 0;
     virtual void setCol(int col) = 0;
+    virtual void setStepsSurvived() = 0;
+    virtual int getStepsSurvived() = 0;
     virtual string getCritterType() = 0;
     virtual void move(Critter ***grid) = 0;
     virtual void setCritterMoved(bool moved) = 0;

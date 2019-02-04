@@ -24,6 +24,8 @@ public:
     int getCol() override;
     void setRow(int row) override;
     void setCol(int col) override;
+    void setStepsSurvived() override;
+    int getStepsSurvived() override;
     string getCritterType() override;
     void move(Critter ***grid) override;
     void setCritterMoved(bool moved) override;

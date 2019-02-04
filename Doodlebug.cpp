@@ -60,6 +60,23 @@ void Doodlebug::setCol(int col) {
 /*********************************************************************
 ** Description:     description
 *********************************************************************/
+void Doodlebug::setStepsSurvived() {
+    stepsSurvived++;
+    if (stepsSurvived <= 8) {
+    	readyToBreed = true;
+    }
+}
+
+/*********************************************************************
+** Description:     description
+*********************************************************************/
+int Doodlebug::getStepsSurvived() {
+
+}
+
+/*********************************************************************
+** Description:     description
+*********************************************************************/
 string Doodlebug::getCritterType() {
 	return critterType;
 }
