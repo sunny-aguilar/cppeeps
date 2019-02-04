@@ -161,10 +161,12 @@ void Game::initializeCritters() {
 ** Description:     this function creates ants and doodle bug
 **                  instances and adds them to the board in a
 **                  a non-random fashion
+**                  NOTE - only use this function for debugging
 *********************************************************************/
 void Game::nonrandomPlacement() {
     // add the doodlebugs and ants to the array
-    // NOTE! - need to place them randomly on board
+    // NOTE! - need to place them randomly on board, see function
+    // critterRandomPlacement()
     int r_index = 0;
     int c_index = 0;
     int antsAdded = 0;
@@ -183,34 +185,6 @@ void Game::nonrandomPlacement() {
             }
         }
     }
-
-//    int rows = 0;
-//    int cols = 0;
-//    int antsAdded = 0;
-//    int doodlesAdded = 0;
-//
-//    for (rows; rows < row; rows++) {
-//        for (cols = 0; cols < col; cols++) {
-//            // create a ant and pass in row and col location
-//            board[rows][cols] = new Ant(rows, cols);
-//            antsAdded++;
-//            if (antsAdded == antQty) { break; }
-//        }
-//        if (antsAdded == antQty) { break; }
-//    }
-//    cout << "Row value " << rows << endl;
-//    cout << "Col value " << cols << endl;
-//    rows++;
-//
-//    for (rows; rows < row; rows++) {
-//        for (cols = 0; cols < col; cols++) {
-//            // create a doodlebug and pass in row and col location
-//            board[rows][cols] = new Doodlebug(rows, cols);
-//            doodlesAdded++;
-//            if (doodlesAdded == doodlebugQty) { break; }
-//        }
-//        if (doodlesAdded == doodlebugQty) { break; }
-//    }
 }
 
 /*********************************************************************
