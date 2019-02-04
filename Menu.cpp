@@ -56,11 +56,11 @@ int Menu::getStartQuitChoice()
 /***************************************************************************
 ** Description:     prompt user to for board size
 ***************************************************************************/
-void Menu::boardSizeMenu()
+void Menu::boardSizeMenu(int row, int col)
 {
     cout << "\nBOARD SIZE\n";
     cout << "Please enter the size of the game board \n";
-    cout << "Enter the length and width of the board from 20 - 100 only\n";
+    cout << "Enter the length and width of the board from " << row << " - " << col << " only\n";
     cout << ">> ";
 }
 
@@ -83,11 +83,11 @@ int Menu::getBoardSize()
 /***************************************************************************
 ** Description:     EXTRA CREDIT: prompt user for number of ants
 ***************************************************************************/
-void Menu::numAntsMenu()
+void Menu::numAntsMenu(int min, int max)
 {
     cout << "\nANTS\n";
     cout << "Enter the number of ants you would like to have\n";
-    cout << "Enter the number of ants from  100 - 500 only\n";
+    cout << "Enter the number of ants from " << min << " - " << max << " only\n";
     cout << ">> ";
 }
 
@@ -110,11 +110,11 @@ int Menu::getNumAnts()
 /***************************************************************************
 ** Description:     EXTRA CREDIT: prompt user for number of doodlebugs
 ***************************************************************************/
-void Menu::numDoodleBugsMenu()
+void Menu::numDoodleBugsMenu(int min, int max)
 {
     cout << "\nDOODLEBUGS\n";
     cout << "Enter the number of doodlebugs you would like to have\n";
-    cout << "Enter the number of ants from  5 - 100 only\n";
+    cout << "Enter the number of ants from " << min << " - " << max << " only\n";
     cout << ">> ";
 }
 

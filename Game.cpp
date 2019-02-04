@@ -51,7 +51,7 @@ void Game::playGame() {
         case 1:
             // set game parameters
             // set board rows and columns
-            menu.boardSizeMenu();
+            menu.boardSizeMenu(MIN_SIZE, MAX_SIZE);
             row = col = menu.inputValidator(MIN_SIZE, MAX_SIZE);
             maxCritters = row * col;
 
@@ -101,11 +101,11 @@ void Game::setCritters() {
     bool askAgain = true;
     do {
         // set total ants
-        menu.numAntsMenu();
+        menu.numAntsMenu(MIN_ANTS, MAX_ANTS);
         antQty = menu.inputValidator(MIN_ANTS, MAX_ANTS);
 
         // set total doodlebugs
-        menu.numDoodleBugsMenu();
+        menu.numDoodleBugsMenu(MIN_DOODLES, MAX_DOODLES);
         doodlebugQty = menu.inputValidator(MIN_DOODLES, MAX_DOODLES);
 
         // add total critters entered by user

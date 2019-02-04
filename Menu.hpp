@@ -39,13 +39,13 @@ public:
     void startMenu();
     void setStartQuitChoice(int startQuitChoice);
     int getStartQuitChoice();
-    void boardSizeMenu();
+    void boardSizeMenu(int row, int col);
     void setBoardSize(int boardSize);
     int getBoardSize();
-    void numAntsMenu();
+    void numAntsMenu(int min, int max);
     void setNumAnts(int numAnts);
     int getNumAnts();
-    void numDoodleBugsMenu();
+    void numDoodleBugsMenu(int min, int max);
     void menuRandomPlacement();
     void setNumDoodleBugs(int numDoodleBugs);
     int getNumDoodleBugs();
