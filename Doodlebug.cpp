@@ -125,4 +125,6 @@ void Doodlebug::breed() {
 	// if a doodlebug survives for eight time steps, at the end of the
 	// time step, it will spawn off a new doodlebug in the same manner
 	// as the ant (only bree into an adjacent empty cell)
+
+
 }

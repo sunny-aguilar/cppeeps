@@ -112,4 +112,6 @@ void Ant::breed() {
 	// if an ant survives for three time steps, at the end of the time
 	// steps (after moving) the ant will breed by creating a new ant
 	// in an adjacent cell that is empty randomly
+
+	
 }
