@@ -70,7 +70,7 @@ void Ant::setStepsSurvived() {
 ** Description:     description
 *********************************************************************/
 int Ant::getStepsSurvived() {
-
+	return stepsSurvived;
 }
 
 /*********************************************************************

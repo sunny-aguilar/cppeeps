@@ -71,7 +71,7 @@ void Doodlebug::setStepsSurvived() {
 ** Description:     description
 *********************************************************************/
 int Doodlebug::getStepsSurvived() {
-
+	return stepsSurvived;
 }
 
 /*********************************************************************
