@@ -63,7 +63,8 @@ void Game::playGame() {
                 steps = menu.inputValidator(1,20000);
 
                 // perform critter activities (move, eat, spawn)
-                critterActivities();
+                int currentStep = 0;
+                critterActivities(currentStep);
 
                 // run simulation again
                 playAgain = goAgain();
@@ -213,11 +214,10 @@ void Game::critterRandomPlacement() {
 /*********************************************************************
 ** Description:     description here
 *********************************************************************/
-void Game::critterActivities() {
-    int stepsTaken = 0;
+void Game::critterActivities(int cStep) {
     do {
-        stepsTaken++;
-        cout << "Total steps taken " << stepsTaken << endl;
+        cStep++;
+        cout << "Total steps taken " << cStep << endl;
 
         // eat ants
 
@@ -238,7 +238,7 @@ void Game::critterActivities() {
         displayBoard();
 
 
-    } while (stepsTaken < steps);
+    } while (cStep < steps);
 }
 
 /*********************************************************************
@@ -276,6 +276,7 @@ void Game::displayBoard() {
     for (int index = 0; index < row; index++) {
         cout << "--";
     }
+    cout << endl;
 }
 
 /*********************************************************************

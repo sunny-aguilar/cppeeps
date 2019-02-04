@@ -39,7 +39,7 @@ public:
     void initializeCritters();
     void nonrandomPlacement();
     void critterRandomPlacement();
-    void critterActivities();
+    void critterActivities(int cstep);
     void eatAnts();
     void moveDoodlebugs();
     void moveAnts();
