@@ -316,21 +316,29 @@ void Game::moveAnts() {
 ** Description:     description
 *********************************************************************/
 void Game::moveCritters(string critterType) {
+    string critter;
+    if (critterType == "X") {
+        critter = "Doodlebug";
+    }
+    else if (critterType == "O") {
+        critter = "Ant";
+    }
+
 
     int direction;
     direction = generateRandomNumber(1,4);
     switch (direction) {
         case 1:
-            cout << "Doodlebug randomly selected to go NORTH\n";
+            cout << critter << " randomly selected to go NORTH\n";
             break;
         case 2:
-            cout << "Doodlebug randomly selected to go EAST\n";
+            cout << critter << " randomly selected to go EAST\n";
             break;
         case 3:
-            cout << "Doodlebug randomly selected to go SOUTH\n";
+            cout << critter << " randomly selected to go SOUTH\n";
             break;
         case 4:
-            cout << "Doodlebug randomly selected to go WEST\n";
+            cout << critter << " randomly selected to go WEST\n";
             break;
         default:
             cout << "Unable to get direction to move to!\n";
