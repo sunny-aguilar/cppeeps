@@ -300,22 +300,14 @@ void Game::moveDoodlebugs() {
 *********************************************************************/
 void Game::moveAnts() {
     cout << "Moving ants" << endl;
-    // moveCritters("O");
-//    for (int r_index = 0; r_index < row; r_index++) {
-//        for (int c_index = 0; c_index < col; c_index++) {
-//            if (board[r_index][c_index] != nullptr) {
-//                if (board[r_index][c_index]->getCritterType() == "O") {
-//                    board[r_index][c_index]->move();
-//                }
-//            }
-//        }
-//    }
+    moveCritters("O");
 }
 
 /*********************************************************************
 ** Description:     description
 *********************************************************************/
 void Game::moveCritters(string critterType) {
+    // display which critter has moved - DEBUGGIN, DELETE WHEN SUBMITTING
     string critter;
     if (critterType == "X") {
         critter = "Doodlebug";
@@ -324,20 +316,17 @@ void Game::moveCritters(string critterType) {
         critter = "Ant";
     }
 
-
-
-
-
-    // move doodlebug
+    // move critter by iterating through board
     for (int r_index = 0; r_index < row; r_index++) {
         for (int c_index = 0; c_index < col; c_index++) {
             if (board[r_index][c_index] != nullptr) {
                 if (board[r_index][c_index]->getCritterType() == critterType) {
 
-
-                    // check adjacent squares and randomly pick one
+                    // generate a random direction to move critter
                     int direction;
                     direction = generateRandomNumber(1,4);
+
+                    // use switch statement to select which direction to go - DEBUGGIN, DELETE WHEN SUBMITTING
                     switch (direction) {
                         case 1:
                             //cout << critter << " randomly selected to go NORTH\n";
@@ -356,7 +345,7 @@ void Game::moveCritters(string critterType) {
                     }
 
 
-                    // use switch statement to select which direction to go
+                    // use switch statement to move critter based on random number generated
                     switch (direction) {
                         case 1: // get NORTH square
                         {
