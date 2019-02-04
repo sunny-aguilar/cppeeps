@@ -220,7 +220,7 @@ void Game::critterActivities(int cStep) {
         cStep++;
 
         // eat ants
-
+        eatAnts();
 
         // move doodlebugs
         moveDoodlebugs();
@@ -293,7 +293,6 @@ void Game::eatAnts() {
 *********************************************************************/
 void Game::moveDoodlebugs() {
     cout << "Moving doodlebugs" << endl;
-
     moveCritters("X");
 }
 
