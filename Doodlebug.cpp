@@ -32,6 +32,34 @@ Doodlebug::~Doodlebug() {}
 /*********************************************************************
 ** Description:     description
 *********************************************************************/
+int Doodlebug::getRow() {
+	return row;
+}
+
+/*********************************************************************
+** Description:     description
+*********************************************************************/
+int Doodlebug::getCol() {
+	return col;
+}
+
+/*********************************************************************
+** Description:     description
+*********************************************************************/
+void Doodlebug::setRow(int row) {
+	this->row = row;
+}
+
+/*********************************************************************
+** Description:     description
+*********************************************************************/
+void Doodlebug::setCol(int col) {
+	this->col = col;
+}
+
+/*********************************************************************
+** Description:     description
+*********************************************************************/
 string Doodlebug::getCritterType() {
 	return critterType;
 }
@@ -50,7 +78,7 @@ void Doodlebug::eat(Critter *bug) {
 /*********************************************************************
 ** Description:     description
 *********************************************************************/
-void Doodlebug::move() {
+void Doodlebug::move(Critter ***grid) {
 	// for every time step, the doodlebug randomly moves up, down,
 	// left, right. If the neighboring cell in the selected direction
 	// is occupied, or would move the ant off the grid, then the

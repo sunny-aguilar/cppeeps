@@ -31,8 +31,12 @@ public:
     Critter();
     Critter(string type, int row, int col);
     virtual  ~Critter();
+    virtual int getRow() = 0;
+    virtual int getCol() = 0;
+    virtual void setRow(int row) = 0;
+    virtual void setCol(int col) = 0;
     virtual string getCritterType() = 0;
-    virtual void move() = 0;
+    virtual void move(Critter ***grid) = 0;
     virtual void setCritterMoved(bool moved) = 0;
     virtual bool getCritterMoved() = 0;
     virtual void breed() = 0;

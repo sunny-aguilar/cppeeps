@@ -29,16 +29,44 @@ Ant::Ant(int row, int col) : Critter{"O", row, col} {
 Ant::~Ant() {}
 
 /*********************************************************************
-** Description:     destructor
+** Description:     description
+*********************************************************************/
+int Ant::getRow() {
+	return row;
+}
+
+/*********************************************************************
+** Description:     description
+*********************************************************************/
+int Ant::getCol() {
+	return col;
+}
+
+/*********************************************************************
+** Description:     description
+*********************************************************************/
+void Ant::setRow(int row) {
+	this->row = row;
+}
+
+/*********************************************************************
+** Description:     description
+*********************************************************************/
+void Ant::setCol(int col) {
+	this->col = col;
+}
+
+/*********************************************************************
+** Description:     description
 *********************************************************************/
 string Ant::getCritterType() {
 	return critterType;
 }
 
 /*********************************************************************
-** Description:     destructor
+** Description:     description
 *********************************************************************/
-void Ant::move() {
+void Ant::move(Critter ***grid) {
     // for every time step, the ant randomly moves up, down,
 	// left, right. If the neighboring cell in the selected direction
 	// is occupied, or would move the ant off the grid, then the ant
@@ -61,7 +89,7 @@ bool Ant::getCritterMoved() {
 }
 
 /*********************************************************************
-** Description:     destructor
+** Description:     description
 *********************************************************************/
 void Ant::breed() {
 	// if an ant survives for three time steps, at the end of the time

@@ -20,8 +20,12 @@ public:
     Ant();
     Ant(int row, int col);
     ~Ant();
+    int getRow() override;
+    int getCol() override;
+    void setRow(int row) override;
+    void setCol(int col) override;
     string getCritterType() override;
-    void move() override;
+    void move(Critter ***grid) override;
     void setCritterMoved(bool moved) override;
     bool getCritterMoved() override;
     void breed() override;

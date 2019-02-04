@@ -21,9 +21,13 @@ public:
     Doodlebug();
     Doodlebug(int row, int col);
     ~Doodlebug();
+    int getRow() override;
+    int getCol() override;
+    void setRow(int row) override;
+    void setCol(int col) override;
     string getCritterType() override;
     void eat(Critter *ant);
-    void move() override;
+    void move(Critter ***grid) override;
     void setCritterMoved(bool moved) override;
     bool getCritterMoved() override;
     void breed() override;
