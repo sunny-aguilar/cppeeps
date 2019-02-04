@@ -292,26 +292,40 @@ void Game::eatAnts() {
 void Game::moveDoodlebugs() {
     cout << "Moving doodlebugs" << endl;
     int direction;
-    cout << "Enter direction to travel\n";
-    cout << ">> ";
-    cin >> direction;
+    direction = generateRandomNumber(1,4);
+    switch (direction) {
+        case 1:
+            cout << "Doodlebug randomly selected to go NORTH\n";
+            break;
+        case 2:
+            cout << "Doodlebug randomly selected to go EAST\n";
+            break;
+        case 3:
+            cout << "Doodlebug randomly selected to go SOUTH\n";
+            break;
+        case 4:
+            cout << "Doodlebug randomly selected to go WEST\n";
+            break;
+        default:
+            cout << "Unable to get direction to move to!\n";
+    }
 
-    
-
-
-
-
+    // move doodlebug
     for (int r_index = 0; r_index < row; r_index++) {
         for (int c_index = 0; c_index < col; c_index++) {
             if (board[r_index][c_index] != nullptr) {
                 if (board[r_index][c_index]->getCritterType() == "X") {
+
+                    // check adjacent squares and randomly pick one
+                    // movePickRandomSpace();
+
                     // use switch statement to select which direction to go
                     switch (direction) {
                         case 1: // get NORTH square
                             {
                                 if ( (r_index - 1) < 0 ) {  // if out of bounds NORTH wall
                                     if (board[row - 1][c_index] == nullptr) {   // go to last row
-                                        cout << "Move NORTH available, " << "Move to [" << row - 1 << "][" << c_index << "]" << endl;
+                                        //cout << "Move NORTH available, " << "Move to [" << row - 1 << "][" << c_index << "]" << endl;
 
                                         // check if critter has already moved during time step
                                         if (board[r_index][c_index]->getCritterMoved()) {
@@ -329,12 +343,12 @@ void Game::moveDoodlebugs() {
                                         }
                                     }
                                     else {
-                                        cout << "Move NORTH" << "[" << r_index << "][" << c_index<< "]" << " unavailable\n";
+                                        //cout << "Move NORTH" << "[" << r_index << "][" << c_index<< "]" << " unavailable\n";
                                     }
                                 }
                                 else {
                                     if (board[r_index - 1][c_index] == nullptr) {
-                                        cout << "Move NORTH available, " << "Move to [" << r_index - 1 << "][" << c_index << "]" << endl;
+                                        //cout << "Move NORTH available, " << "Move to [" << r_index - 1 << "][" << c_index << "]" << endl;
 
                                         // check if critter has already moved during time step
                                         if (board[r_index][c_index]->getCritterMoved()) {
@@ -355,7 +369,7 @@ void Game::moveDoodlebugs() {
                                         }
                                     }
                                     else {
-                                        cout << "Move NORTH" << "[" << r_index << "][" << c_index<< "]" << " unavailable\n";
+                                        //cout << "Move NORTH" << "[" << r_index << "][" << c_index<< "]" << " unavailable\n";
                                     }
                                 }
                             }
@@ -364,7 +378,7 @@ void Game::moveDoodlebugs() {
                             {
                                 if ( (c_index + 1) >= col ) {  // if out of bounds EAST wall
                                     if (board[r_index][0] == nullptr) {   // go to first col
-                                        cout << "Move EAST available, " << "Move to [" << r_index << "][" << 0 << "]" << endl;
+                                        //cout << "Move EAST available, " << "Move to [" << r_index << "][" << 0 << "]" << endl;
 
                                         // check if critter has already moved during time step
                                         if (board[r_index][c_index]->getCritterMoved()) {
@@ -382,13 +396,13 @@ void Game::moveDoodlebugs() {
                                         }
                                     }
                                     else {
-                                        cout << "Move EAST" << "[" << r_index << "][" << c_index<< "]" << " unavailable\n";
+                                        //cout << "Move EAST" << "[" << r_index << "][" << c_index<< "]" << " unavailable\n";
                                     }
                                 }
                                 else {
                                     if (board[r_index][c_index + 1] == nullptr) {
 
-                                        cout << "Move EAST available, " << "Move to [" << r_index << "][" << c_index + 1 << "]" << endl;
+                                        //cout << "Move EAST available, " << "Move to [" << r_index << "][" << c_index + 1 << "]" << endl;
 
                                         // check if critter has already moved during time step
                                         if (board[r_index][c_index]->getCritterMoved()) {
@@ -406,7 +420,7 @@ void Game::moveDoodlebugs() {
                                         }
                                     }
                                     else {
-                                        cout << "Move EAST" << "[" << r_index << "][" << c_index<< "]" << " unavailable\n";
+                                        //cout << "Move EAST" << "[" << r_index << "][" << c_index<< "]" << " unavailable\n";
                                     }
                                 }
                             }
@@ -415,7 +429,7 @@ void Game::moveDoodlebugs() {
                             {
                                 if (r_index + 1 >= row) {  // if out of bounds SOUTH wall
                                     if (board[0][c_index] == nullptr) { // go to first row
-                                        cout << "Move NORTH available, " << "Move to [" << 0 << "][" << c_index << "]" << endl;
+                                        //cout << "Move NORTH available, " << "Move to [" << 0 << "][" << c_index << "]" << endl;
 
                                         // check if critter has already moved during time step
                                         if (board[r_index][c_index]->getCritterMoved()) {
@@ -433,12 +447,12 @@ void Game::moveDoodlebugs() {
                                         }
                                     }
                                     else {
-                                        cout << "Move SOUTH" << "[" << r_index << "][" << c_index<< "]" << " unavailable\n";
+                                        //cout << "Move SOUTH" << "[" << r_index << "][" << c_index<< "]" << " unavailable\n";
                                     }
                                 }
                                 else {
                                     if (board[r_index + 1][c_index] == nullptr) {
-                                        cout << "Move SOUTH available, " << "Move to [" << r_index + 1 << "][" << c_index << "]" << endl;
+                                        //cout << "Move SOUTH available, " << "Move to [" << r_index + 1 << "][" << c_index << "]" << endl;
 
                                         // check if critter has already moved during time step
                                         if (board[r_index][c_index]->getCritterMoved()) {
@@ -456,7 +470,7 @@ void Game::moveDoodlebugs() {
                                         }
                                     }
                                     else {
-                                        cout << "Move SOUTH" << "[" << r_index << "][" << c_index<< "]" << " unavailable\n";
+                                        //cout << "Move SOUTH" << "[" << r_index << "][" << c_index<< "]" << " unavailable\n";
                                     }
                                 }
                             }
@@ -465,7 +479,7 @@ void Game::moveDoodlebugs() {
                             {
                                 if ( (c_index - 1) < 0 ) {  // if out of bounds WEST wall
                                     if (board[r_index][col - 1] == nullptr) {   // go to last col
-                                        cout << "Move WEST available, " << "Move to [" << r_index << "][" << col - 1 << "]" << endl;
+                                        //cout << "Move WEST available, " << "Move to [" << r_index << "][" << col - 1 << "]" << endl;
 
                                         // check if critter has already moved during time step
                                         if (board[r_index][c_index]->getCritterMoved()) {
@@ -483,12 +497,12 @@ void Game::moveDoodlebugs() {
                                         }
                                     }
                                     else {
-                                        cout << "Move WEST" << "[" << r_index << "][" << c_index<< "]" << " unavailable\n";
+                                        //cout << "Move WEST" << "[" << r_index << "][" << c_index<< "]" << " unavailable\n";
                                     }
                                 }
                                 else {
                                     if (board[r_index][c_index - 1] == nullptr) {
-                                        cout << "Move WEST available, " << "Move to [" << r_index << "][" << c_index - 1 << "]" << endl;
+                                        //cout << "Move WEST available, " << "Move to [" << r_index << "][" << c_index - 1 << "]" << endl;
 
                                         // check if critter has already moved during time step
                                         if (board[r_index][c_index]->getCritterMoved()) {
@@ -506,7 +520,7 @@ void Game::moveDoodlebugs() {
                                         }
                                     }
                                     else {
-                                        cout << "Move WEST" << "[" << r_index << "][" << c_index<< "]" << " unavailable\n";
+                                        //cout << "Move WEST" << "[" << r_index << "][" << c_index<< "]" << " unavailable\n";
                                     }
                                 }
                             }
