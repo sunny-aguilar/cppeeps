@@ -150,8 +150,8 @@ void Game::initializeCritters() {
 
     // this functions adds the critters to the board in a non-random
     // fashion (only temporary, must place them randomly)
-    critterRandomPlacement();
-    // nonrandomPlacement();
+    //critterRandomPlacement();
+    nonrandomPlacement();
 
     // display the initial board
     displayBoard();
@@ -165,33 +165,52 @@ void Game::initializeCritters() {
 void Game::nonrandomPlacement() {
     // add the doodlebugs and ants to the array
     // NOTE! - need to place them randomly on board
-    int rows = 0;
-    int cols = 0;
+    int r_index = 0;
+    int c_index = 0;
     int antsAdded = 0;
     int doodlesAdded = 0;
 
-    for (rows; rows < row; rows++) {
-        for (cols = 0; cols < col; cols++) {
+    for (r_index = 0; r_index < row; r_index++) {
+        for (c_index = 0; c_index < col; c_index++) {
             // create a ant and pass in row and col location
-            board[rows][cols] = new Ant(rows, cols);
-            antsAdded++;
-            if (antsAdded == antQty) { break; }
+            if (antsAdded < antQty) {
+                board[r_index][c_index] = new Ant(r_index, c_index);
+                antsAdded++;
+            }
+            else if ( doodlesAdded < doodlebugQty ) {
+                board[r_index][c_index] = new Doodlebug(r_index, c_index);
+                doodlesAdded++;
+            }
         }
-        if (antsAdded == antQty) { break; }
     }
-    cout << "Row value " << rows << endl;
-    cout << "Col value " << cols << endl;
-    rows++;
 
-    for (rows; rows < row; rows++) {
-        for (cols = 0; cols < col; cols++) {
-            // create a doodlebug and pass in row and col location
-            board[rows][cols] = new Doodlebug(rows, cols);
-            doodlesAdded++;
-            if (doodlesAdded == doodlebugQty) { break; }
-        }
-        if (doodlesAdded == doodlebugQty) { break; }
-    }
+//    int rows = 0;
+//    int cols = 0;
+//    int antsAdded = 0;
+//    int doodlesAdded = 0;
+//
+//    for (rows; rows < row; rows++) {
+//        for (cols = 0; cols < col; cols++) {
+//            // create a ant and pass in row and col location
+//            board[rows][cols] = new Ant(rows, cols);
+//            antsAdded++;
+//            if (antsAdded == antQty) { break; }
+//        }
+//        if (antsAdded == antQty) { break; }
+//    }
+//    cout << "Row value " << rows << endl;
+//    cout << "Col value " << cols << endl;
+//    rows++;
+//
+//    for (rows; rows < row; rows++) {
+//        for (cols = 0; cols < col; cols++) {
+//            // create a doodlebug and pass in row and col location
+//            board[rows][cols] = new Doodlebug(rows, cols);
+//            doodlesAdded++;
+//            if (doodlesAdded == doodlebugQty) { break; }
+//        }
+//        if (doodlesAdded == doodlebugQty) { break; }
+//    }
 }
 
 /*********************************************************************
