@@ -223,7 +223,7 @@ void Game::critterActivities(int cStep) {
         // increase step count
         cStep++;
 
-        // eat ants
+        // doodlebugs eat ants
         eatAnts();
 
         // move doodlebugs
