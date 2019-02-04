@@ -43,6 +43,7 @@ public:
     void eatAnts();
     void moveDoodlebugs();
     void moveAnts();
+    void moveCritters(string critterType);
     void spawnDoodlebugs();
     void spawnAnts();
     void displayBoard();
