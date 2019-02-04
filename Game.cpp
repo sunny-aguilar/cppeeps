@@ -39,6 +39,12 @@ Game::~Game() {
 ** Description:     description here
 *********************************************************************/
 void Game::playGame() {
+    // set game variables
+    const int MIN_SIZE = 5;
+    const int MAX_SIZE = 100;
+    const int MIN_STEPS = 1;
+    const int MAX_STEPS = 20000;
+
     // display start menu
     menu.startMenu();
     switch (menu.inputValidator(1,2)) {
@@ -46,7 +52,7 @@ void Game::playGame() {
             // set game parameters
             // set board rows and columns
             menu.boardSizeMenu();
-            row = col = menu.inputValidator(10, 100);
+            row = col = menu.inputValidator(MIN_SIZE, MAX_SIZE);
             maxCritters = row * col;
 
             // make sure that total critters entered
@@ -60,7 +66,7 @@ void Game::playGame() {
             do {
                 // set total steps to simulate
                 menu.critterStepsPrompt();
-                steps = menu.inputValidator(1,20000);
+                steps = menu.inputValidator(MIN_STEPS, MAX_STEPS);
 
                 // perform critter activities (move, eat, spawn)
                 int currentStep = 0;
@@ -86,15 +92,21 @@ void Game::playGame() {
 ** Description:     description here
 *********************************************************************/
 void Game::setCritters() {
+    // set critter qty variables
+    const int MIN_DOODLES = 1;
+    const int MAX_DOODLES = 500;
+    const int MIN_ANTS = 1;
+    const int MAX_ANTS = 1000;
+
     bool askAgain = true;
     do {
         // set total ants
         menu.numAntsMenu();
-        antQty = menu.inputValidator(4, 1000);
+        antQty = menu.inputValidator(MIN_ANTS, MAX_ANTS);
 
         // set total doodlebugs
         menu.numDoodleBugsMenu();
-        doodlebugQty = menu.inputValidator(4, 500);
+        doodlebugQty = menu.inputValidator(MIN_DOODLES, MAX_DOODLES);
 
         // add total critters entered by user
         int totalUserCritters = doodlebugQty + antQty;
@@ -360,10 +372,10 @@ void Game::moveCritters(string critterType) {
                         default:
                             cout << "Unable to get direction to move to!\n";
                     }
-                    
+
                     // use switch statement to move critter based on random number generated
                     switch (direction) {
-                        case 1: // get NORTH square
+                        case NORTH: // get NORTH square
                             {
                                 if ( (r_index - 1) < 0 ) {  // if out of bounds NORTH wall
                                     if (board[row - 1][c_index] == nullptr) {   // go to last row
@@ -438,7 +450,7 @@ void Game::moveCritters(string critterType) {
                                 }
                             }
                             break;
-                        case 2: // get EAST square
+                        case EAST: // get EAST square
                             {
                                 if ( (c_index + 1) >= col ) {  // if out of bounds EAST wall
                                     if (board[r_index][0] == nullptr) {   // go to first col
@@ -510,7 +522,7 @@ void Game::moveCritters(string critterType) {
                                 }
                             }
                             break;
-                        case 3: // get SOUTH square
+                        case SOUTH: // get SOUTH square
                             {
                                 if (r_index + 1 >= row) {  // if out of bounds SOUTH wall
                                     if (board[0][c_index] == nullptr) { // go to first row
@@ -582,7 +594,7 @@ void Game::moveCritters(string critterType) {
                                 }
                             }
                             break;
-                        case 4: // get WEST square
+                        case WEST: // get WEST square
                             {
                                 if ( (c_index - 1) < 0 ) {  // if out of bounds WEST wall
                                     if (board[r_index][col - 1] == nullptr) {   // go to last col
