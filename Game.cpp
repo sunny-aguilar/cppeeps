@@ -390,13 +390,14 @@ void Game::moveCritters(string critterType) {
                                             board[row - 1][c_index]->setRow( row - 1 );
                                             board[row - 1][c_index]->setCol( c_index );
 
-                                            // update doodlebug stepsSurvived counter in doodlebug class
-                                            board[row - 1][c_index]->setStepsSurvived();
-                                            cout << "Steps moved " << board[row - 1][c_index]->getStepsSurvived() << endl;
-
                                             // DEBUGGING - DELETE WHEN DONE
                                             //cout << "OLD Row " << board[r_index][c_index]->getRow() << " Col " << board[r_index][c_index]->getCol() << endl;
                                             //cout << "NEW Row " << board[row - 1][c_index]->getRow() << " Col " << board[row - 1][c_index]->getCol() << endl;
+
+                                            // update doodlebug stepsSurvived counter in doodlebug class
+                                            board[row - 1][c_index]->setStepsSurvived();
+                                            // DEBUGGING - DELETE WHEN DONE
+                                            // cout << "Steps moved " << board[row - 1][c_index]->getStepsSurvived() << endl;
 
                                             // set old pointer to null
                                             board[r_index][c_index] = nullptr;
@@ -428,13 +429,14 @@ void Game::moveCritters(string critterType) {
                                             board[r_index - 1][c_index]->setRow( r_index - 1 );
                                             board[r_index - 1][c_index]->setCol( c_index );
 
-                                            // update doodlebug stepsSurvived counter in doodlebug class
-                                            board[row - 1][c_index]->setStepsSurvived();
-                                            cout << "Steps moved " << board[row - 1][c_index]->getStepsSurvived() << endl;
-
                                             // DEBUGGING - DELETE WHEN DONE
                                             //cout << "OLD Row " << board[r_index][c_index]->getRow() << " Col " << board[r_index][c_index]->getCol() << endl;
                                             //cout << "NEW Row " << board[r_index - 1][c_index]->getRow() << " Col " << board[r_index - 1][c_index]->getCol() << endl;
+
+                                            // update doodlebug stepsSurvived counter in doodlebug class
+                                            board[r_index - 1][c_index]->setStepsSurvived();
+                                            // DEBUGGING - DELETE WHEN DONE
+                                            // cout << "Steps moved " << board[r_index - 1][c_index]->getStepsSurvived() << endl;
 
                                             // delete old pointer here?
                                             // delete board[r_index][c_index];
@@ -477,6 +479,11 @@ void Game::moveCritters(string critterType) {
                                             //cout << "OLD Row " << board[r_index][c_index]->getRow() << " Col " << board[r_index][c_index]->getCol() << endl;
                                             //cout << "NEW Row " << board[r_index][0]->getRow() << " Col " << board[r_index][0]->getCol() << endl;
 
+                                            // update doodlebug stepsSurvived counter in doodlebug class
+                                            board[r_index][0]->setStepsSurvived();
+                                            // DEBUGGING - DELETE WHEN DONE
+                                            // cout << "Steps moved " << board[r_index][0]->getStepsSurvived() << endl;
+
                                             // set old pointer to null
                                             board[r_index][c_index] = nullptr;
                                         }
@@ -510,6 +517,11 @@ void Game::moveCritters(string critterType) {
                                             // DEBUGGING - DELETE WHEN DONE
                                             //cout << "OLD Row " << board[r_index][c_index]->getRow() << " Col " << board[r_index][c_index]->getCol() << endl;
                                             //cout << "NEW Row " << board[r_index][c_index + 1]->getRow() << " Col " << board[r_index][c_index + 1]->getCol() << endl;
+
+                                            // update doodlebug stepsSurvived counter in doodlebug class
+                                            board[r_index][c_index + 1]->setStepsSurvived();
+                                            // DEBUGGING - DELETE WHEN DONE
+                                            // cout << "Steps moved " << board[r_index][c_index + 1]->getStepsSurvived() << endl;
 
                                             // set old pointer to null
                                             board[r_index][c_index] = nullptr;
@@ -549,6 +561,11 @@ void Game::moveCritters(string critterType) {
                                             //cout << "OLD Row " << board[r_index][c_index]->getRow() << " Col " << board[r_index][c_index]->getCol() << endl;
                                             //cout << "NEW Row " << board[0][c_index]->getRow() << " Col " << board[0][c_index]->getCol() << endl;
 
+                                            // update doodlebug stepsSurvived counter in doodlebug class
+                                            board[0][c_index]->setStepsSurvived();
+                                            // DEBUGGING - DELETE WHEN DONE
+                                            // cout << "Steps moved " << board[0][c_index]->getStepsSurvived() << endl;
+
                                             // set old pointer to null
                                             board[r_index][c_index] = nullptr;
                                         }
@@ -582,6 +599,11 @@ void Game::moveCritters(string critterType) {
                                             // DEBUGGING - DELETE WHEN DONE
                                             //cout << "OLD Row " << board[r_index][c_index]->getRow() << " Col " << board[r_index][c_index]->getCol() << endl;
                                             //cout << "NEW Row " << board[r_index + 1][c_index]->getRow() << " Col " << board[r_index + 1][c_index]->getCol() << endl;
+
+                                            // update doodlebug stepsSurvived counter in doodlebug class
+                                            board[r_index + 1][c_index]->setStepsSurvived();
+                                            // DEBUGGING - DELETE WHEN DONE
+                                            // cout << "Steps moved " << board[r_index + 1][c_index]->getStepsSurvived() << endl;
 
                                             // set old pointer to null
                                             board[r_index][c_index] = nullptr;
@@ -621,6 +643,11 @@ void Game::moveCritters(string critterType) {
                                             //cout << "OLD Row " << board[r_index][c_index]->getRow() << " Col " << board[r_index][c_index]->getCol() << endl;
                                             //cout << "NEW Row " << board[r_index][col - 1]->getRow() << " Col " << board[r_index][col - 1]->getCol() << endl;
 
+                                            // update doodlebug stepsSurvived counter in doodlebug class
+                                            board[r_index][col - 1]->setStepsSurvived();
+                                            // DEBUGGING - DELETE WHEN DONE
+                                            // cout << "Steps moved " << board[r_index][col - 1]->getStepsSurvived() << endl;
+
                                             // set old pointer to null
                                             board[r_index][c_index] = nullptr;
                                         }
@@ -654,6 +681,11 @@ void Game::moveCritters(string critterType) {
                                             // DEBUGGING - DELETE WHEN DONE
                                             //cout << "OLD Row " << board[r_index][c_index]->getRow() << " Col " << board[r_index][c_index]->getCol() << endl;
                                             //cout << "NEW Row " << board[r_index][c_index - 1]->getRow() << " Col " << board[r_index][c_index - 1]->getCol() << endl;
+
+                                            // update doodlebug stepsSurvived counter in doodlebug class
+                                            board[r_index][c_index - 1]->setStepsSurvived();
+                                            // DEBUGGING - DELETE WHEN DONE
+                                            // cout << "Steps moved " << board[r_index][c_index - 1]->getStepsSurvived() << endl;
 
                                             // set old pointer to null
                                             board[r_index][c_index] = nullptr;
