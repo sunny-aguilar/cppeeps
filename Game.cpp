@@ -89,11 +89,11 @@ void Game::setCritters() {
     do {
         // set total ants
         menu.numAntsMenu();
-        antQty = menu.inputValidator(100, 1000);
+        antQty = menu.inputValidator(4, 1000);
 
         // set total doodlebugs
         menu.numDoodleBugsMenu();
-        doodlebugQty = menu.inputValidator(5, 500);
+        doodlebugQty = menu.inputValidator(4, 500);
 
         // add total critters entered by user
         int totalUserCritters = doodlebugQty + antQty;
@@ -300,7 +300,7 @@ void Game::moveDoodlebugs() {
 *********************************************************************/
 void Game::moveAnts() {
     cout << "Moving ants" << endl;
-    moveCritters("O");
+    // moveCritters("O");
 //    for (int r_index = 0; r_index < row; r_index++) {
 //        for (int c_index = 0; c_index < col; c_index++) {
 //            if (board[r_index][c_index] != nullptr) {
@@ -325,24 +325,8 @@ void Game::moveCritters(string critterType) {
     }
 
 
-    int direction;
-    direction = generateRandomNumber(1,4);
-    switch (direction) {
-        case 1:
-            cout << critter << " randomly selected to go NORTH\n";
-            break;
-        case 2:
-            cout << critter << " randomly selected to go EAST\n";
-            break;
-        case 3:
-            cout << critter << " randomly selected to go SOUTH\n";
-            break;
-        case 4:
-            cout << critter << " randomly selected to go WEST\n";
-            break;
-        default:
-            cout << "Unable to get direction to move to!\n";
-    }
+
+
 
     // move doodlebug
     for (int r_index = 0; r_index < row; r_index++) {
@@ -350,8 +334,27 @@ void Game::moveCritters(string critterType) {
             if (board[r_index][c_index] != nullptr) {
                 if (board[r_index][c_index]->getCritterType() == critterType) {
 
+
                     // check adjacent squares and randomly pick one
-                    // movePickRandomSpace();
+                    int direction;
+                    direction = generateRandomNumber(1,4);
+                    switch (direction) {
+                        case 1:
+                            //cout << critter << " randomly selected to go NORTH\n";
+                            break;
+                        case 2:
+                            //cout << critter << " randomly selected to go EAST\n";
+                            break;
+                        case 3:
+                            //cout << critter << " randomly selected to go SOUTH\n";
+                            break;
+                        case 4:
+                            //cout << critter << " randomly selected to go WEST\n";
+                            break;
+                        default:
+                            cout << "Unable to get direction to move to!\n";
+                    }
+
 
                     // use switch statement to select which direction to go
                     switch (direction) {
@@ -359,7 +362,7 @@ void Game::moveCritters(string critterType) {
                         {
                             if ( (r_index - 1) < 0 ) {  // if out of bounds NORTH wall
                                 if (board[row - 1][c_index] == nullptr) {   // go to last row
-                                    //cout << "Move NORTH available, " << "Move to [" << row - 1 << "][" << c_index << "]" << endl;
+                                    cout << critter << " move NORTH available, " << "Move to [" << row - 1 << "][" << c_index << "]" << endl;
 
                                     // check if critter has already moved during time step
                                     if (board[r_index][c_index]->getCritterMoved()) {
@@ -377,12 +380,12 @@ void Game::moveCritters(string critterType) {
                                     }
                                 }
                                 else {
-                                    //cout << "Move NORTH" << "[" << r_index << "][" << c_index<< "]" << " unavailable\n";
+                                    cout << critter << " move NORTH " << "[" << r_index << "][" << c_index<< "]" << " unavailable\n";
                                 }
                             }
                             else {
                                 if (board[r_index - 1][c_index] == nullptr) {
-                                    //cout << "Move NORTH available, " << "Move to [" << r_index - 1 << "][" << c_index << "]" << endl;
+                                    cout << critter << " move NORTH available, " << "Move to [" << r_index - 1 << "][" << c_index << "]" << endl;
 
                                     // check if critter has already moved during time step
                                     if (board[r_index][c_index]->getCritterMoved()) {
@@ -403,7 +406,7 @@ void Game::moveCritters(string critterType) {
                                     }
                                 }
                                 else {
-                                    //cout << "Move NORTH" << "[" << r_index << "][" << c_index<< "]" << " unavailable\n";
+                                    cout << critter << " move NORTH " << "[" << r_index << "][" << c_index<< "]" << " unavailable\n";
                                 }
                             }
                         }
@@ -412,7 +415,7 @@ void Game::moveCritters(string critterType) {
                         {
                             if ( (c_index + 1) >= col ) {  // if out of bounds EAST wall
                                 if (board[r_index][0] == nullptr) {   // go to first col
-                                    //cout << "Move EAST available, " << "Move to [" << r_index << "][" << 0 << "]" << endl;
+                                    cout << critter << " move EAST available, " << "Move to [" << r_index << "][" << 0 << "]" << endl;
 
                                     // check if critter has already moved during time step
                                     if (board[r_index][c_index]->getCritterMoved()) {
@@ -430,13 +433,13 @@ void Game::moveCritters(string critterType) {
                                     }
                                 }
                                 else {
-                                    //cout << "Move EAST" << "[" << r_index << "][" << c_index<< "]" << " unavailable\n";
+                                    cout << critter << " move EAST " << "[" << r_index << "][" << c_index<< "]" << " unavailable\n";
                                 }
                             }
                             else {
                                 if (board[r_index][c_index + 1] == nullptr) {
 
-                                    //cout << "Move EAST available, " << "Move to [" << r_index << "][" << c_index + 1 << "]" << endl;
+                                    cout <<  critter << " move EAST available, " << "Move to [" << r_index << "][" << c_index + 1 << "]" << endl;
 
                                     // check if critter has already moved during time step
                                     if (board[r_index][c_index]->getCritterMoved()) {
@@ -454,7 +457,7 @@ void Game::moveCritters(string critterType) {
                                     }
                                 }
                                 else {
-                                    //cout << "Move EAST" << "[" << r_index << "][" << c_index<< "]" << " unavailable\n";
+                                    cout << critter << " move EAST " << "[" << r_index << "][" << c_index<< "]" << " unavailable\n";
                                 }
                             }
                         }
@@ -463,7 +466,7 @@ void Game::moveCritters(string critterType) {
                         {
                             if (r_index + 1 >= row) {  // if out of bounds SOUTH wall
                                 if (board[0][c_index] == nullptr) { // go to first row
-                                    //cout << "Move NORTH available, " << "Move to [" << 0 << "][" << c_index << "]" << endl;
+                                    cout <<  critter << " move NORTH available, " << "Move to [" << 0 << "][" << c_index << "]" << endl;
 
                                     // check if critter has already moved during time step
                                     if (board[r_index][c_index]->getCritterMoved()) {
@@ -481,12 +484,12 @@ void Game::moveCritters(string critterType) {
                                     }
                                 }
                                 else {
-                                    //cout << "Move SOUTH" << "[" << r_index << "][" << c_index<< "]" << " unavailable\n";
+                                    cout << critter << " move SOUTH " << "[" << r_index << "][" << c_index<< "]" << " unavailable\n";
                                 }
                             }
                             else {
                                 if (board[r_index + 1][c_index] == nullptr) {
-                                    //cout << "Move SOUTH available, " << "Move to [" << r_index + 1 << "][" << c_index << "]" << endl;
+                                    cout << critter << " move SOUTH available, " << "Move to [" << r_index + 1 << "][" << c_index << "]" << endl;
 
                                     // check if critter has already moved during time step
                                     if (board[r_index][c_index]->getCritterMoved()) {
@@ -504,7 +507,7 @@ void Game::moveCritters(string critterType) {
                                     }
                                 }
                                 else {
-                                    //cout << "Move SOUTH" << "[" << r_index << "][" << c_index<< "]" << " unavailable\n";
+                                    cout << critter << " move SOUTH " << "[" << r_index << "][" << c_index<< "]" << " unavailable\n";
                                 }
                             }
                         }
@@ -513,7 +516,7 @@ void Game::moveCritters(string critterType) {
                         {
                             if ( (c_index - 1) < 0 ) {  // if out of bounds WEST wall
                                 if (board[r_index][col - 1] == nullptr) {   // go to last col
-                                    //cout << "Move WEST available, " << "Move to [" << r_index << "][" << col - 1 << "]" << endl;
+                                    cout << critter << " move WEST available, " << "Move to [" << r_index << "][" << col - 1 << "]" << endl;
 
                                     // check if critter has already moved during time step
                                     if (board[r_index][c_index]->getCritterMoved()) {
@@ -531,12 +534,12 @@ void Game::moveCritters(string critterType) {
                                     }
                                 }
                                 else {
-                                    //cout << "Move WEST" << "[" << r_index << "][" << c_index<< "]" << " unavailable\n";
+                                    cout << critter << " move WEST " << "[" << r_index << "][" << c_index<< "]" << " unavailable\n";
                                 }
                             }
                             else {
                                 if (board[r_index][c_index - 1] == nullptr) {
-                                    //cout << "Move WEST available, " << "Move to [" << r_index << "][" << c_index - 1 << "]" << endl;
+                                    cout << critter << " move WEST available, " << "Move to [" << r_index << "][" << c_index - 1 << "]" << endl;
 
                                     // check if critter has already moved during time step
                                     if (board[r_index][c_index]->getCritterMoved()) {
@@ -554,7 +557,7 @@ void Game::moveCritters(string critterType) {
                                     }
                                 }
                                 else {
-                                    //cout << "Move WEST" << "[" << r_index << "][" << c_index<< "]" << " unavailable\n";
+                                    cout << critter << " move WEST " << "[" << r_index << "][" << c_index<< "]" << " unavailable\n";
                                 }
                             }
                         }
@@ -575,6 +578,9 @@ void Game::moveCritters(string critterType) {
         for (int c_index = 0; c_index < col; c_index++) {
             if (board[r_index][c_index] != nullptr) {
                 if (board[r_index][c_index]->getCritterType() == "X") {
+                    board[r_index][c_index]->setCritterMoved(false);
+                }
+                if (board[r_index][c_index]->getCritterType() == "O") {
                     board[r_index][c_index]->setCritterMoved(false);
                 }
             }
