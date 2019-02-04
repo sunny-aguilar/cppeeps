@@ -52,7 +52,7 @@ public:
     void critterStepsPrompt();
     void setCritterSteps(int critterSteps);
     int getCritterSteps();
-    void menuDisplayBoard(int col);
+    void menuDisplayBoard(int col, int cStep);
     void menuPlayAgain();
     void menuExitGameMessage();
     void setContinueStopChoice(int continueStopChoice);

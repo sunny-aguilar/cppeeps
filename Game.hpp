@@ -46,7 +46,7 @@ public:
     void moveCritters(string critterType);
     void spawnDoodlebugs();
     void spawnAnts();
-    void displayBoard();
+    void displayBoard(int cStep = 0);
     bool goAgain();
 };
 

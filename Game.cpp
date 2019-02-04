@@ -216,8 +216,8 @@ void Game::critterRandomPlacement() {
 *********************************************************************/
 void Game::critterActivities(int cStep) {
     do {
+        // increase step count
         cStep++;
-        cout << "Total steps taken " << cStep << endl;
 
         // eat ants
 
@@ -235,7 +235,7 @@ void Game::critterActivities(int cStep) {
         spawnAnts();
 
         // display updated board
-        displayBoard();
+        displayBoard(cStep);
 
 
     } while (cStep < steps);
@@ -244,8 +244,8 @@ void Game::critterActivities(int cStep) {
 /*********************************************************************
 ** Description:     description
 *********************************************************************/
-void Game::displayBoard() {
-    menu.menuDisplayBoard(col);
+void Game::displayBoard(int cStep) {
+    menu.menuDisplayBoard(col, cStep);
 
     // built top wall
     for (int index = 0; index < row; index++) {

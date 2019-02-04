@@ -169,12 +169,13 @@ int Menu::getCritterSteps()
 /*********************************************************************
 ** Description:     description
 *********************************************************************/
-void Menu::menuDisplayBoard(int col) {
+void Menu::menuDisplayBoard(int col, int cStep) {
     cout << "\nDISPLAYING BOARD ";
     for (int count = 0; count < col; count++) {
         cout << "* ";
     }
     cout << endl;
+    cout << "Total steps taken " << cStep << endl;
 }
 
 /***************************************************************************
