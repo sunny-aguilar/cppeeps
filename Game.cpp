@@ -360,8 +360,7 @@ void Game::moveCritters(string critterType) {
                         default:
                             cout << "Unable to get direction to move to!\n";
                     }
-
-
+                    
                     // use switch statement to move critter based on random number generated
                     switch (direction) {
                         case 1: // get NORTH square
