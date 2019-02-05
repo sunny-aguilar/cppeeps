@@ -232,11 +232,15 @@ void Game::critterActivities(int cStep) {
         // spawn doodlebugs
         spawnDoodlebugs();
 
+        // starve doodlebugs
+
         // move ants
         moveAnts();
 
         // spawn ants
         spawnAnts();
+
+        // starve doodlebugs
 
         // display updated board
         displayBoard(cStep);
@@ -347,7 +351,8 @@ void Game::moveCritters(string critterType) {
                     int direction;
                     direction = generateRandomNumber(1,4);
 
-                    // use switch statement to display which direction critter went - DEBUGGING, DELETE WHEN SUBMITTING
+                    // use switch statement to display which direction critter went
+                    // DEBUGGING, DELETE THIS SWITCH STMT BEFORE SUBMITTING
                     switch (direction) {
                         case 1:
                             //cout << critter << " randomly selected to go NORTH\n";
@@ -355,7 +360,7 @@ void Game::moveCritters(string critterType) {
                         case 2:
                             //cout << critter << " randomly selected to go EAST\n";
                             break;
-                        case 3:
+                           case 3:
                             //cout << critter << " randomly selected to go SOUTH\n";
                             break;
                         case 4:
@@ -732,7 +737,9 @@ void Game::spawnDoodlebugs() {
     cout << "Spawning doodlebugs" << endl;
     for (int r_index = 0; r_index < row; r_index++) {
         for (int c_index = 0; c_index < col; c_index++) {
-            if (board[r_index][c_index] != nullptr) {
+            if (board[r_index][c_index] != nullptr && board[r_index][c_index] ->getCritterType() == "X") {
+
+                board[r_index][c_index]->breed(board, r_index, c_index);
 
             }
         }

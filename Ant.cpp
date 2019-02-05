@@ -108,10 +108,10 @@ bool Ant::getCritterMoved() {
 /*********************************************************************
 ** Description:     description
 *********************************************************************/
-void Ant::breed() {
+void Ant::breed(Critter ***grid, int row, int col) {
 	// if an ant survives for three time steps, at the end of the time
 	// steps (after moving) the ant will breed by creating a new ant
 	// in an adjacent cell that is empty randomly
 
-	
+
 }

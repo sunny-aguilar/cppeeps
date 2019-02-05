@@ -30,7 +30,7 @@ public:
     void move(Critter ***grid) override;
     void setCritterMoved(bool moved) override;
     bool getCritterMoved() override;
-    void breed() override;
+    void breed(Critter ***grid, int row, int col) override;
 };
 
 #endif //ANT_HPP

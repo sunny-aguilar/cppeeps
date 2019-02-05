@@ -121,10 +121,13 @@ bool Doodlebug::getCritterMoved() {
 /*********************************************************************
 ** Description:     description
 *********************************************************************/
-void Doodlebug::breed() {
+void Doodlebug::breed(Critter ***grid, int row, int col) {
 	// if a doodlebug survives for eight time steps, at the end of the
 	// time step, it will spawn off a new doodlebug in the same manner
 	// as the ant (only bree into an adjacent empty cell)
-
+	cout << "Steps survived " << stepsSurvived << endl;
+	if (stepsSurvived) {
+		
+	}
 
 }

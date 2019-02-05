@@ -42,7 +42,7 @@ public:
     virtual void move(Critter ***grid) = 0;
     virtual void setCritterMoved(bool moved) = 0;
     virtual bool getCritterMoved() = 0;
-    virtual void breed() = 0;
+    virtual void breed(Critter ***grid, int row, int col) = 0;
 };
 
 #endif //CRITTER_HPP
