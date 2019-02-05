@@ -16,12 +16,12 @@ using std::string;
 using std::cout;
 using std::endl;
 
-// enum Direction {NORTH = 1, EAST, SOUTH, WEST};
+enum Direction {UP = 1, RIGHT, DOWN, LEFT};
 
 class Critter
 {
 protected:
-    // Direction direction;
+    Direction direction;
     std::string critterType;
     int stepsSurvived;
     int critterBred;
