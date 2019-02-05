@@ -129,40 +129,32 @@ void Doodlebug::breed(Critter ***grid, int ROW, int COL) {
 
 	bool spaceAvailable[] = {false, false, false, false};
 	int randomSelection;
-
-	// find which spaces are empty and set to TRUE in array
-	// NORTH
-	if ((row - 1) >= 0 && grid[row - 1][col] == nullptr) {
-		spaceAvailable[0] = true;
-	}
-	else {
-		spaceAvailable[0] = false;
-	}
-	// EAST
-	if ((col + 1) < COL && grid[row][col + 1] == nullptr) {
-		spaceAvailable[1] = true;
-	}
-	else {
-		spaceAvailable[1] = false;
-	}
-	// SOUTH
-	if ((row + 1) < ROW && grid[row + 1][col] == nullptr) {
-		spaceAvailable[2] = true;
-	}
-	else {
-		spaceAvailable[2] = false;
-	}
-	// WEST
-	if ((col - 1) >= 0 && grid[row][col - 1] == nullptr) {
-		spaceAvailable[3] = true;
-	}
-	else {
-		spaceAvailable[3] = false;
-	}
-
-
-	// select a random available square (where bool in array = true)
 	int select = generateRandomNumber(1,4);
+	// find which spaces are empty and set to TRUE in array
+	bool keepLooking = true;
+
+
+	while (keepLooking) {
+		keepLooking = false;
+		// NORTH
+		if ((row - 1) >= 0 && grid[row - 1][col] != nullptr) {
+
+		}
+		// EAST
+		else if ((col + 1) < COL && grid[row][col + 1] == nullptr) {
+
+		}
+		// SOUTH
+		else if ((row + 1) < ROW && grid[row + 1][col] == nullptr) {
+
+		}
+		// WEST
+		else if ((col - 1) >= 0 && grid[row][col - 1] == nullptr) {
+
+		}
+	}
+
+
 
 
 	if (stepsSurvived >= 8) {
@@ -173,6 +165,7 @@ void Doodlebug::breed(Critter ***grid, int ROW, int COL) {
 					grid[row - 1][col] = new Doodlebug(row - 1, col);
 				}
 				else {
+					// DEBUGGING - this else stmt can be deleted
 					cout << "Unable to spawn a doodlebug\n";
 				}
 				break;
@@ -182,6 +175,7 @@ void Doodlebug::breed(Critter ***grid, int ROW, int COL) {
 					grid[row][col + 1] = new Doodlebug(row, col + 1);
 				}
 				else {
+					// DEBUGGING - this else stmt can be deleted
 					cout << "Unable to spawn a doodlebug\n";
 				}
 				break;
@@ -191,6 +185,7 @@ void Doodlebug::breed(Critter ***grid, int ROW, int COL) {
 					grid[row + 1][col] = new Doodlebug(row + 1, col);
 				}
 				else {
+					// DEBUGGING - this else stmt can be deleted
 					cout << "Unable to spawn a doodlebug\n";
 				}
 				break;
@@ -200,6 +195,7 @@ void Doodlebug::breed(Critter ***grid, int ROW, int COL) {
 					grid[row][col - 1] = new Doodlebug(row, col - 1);
 				}
 				else {
+					// DEBUGGING - this else stmt can be deleted
 					cout << "Unable to spawn a doodlebug\n";
 				}
 				break;
