@@ -132,9 +132,8 @@ void Doodlebug::breed(Critter ***grid, int ROW, int COL) {
 	bool keepLooking = true;
 
 	while (keepLooking) {
-
+		// generate a random number from 1-4
 		select = generateRandomNumber(1,4);
-
 		// if all four adjacent sides are occupied, do not breed
 		if ( (row > 0 && grid[row - 1][col] != nullptr) &&
 		     (col < COL-1 && grid[row][col + 1] != nullptr) &&
@@ -147,13 +146,17 @@ void Doodlebug::breed(Critter ***grid, int ROW, int COL) {
 			cout << "All sides are full\n";
 		}
 
+		// DEBUGGING - DELETE COUT WHEN DONE
 		cout << "Side selected " << select << endl;
 
 		// if adjacent sides available, randomly select one
+		// "select" variable will end while-loop and be input for
+		// next switch statement below that creates a new doodlebug
 		switch (select) {
 			case 1:
 				// NORTH
 				if ((row - 1) >= 0 && grid[row - 1][col] == nullptr) {
+					// DEBUGGING - DELETE COUT WHEN DONE
 					cout << "NORTH selected " << select << endl;
 				}
 				keepLooking = false;
@@ -161,6 +164,7 @@ void Doodlebug::breed(Critter ***grid, int ROW, int COL) {
 			case 2:
 				// EAST
 				if ((col + 1) < COL && grid[row][col + 1] == nullptr) {
+					// DEBUGGING - DELETE COUT WHEN DONE
 					cout << "EAST selected " << select << endl;
 				}
 				keepLooking = false;
@@ -168,6 +172,7 @@ void Doodlebug::breed(Critter ***grid, int ROW, int COL) {
 			case 3:
 				// SOUTH
 				if ((row + 1) < ROW && grid[row + 1][col] == nullptr) {
+					// DEBUGGING - DELETE COUT WHEN DONE
 					cout << "SOUTH selected " << select << endl;
 				}
 				keepLooking = false;
@@ -175,6 +180,7 @@ void Doodlebug::breed(Critter ***grid, int ROW, int COL) {
 			case 4:
 				// WEST
 				if ((col - 1) >= 0 && grid[row][col - 1] == nullptr) {
+					// DEBUGGING - DELETE COUT WHEN DONE
 					cout << "WEST selected " << select << endl;
 				}
 				keepLooking = false;
@@ -184,7 +190,9 @@ void Doodlebug::breed(Critter ***grid, int ROW, int COL) {
 		}
 	}
 
-
+	// if a doodlebug has survived for 8 steps or more, than the doodlebug
+	// should breed if there is space available
+	// NEED TO INCORPORATE EAT FUNCTION
 	if (stepsSurvived >= 8) {
 		switch (select) {
 			case 1:
