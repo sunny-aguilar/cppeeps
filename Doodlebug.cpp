@@ -132,12 +132,12 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 			cout << "Unable to get direction to move to!\n";
 	}
 
-	// use switch statement to move critter based on random number generated
+	cout << "Random direction generated " << direction << endl;
 
+	// use switch statement to move critter based on random number generated
 	// NOTES:
 	// row = specific doodle row
 	// ROW = max ROW size
-
 	switch (direction) {
 		case UP: // get NORTH square
 			{
@@ -178,7 +178,7 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 							// update doodlebug stepsSurvived counter in doodlebug class
 							setStepsSurvived();
 							// DEBUGGING - DELETE WHEN DONE
-							cout << "Steps moved " << getStepsSurvived() << endl;
+							cout << "Steps moved by [" << row << "][" << col << "]" << getStepsSurvived() << endl;
 
 							// set old pointer to null
 							grid[row][col] = nullptr;
@@ -220,7 +220,7 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 							// update doodlebug stepsSurvived counter in doodlebug class
 							setStepsSurvived();
 							// DEBUGGING - DELETE WHEN DONE
-							cout << "Steps moved " << getStepsSurvived() << endl;
+							cout << "Steps moved by [" << row << "][" << col << "]" << getStepsSurvived() << endl;
 
 							// delete old pointer here? I don't think so
 							// delete board[r_index][c_index];
@@ -269,7 +269,7 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 							// update doodlebug stepsSurvived counter in doodlebug class
 							setStepsSurvived();
 							// DEBUGGING - DELETE WHEN DONE
-							cout << "Steps moved " << getStepsSurvived() << endl;
+							cout << "Steps moved by [" << row << "][" << col << "]" << getStepsSurvived() << endl;
 
 							// set old pointer to null
 							grid[row][col] = nullptr;
@@ -310,7 +310,7 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 							// update doodlebug stepsSurvived counter in doodlebug class
 							setStepsSurvived();
 							// DEBUGGING - DELETE WHEN DONE
-							cout << "Steps moved " << getStepsSurvived() << endl;
+							cout << "Steps moved by [" << row << "][" << col << "]" << getStepsSurvived() << endl;
 
 							// set old pointer to null
 							grid[row][col] = nullptr;
