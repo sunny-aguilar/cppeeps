@@ -190,15 +190,15 @@ void Doodlebug::breed(Critter ***grid, int ROW, int COL) {
 				break;
 			case 2:
 				// breed EAST square
-				if (grid[row][col + 1] == nullptr && (col + 1) < col) {
+				if ((col + 1) < COL && grid[row][col + 1] == nullptr) {
 					grid[row][col + 1] = new Doodlebug(row, col + 1);
 				}
 				break;
 			case 3:
 				// breed SOUTH square
-//				if (grid[r_index + 1][c_index] == nullptr && (r_index + 1) < row) {
-//					grid[r_index +1 ][c_index] = new Doodlebug(r_index + 1, c_index);
-//				}
+				if ((row + 1) < ROW && grid[row + 1][col] == nullptr) {
+					grid[row + 1][col] = new Doodlebug(row + 1, col);
+				}
 				break;
 			case 4:
 				// breed WEST square
