@@ -18,6 +18,7 @@ Critter::Critter() {}
 Critter::Critter(string type, int row, int col) :
     critterType{type},
     stepsSurvived{0},
+    critterBred{false},
     readyToBreed{false},
     critterMoved{false},
     row{row},

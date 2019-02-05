@@ -126,8 +126,14 @@ void Doodlebug::breed(Critter ***grid, int row, int col) {
 	// time step, it will spawn off a new doodlebug in the same manner
 	// as the ant (only bree into an adjacent empty cell)
 	cout << "Steps survived " << stepsSurvived << endl;
-	if (stepsSurvived) {
-		
+	if (stepsSurvived >= 8) {
+
+		// breed NORTH square
+		// breed EAST square
+		// breed SOUTH square
+		// breed WEST square
+
+
 	}
 
 }

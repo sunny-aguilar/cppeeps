@@ -23,6 +23,7 @@ protected:
     // Direction direction;
     std::string critterType;
     int stepsSurvived;
+    int critterBred;
     int readyToBreed;
     bool critterMoved;
     int row;
