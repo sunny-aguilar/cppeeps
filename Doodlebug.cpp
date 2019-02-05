@@ -202,9 +202,9 @@ void Doodlebug::breed(Critter ***grid, int ROW, int COL) {
 				break;
 			case 4:
 				// breed WEST square
-//				if (grid[r_index][c_index - 1] == nullptr && (c_index - 1) >= 0) {
-//					grid[r_index][c_index - 1] = new Doodlebug(r_index, c_index - 1);
-//				}
+				if ((col - 1) >= 0 && grid[row][col - 1] == nullptr) {
+					grid[row][col - 1] = new Doodlebug(row, col - 1);
+				}
 				break;
 			default:
 				cout << "Doodlebug unable to breed, all spaces occupied!\n";
