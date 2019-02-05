@@ -161,24 +161,9 @@ void Doodlebug::breed(Critter ***grid, int ROW, int COL) {
 	}
 
 
-
 	// select a random available square (where bool in array = true)
-	int select = 0;
-	int keepSearching = true;
-	while (keepSearching) {
-		// generate a random number from 1 - 4
-		randomSelection = generateRandomNumber(1,4);
+	int select = generateRandomNumber(1,4);
 
-		if (spaceAvailable[0] == false && spaceAvailable[1] == false &&
-			spaceAvailable[2] == false && spaceAvailable[3] == false) {
-			keepSearching = false;
-			select = 5;
-		}
-		if (spaceAvailable[randomSelection] == true) {
-			select = randomSelection;
-			keepSearching = false;
-		}
-	}
 
 	if (stepsSurvived >= 8) {
 		switch (select) {
@@ -187,11 +172,17 @@ void Doodlebug::breed(Critter ***grid, int ROW, int COL) {
 				if ((row - 1) >= 0 && grid[row - 1][col] == nullptr) {
 					grid[row - 1][col] = new Doodlebug(row - 1, col);
 				}
+				else {
+					cout << "Unable to spawn a doodlebug\n";
+				}
 				break;
 			case 2:
 				// breed EAST square
 				if ((col + 1) < COL && grid[row][col + 1] == nullptr) {
 					grid[row][col + 1] = new Doodlebug(row, col + 1);
+				}
+				else {
+					cout << "Unable to spawn a doodlebug\n";
 				}
 				break;
 			case 3:
@@ -199,11 +190,17 @@ void Doodlebug::breed(Critter ***grid, int ROW, int COL) {
 				if ((row + 1) < ROW && grid[row + 1][col] == nullptr) {
 					grid[row + 1][col] = new Doodlebug(row + 1, col);
 				}
+				else {
+					cout << "Unable to spawn a doodlebug\n";
+				}
 				break;
 			case 4:
 				// breed WEST square
 				if ((col - 1) >= 0 && grid[row][col - 1] == nullptr) {
 					grid[row][col - 1] = new Doodlebug(row, col - 1);
+				}
+				else {
+					cout << "Unable to spawn a doodlebug\n";
 				}
 				break;
 			default:
