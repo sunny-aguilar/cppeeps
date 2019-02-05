@@ -121,7 +121,7 @@ bool Doodlebug::getCritterMoved() {
 /*********************************************************************
 ** Description:     description
 *********************************************************************/
-void Doodlebug::breed(Critter ***grid, int r_index, int c_index) {
+void Doodlebug::breed(Critter ***grid, int ROW, int COL) {
 	// if a doodlebug survives for eight time steps, at the end of the
 	// time step, it will spawn off a new doodlebug in the same manner
 	// as the ant (only bree into an adjacent empty cell)
@@ -132,26 +132,26 @@ void Doodlebug::breed(Critter ***grid, int r_index, int c_index) {
 
 	// find which spaces are empty and set to TRUE in array
 	// NORTH
-	if (grid[r_index - 1][c_index] == nullptr && (r_index - 1) >= 0) {
+	if ((row - 1) >= 0 && grid[row - 1][col] == nullptr) {
 		spaceAvailable[0] = true;
 	}
 	else {
 		spaceAvailable[0] = false;
 	}
 	// EAST
-	if (grid[r_index][c_index + 1] == nullptr && (c_index + 1) < col) {
+	if ((col + 1) < COL && grid[row][col + 1] == nullptr) {
 		spaceAvailable[1] = true;
 	}
 	else {
 		spaceAvailable[1] = false;
 	}
 	// SOUTH
-//	if (grid[r_index + 1][c_index] == nullptr && (r_index + 1) < row) {
-//		spaceAvailable[2] = true;
-//	}
-//	else {
-//		spaceAvailable[2] = false;
-//	}
+	if ((row + 1) < ROW && grid[row + 1][col] == nullptr) {
+		spaceAvailable[2] = true;
+	}
+	else {
+		spaceAvailable[2] = false;
+	}
 	// WEST
 //	if (grid[r_index][c_index - 1] == nullptr && (c_index - 1) >= 0) {
 //		spaceAvailable[3] = true;

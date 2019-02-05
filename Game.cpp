@@ -758,7 +758,7 @@ void Game::spawnDoodlebugs() {
         for (int c_index = 0; c_index < col; c_index++) {
             if (board[r_index][c_index] != nullptr && board[r_index][c_index] ->getCritterType() == "X") {
 
-                board[r_index][c_index]->breed(board, r_index, c_index);
+                board[r_index][c_index]->breed(board, row, col);
 
             }
         }
