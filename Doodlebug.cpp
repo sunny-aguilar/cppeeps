@@ -160,20 +160,22 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 							else {
 								// DEBUGGING - DELETE WHEN DONE
 								cout << "PACMAN NORTH move\n";
-								cout << critter << " move NORTH available, " << "Move to [" << row - 1 << "][" << col << "]" << endl;
+								cout << critter << " move NORTH available, " << "Move to [" << ROW - 1 << "][" << col << "]" << endl;
 
 								// set critter moved bool in Doodlebug to true
 								setCritterMoved(true);
 
 								// move doodlebug
-								grid[row - 1][col] = grid[row][col];
-
-								// update doodlebug row and col in doodlebug class
-								setRow( row - 1 );
-								setCol( col );
+								grid[ROW - 1][col] = grid[row][col];
 
 								// DEBUGGING - DELETE WHEN DONE
 								cout << "OLD Row " << getRow() << " Col " << getCol() << endl;
+
+								// update doodlebug row and col in doodlebug class
+								setRow( ROW - 1 );
+								setCol( col );
+
+								// DEBUGGING - DELETE WHEN DONE
 								cout << "NEW Row " << getRow() << " Col " << getCol() << endl;
 
 								// update doodlebug stepsSurvived counter in doodlebug class
