@@ -254,3 +254,15 @@ int Menu::inputValidator(int min, int max)
 
     return selection;
 }
+
+// TODO: REMOVE THIS FUNCTION BEFORE SUBMIT
+/***************************************************************************
+** Description:   
+***************************************************************************/
+void Menu::menuDebugMode() {
+    cout << "TODO: remove debug mode before submit\n"
+    << "\nDo you want to display as debug mode?\n"
+    << "1. press enter for each step\n"
+    << "2. pause 0.3 second for each step\n"
+    << "3. no (play as regular mode)\n";
+}

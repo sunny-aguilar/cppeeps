@@ -6,6 +6,8 @@
 ** Description: 		Game class description here
 *********************************************************************/
 #include "Game.hpp"
+// TODO REMOVE THIS BEFORE SUBMIT
+#include <unistd.h>
 
 /***************************************************************************
 ** Description:     default constructor using initialization list
@@ -44,6 +46,12 @@ void Game::playGame() {
     const int MAX_SIZE = 100;
     const int MIN_STEPS = 1;
     const int MAX_STEPS = 20000;
+
+    // TODO: REMOVE THIS FUNCTION BEFORE SUBMIT
+    // menuDebugMode:
+    // prompt to press enter before displaying board in each step. 
+    menu.menuDebugMode();
+    isDebugMode = menu.inputValidator(1, 2);
 
     // display start menu
     menu.startMenu();
@@ -285,6 +293,16 @@ void Game::displayBoard(int cStep) {
         cout << "--";
     }
     cout << endl;
+
+
+    // TODO: REMOVE THIS CODE BEFORE SUBMIT
+    cout << std::flush;
+    if (isDebugMode == 1) {
+        cout << "Press enter to continue\n";
+        cin.ignore();
+    } else if (isDebugMode == 2) {
+        usleep(300000);
+    }
 }
 
 /*********************************************************************
@@ -360,7 +378,7 @@ void Game::moveCritters(string critterType) {
                         case 2:
                             //cout << critter << " randomly selected to go EAST\n";
                             break;
-                           case 3:
+                        case 3:
                             //cout << critter << " randomly selected to go SOUTH\n";
                             break;
                         case 4:

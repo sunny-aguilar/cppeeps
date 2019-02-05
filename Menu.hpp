@@ -57,6 +57,9 @@ public:
     void menuExitGameMessage();
     void setContinueStopChoice(int continueStopChoice);
     int getContinueStopChoice();
+
+    // TODO: REMOVE DEBUG MODE BEFORE SUBMIT
+    void menuDebugMode();
 };
 
 #endif //MENU_HPP
