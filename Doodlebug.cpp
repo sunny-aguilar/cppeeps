@@ -127,34 +127,56 @@ void Doodlebug::breed(Critter ***grid, int ROW, int COL) {
 	// as the ant (only bree into an adjacent empty cell)
 	cout << "Steps survived " << stepsSurvived << endl;
 
-	bool spaceAvailable[] = {false, false, false, false};
-	int randomSelection;
 	int select = generateRandomNumber(1,4);
 	// find which spaces are empty and set to TRUE in array
 	bool keepLooking = true;
 
-
 	while (keepLooking) {
-		keepLooking = false;
-		// NORTH
-		if ((row - 1) >= 0 && grid[row - 1][col] != nullptr) {
 
+		select = generateRandomNumber(1,4);
+
+		// if all four adjacent sides are occupied, do not breed
+		if ( ((row - 1) >= 0 && grid[row - 1][col] != nullptr) &&
+		     ((col + 1) < COL && grid[row][col + 1] == nullptr) &&
+		     ((row + 1) < ROW && grid[row + 1][col] == nullptr) &&
+		     ((col - 1) >= 0 && grid[row][col - 1] == nullptr) ) {
+
+			// if all sides around doodlebug unavailable, do not spawn
+			select = 5;
 		}
-		// EAST
-		else if ((col + 1) < COL && grid[row][col + 1] == nullptr) {
 
-		}
-		// SOUTH
-		else if ((row + 1) < ROW && grid[row + 1][col] == nullptr) {
+		cout << "Side selected " << select << endl;
 
-		}
-		// WEST
-		else if ((col - 1) >= 0 && grid[row][col - 1] == nullptr) {
-
+		// if adjacent sides available, randomly select one
+		switch (select) {
+			case 1:
+				// NORTH
+				if ((row - 1) >= 0 && grid[row - 1][col] == nullptr) {
+					keepLooking = false;
+				}
+				break;
+			case 2:
+				// EAST
+				if ((col + 1) < COL && grid[row][col + 1] == nullptr) {
+					keepLooking = false;
+				}
+				break;
+			case 3:
+				// SOUTH
+				if ((row + 1) < ROW && grid[row + 1][col] == nullptr) {
+					keepLooking = false;
+				}
+				break;
+			case 4:
+				// WEST
+				if ((col - 1) >= 0 && grid[row][col - 1] == nullptr) {
+					keepLooking = false;
+				}
+				break;
+			default:
+				cout << "Unable to determine selection!\n";
 		}
 	}
-
-
 
 
 	if (stepsSurvived >= 8) {
