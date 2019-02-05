@@ -7,7 +7,8 @@
 *********************************************************************/
 #include "Game.hpp"
 // TODO REMOVE THIS BEFORE SUBMIT
-#include <unistd.h>
+#include <chrono>
+#include <thread>
 
 /***************************************************************************
 ** Description:     default constructor using initialization list
@@ -301,7 +302,7 @@ void Game::displayBoard(int cStep) {
         cout << "Press enter to continue\n";
         cin.ignore();
     } else if (isDebugMode == 2) {
-        usleep(300000);
+        std::this_thread::sleep_for(std::chrono::milliseconds(300));
     }
 }
 
