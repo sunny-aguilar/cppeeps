@@ -129,7 +129,6 @@ void Doodlebug::breed(Critter ***grid, int r_index, int c_index) {
 	if (stepsSurvived >= 8) {
 
 		// breed NORTH square
-
 		if (grid[r_index - 1][c_index] == nullptr && (r_index - 1) >= 0) {
 			grid[r_index - 1][c_index] = new Doodlebug(r_index-1, c_index);
 		}
@@ -140,11 +139,13 @@ void Doodlebug::breed(Critter ***grid, int r_index, int c_index) {
 		}
 
 		// breed SOUTH square
-
+		if (grid[r_index+1][c_index] == nullptr && (r_index + 1) < row) {
+			grid[r_index+1][c_index] = new Doodlebug(r_index+1, c_index);
+		}
 
 		// breed WEST square
-
-
+		if (grid[r_index][c_index-1] == nullptr && (c_index - 1) >= 0) {
+			grid[r_index][c_index-1] = new Doodlebug(r_index, c_index-1);
+		}
 	}
-
 }
