@@ -297,13 +297,15 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 							// move doodlebug
 							grid[row][col + 1] = grid[row][col];
 
+							// DEBUGGING - DELETE WHEN DONE
+							cout << "OLD Row " << getRow() << " Col " << getCol() << endl;
+
 							// update doodlebug row and col in doodlebug class
 							setRow( row );
 							setCol( col + 1 );
 
 							// DEBUGGING - DELETE WHEN DONE
-							cout << "OLD Row " << grid[row][col]->getRow() << " Col " << grid[row][col]->getCol() << endl;
-							cout << "NEW Row " << grid[row][col + 1]->getRow() << " Col " << grid[row][col + 1]->getCol() << endl;
+							cout << "NEW Row " << getRow() << " Col " << getCol() << endl;
 
 							// update doodlebug stepsSurvived counter in doodlebug class
 							setStepsSurvived();
