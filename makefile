@@ -1,68 +1,82 @@
+# Program Name: Group Project 1 - Predator Prey Game
 # File: 	makefile
 # Author: 	Kuljot Biring, Rachel Schlick, Ryan Gross, Sandro Aguilar, Jeesoo Ryoo
 # Date: 	February 2019
 # Description:	Makefile for Group Project
 
 # Variables to control Makefile operation
+
+# compiler
 CXX = g++
 
+# compiler flags
 CXXFLAGS = -Wall
 CXXFLAGS += -g
+CXXFLAGS += -c
 CXXFLAGS += -std=c++0x
+CXXFLAGS += -pedantic-errors
 
-OBJECTS = main.o
-OBJECTS += Game.o
-OBJECTS += Menu.o
-OBJECTS += Critter.o
-OBJECTS += Doodlebug.o
-OBJECTS += Ant.o
-OBJECTS += utils.o
+# source files
+CPPs = main.cpp
+CPPs += Critter.cpp
+CPPs += Ant.cpp
+CPPs += Doodlebug.cpp
+CPPs += Menu.cpp
+CPPs += Game.cpp
+CPPs += utils.cpp
 
+# header files
 HPPs = Ant.hpp
 HPPs += Game.hpp
 HPPs += Menu.hpp
 HPPs += Critter.hpp
 HPPs += Doodlebug.hpp
-HPPs += Ant.hpp
 HPPs += utils.hpp
 
-CPPs = main.cpp
-CPPs += Ant.cpp
-CPPs += Game.cpp
-CPPs += Menu.cpp
-CPPs += Critter.cpp
-CPPs += Doodlebug.cpp
-CPPs += Ant.cpp
-CPPs += utils.cpp
+# rule to construct names of .hpp.gch files from .hpp files
+# Note: .hpp.gch are the preprocessed header files
+HPPGCHs = $(HPPs:.hpp=.hpp.gch)
+
+# rule to construct names of .o files from .cpp files
+OBJECTS = $(CPPs:.cpp=.o)
+
+# executable file 
+EXE = predator-prey
 
 # Targets needed to bring the executable up to date
-predator-prey: $(OBJECTS)
-	$(CXX) $(CXXFLAGS) -o predator-prey $(OBJECTS)
+predator-prey : $(OBJECTS)
+	$(CXX) -o $(EXE) $(OBJECTS)
 
-main.o: main.cpp $(HPPs)
-	$(CXX) $(CXXFLAGS) -c main.cpp
+main.o : main.cpp $(HPPs) $(CPPs)
+	$(CXX) $(CXXFLAGS) main.cpp
 
-Ant.o: Ant.hpp
+Critter.o : Critter.cpp Critter.hpp 
+	$(CXX) $(CXXFLAGS) Critter.cpp
 
-Game.o: Game.cpp
+Ant.o : Ant.cpp Ant.hpp Critter.cpp Critter.hpp
+	$(CXX) $(CXXFLAGS) Ant.cpp
 
-Menu.o: Menu.cpp
+Game.o : $(HPPs) $(CPPs)
+	$(CXX) $(CXXFLAGS) $(CPPs)
 
-Critter: Critter.cpp
+Menu.o : Menu.cpp Menu.hpp
+	$(CXX) $(CXXFLAGS) Menu.cpp
 
-Doodlebug.o: Doodlebug.hpp
+Doodlebug.o : Doodlebug.cpp Doodlebug.hpp Critter.cpp Critter.hpp
+	$(CXX) $(CXXFLAGS) Doodlebug.hpp
 
-Ant.o: Ant.cpp
-
-Utils.o: utils.cpp
+Utils.o : utils.cpp utils.hpp
+	$(CXX) $(CXXFLAGS) utils.cpp
 
 
 # Clean-up operations
+.PHONY : clean
 clean:
-	rm predator-prey
+	rm -rf $(EXE) $(OBJECTS) $(HPPGCHs)
 
+.PHONY : debug
 debug:
 	valgrind -v --leak-check=full --show-leak-kinds=all --track-origins=yes ./predator-prey
-
+.PHONY : zip
 zip:
 	zip -D GroupProject_NAMES_HERE.zip $(CPPs) $(HPPs) $(TXTS) makefile *.txt *.pdf
