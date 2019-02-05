@@ -83,7 +83,7 @@ string Ant::getCritterType() {
 /*********************************************************************
 ** Description:     description
 *********************************************************************/
-void Ant::move(Critter ***grid) {
+void Ant::move(Critter ***grid, int ROW, int COL) {
     // for every time step, the ant randomly moves up, down,
 	// left, right. If the neighboring cell in the selected direction
 	// is occupied, or would move the ant off the grid, then the ant

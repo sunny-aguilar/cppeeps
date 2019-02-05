@@ -27,7 +27,7 @@ public:
     void setStepsSurvived() override;
     int getStepsSurvived() override;
     string getCritterType() override;
-    void move(Critter ***grid) override;
+    void move(Critter ***grid, int ROW, int COL) override;
     void setCritterMoved(bool moved) override;
     bool getCritterMoved() override;
     void breed(Critter ***grid, int row, int col) override;

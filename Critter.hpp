@@ -41,7 +41,7 @@ public:
     virtual void setStepsSurvived() = 0;
     virtual int getStepsSurvived() = 0;
     virtual string getCritterType() = 0;
-    virtual void move(Critter ***grid) = 0;
+    virtual void move(Critter ***grid, int ROW, int COL) = 0;
     virtual void setCritterMoved(bool moved) = 0;
     virtual bool getCritterMoved() = 0;
     virtual void breed(Critter ***grid, int row, int col) = 0;
