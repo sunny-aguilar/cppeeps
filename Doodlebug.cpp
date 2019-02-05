@@ -153,55 +153,61 @@ void Doodlebug::breed(Critter ***grid, int ROW, int COL) {
 		spaceAvailable[2] = false;
 	}
 	// WEST
-//	if (grid[r_index][c_index - 1] == nullptr && (c_index - 1) >= 0) {
-//		spaceAvailable[3] = true;
-//	}
-//	else {
-//		spaceAvailable[3] = false;
-//	}
+	if ((col - 1) >= 0 && grid[row][col - 1] == nullptr) {
+		spaceAvailable[3] = true;
+	}
+	else {
+		spaceAvailable[3] = false;
+	}
 
-	// generate a random number from 1 - 4
-	randomSelection = generateRandomNumber(1,4);
 
 
 	// select a random available square (where bool in array = true)
-//	int select = 0;
-//	int keepSearching = true;
-//	while (keepSearching) {
-//		if (spaceAvailable[randomSelection] == true) {
-//			select = randomSelection;
-//			keepSearching = false;
-//		}
-//	}
-//
-//	if (stepsSurvived >= 8) {
-//		switch (select) {
-//			case 1:
-//				// breed NORTH square
-//				if (grid[r_index - 1][c_index] == nullptr && (r_index - 1) >= 0) {
-//					grid[r_index - 1][c_index] = new Doodlebug(r_index - 1, c_index);
-//				}
-//				break;
-//			case 2:
-//				// breed EAST square
-//				if (grid[r_index][c_index + 1] == nullptr && (r_index + 1) < col) {
-//					grid[r_index][c_index + 1] = new Doodlebug(r_index, c_index + 1);
-//				}
-//				break;
-//			case 3:
-//				// breed SOUTH square
+	int select = 0;
+	int keepSearching = true;
+	while (keepSearching) {
+		// generate a random number from 1 - 4
+		randomSelection = generateRandomNumber(1,4);
+
+		if (spaceAvailable[0] == false && spaceAvailable[1] == false &&
+			spaceAvailable[2] == false && spaceAvailable[3] == false) {
+			keepSearching = false;
+			select = 5;
+		}
+		if (spaceAvailable[randomSelection] == true) {
+			select = randomSelection;
+			keepSearching = false;
+		}
+	}
+
+	if (stepsSurvived >= 8) {
+		switch (select) {
+			case 1:
+				// breed NORTH square
+				if ((row - 1) >= 0 && grid[row - 1][col] == nullptr) {
+					grid[row - 1][col] = new Doodlebug(row - 1, col);
+				}
+				break;
+			case 2:
+				// breed EAST square
+				if (grid[row][col + 1] == nullptr && (col + 1) < col) {
+					grid[row][col + 1] = new Doodlebug(row, col + 1);
+				}
+				break;
+			case 3:
+				// breed SOUTH square
 //				if (grid[r_index + 1][c_index] == nullptr && (r_index + 1) < row) {
 //					grid[r_index +1 ][c_index] = new Doodlebug(r_index + 1, c_index);
 //				}
-//				break;
-//			case 4:
-//				// breed WEST square
+				break;
+			case 4:
+				// breed WEST square
 //				if (grid[r_index][c_index - 1] == nullptr && (c_index - 1) >= 0) {
 //					grid[r_index][c_index - 1] = new Doodlebug(r_index, c_index - 1);
 //				}
-//				break;
-//			default:
-//				cout << "Unable to determine where to breed!\n";
-//		}
-//	}
+				break;
+			default:
+				cout << "Doodlebug unable to breed, all spaces occupied!\n";
+		}
+	}
 }
