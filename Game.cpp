@@ -159,8 +159,8 @@ void Game::initializeCritters() {
 
     // this functions adds the critters to the board in a non-random
     // fashion (only temporary, must place them randomly)
-    nonrandomPlacement();
-    //critterRandomPlacement();
+    //nonrandomPlacement();
+    critterRandomPlacement();
 
     // display the initial board
     displayBoard();
