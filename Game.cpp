@@ -51,7 +51,7 @@ void Game::playGame() {
     // menuDebugMode:
     // prompt to press enter before displaying board in each step. 
     menu.menuDebugMode();
-    isDebugMode = menu.inputValidator(1, 2);
+    isDebugMode = menu.inputValidator(1, 3);
 
     // display start menu
     menu.startMenu();
@@ -790,5 +790,3 @@ bool Game::goAgain() {
     // unused return value
     return false;
 }
-
-
