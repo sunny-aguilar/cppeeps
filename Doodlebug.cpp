@@ -139,7 +139,7 @@ void Doodlebug::breed(Critter ***grid, int r_index, int c_index) {
 		spaceAvailable[0] = false;
 	}
 	// EAST
-	if (grid[r_index][c_index + 1] == nullptr && (r_index + 1) < col) {
+	if (grid[r_index][c_index + 1] == nullptr && (c_index + 1) < col) {
 		spaceAvailable[1] = true;
 	}
 	else {
