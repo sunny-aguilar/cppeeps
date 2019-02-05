@@ -126,26 +126,82 @@ void Doodlebug::breed(Critter ***grid, int r_index, int c_index) {
 	// time step, it will spawn off a new doodlebug in the same manner
 	// as the ant (only bree into an adjacent empty cell)
 	cout << "Steps survived " << stepsSurvived << endl;
-	if (stepsSurvived >= 8) {
 
-		// breed NORTH square
-		if (grid[r_index - 1][c_index] == nullptr && (r_index - 1) >= 0) {
-			grid[r_index - 1][c_index] = new Doodlebug(r_index-1, c_index);
-		}
+	bool spaceAvailable[] = {false, false, false, false};
+	int randomSelection;
 
-		// breed EAST square
-		if (grid[r_index][c_index + 1] == nullptr && (r_index + 1) < row  ) {
-			grid[r_index][c_index + 1] = new Doodlebug(r_index, c_index+1);
-		}
-
-		// breed SOUTH square
-		if (grid[r_index+1][c_index] == nullptr && (r_index + 1) < row) {
-			grid[r_index+1][c_index] = new Doodlebug(r_index+1, c_index);
-		}
-
-		// breed WEST square
-		if (grid[r_index][c_index-1] == nullptr && (c_index - 1) >= 0) {
-			grid[r_index][c_index-1] = new Doodlebug(r_index, c_index-1);
-		}
+	// find which spaces are empty and set to TRUE in array
+	// NORTH
+	if (grid[r_index - 1][c_index] == nullptr && (r_index - 1) >= 0) {
+		spaceAvailable[0] = true;
 	}
+	else {
+		spaceAvailable[0] = false;
+	}
+	// EAST
+	if (grid[r_index][c_index + 1] == nullptr && (r_index + 1) < col) {
+		spaceAvailable[1] = true;
+	}
+	else {
+		spaceAvailable[1] = false;
+	}
+	// SOUTH
+//	if (grid[r_index + 1][c_index] == nullptr && (r_index + 1) < row) {
+//		spaceAvailable[2] = true;
+//	}
+//	else {
+//		spaceAvailable[2] = false;
+//	}
+	// WEST
+//	if (grid[r_index][c_index - 1] == nullptr && (c_index - 1) >= 0) {
+//		spaceAvailable[3] = true;
+//	}
+//	else {
+//		spaceAvailable[3] = false;
+//	}
+
+	// generate a random number from 1 - 4
+	randomSelection = generateRandomNumber(1,4);
+
+
+	// select a random available square (where bool in array = true)
+//	int select = 0;
+//	int keepSearching = true;
+//	while (keepSearching) {
+//		if (spaceAvailable[randomSelection] == true) {
+//			select = randomSelection;
+//			keepSearching = false;
+//		}
+//	}
+//
+//	if (stepsSurvived >= 8) {
+//		switch (select) {
+//			case 1:
+//				// breed NORTH square
+//				if (grid[r_index - 1][c_index] == nullptr && (r_index - 1) >= 0) {
+//					grid[r_index - 1][c_index] = new Doodlebug(r_index - 1, c_index);
+//				}
+//				break;
+//			case 2:
+//				// breed EAST square
+//				if (grid[r_index][c_index + 1] == nullptr && (r_index + 1) < col) {
+//					grid[r_index][c_index + 1] = new Doodlebug(r_index, c_index + 1);
+//				}
+//				break;
+//			case 3:
+//				// breed SOUTH square
+//				if (grid[r_index + 1][c_index] == nullptr && (r_index + 1) < row) {
+//					grid[r_index +1 ][c_index] = new Doodlebug(r_index + 1, c_index);
+//				}
+//				break;
+//			case 4:
+//				// breed WEST square
+//				if (grid[r_index][c_index - 1] == nullptr && (c_index - 1) >= 0) {
+//					grid[r_index][c_index - 1] = new Doodlebug(r_index, c_index - 1);
+//				}
+//				break;
+//			default:
+//				cout << "Unable to determine where to breed!\n";
+//		}
+//	}
 }

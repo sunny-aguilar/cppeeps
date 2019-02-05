@@ -9,6 +9,7 @@
 #ifndef CRITTER_HPP
 #define CRITTER_HPP
 
+#include "utils.hpp"
 #include <iostream>
 #include <string>
 using std::string;
