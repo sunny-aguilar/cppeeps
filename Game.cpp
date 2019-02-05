@@ -354,9 +354,11 @@ void Game::moveCritters(string critterType) {
 
     for (int r_index = 0; r_index < row; r_index++) {
         for (int c_index = 0; c_index < col; c_index++) {
-            if (board[r_index][c_index] != nullptr && board[r_index][c_index] ->getCritterType() == "X") {
+            if (board[r_index][c_index] != nullptr) {
 
-                board[r_index][c_index]->move(board, row, col);
+                if (board[r_index][c_index]->getCritterType() == critterType) {
+                    board[r_index][c_index]->move(board, row, col);
+                }
 
             }
         }
@@ -766,7 +768,7 @@ void Game::spawnDoodlebugs() {
     cout << "Spawning doodlebugs" << endl;
     for (int r_index = 0; r_index < row; r_index++) {
         for (int c_index = 0; c_index < col; c_index++) {
-            if (board[r_index][c_index] != nullptr && board[r_index][c_index] ->getCritterType() == "X") {
+            if (board[r_index][c_index] != nullptr && board[r_index][c_index]->getCritterType() == "X") {
 
                 board[r_index][c_index]->breed(board, row, col);
 
