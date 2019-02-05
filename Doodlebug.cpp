@@ -269,7 +269,7 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 							// update doodlebug stepsSurvived counter in doodlebug class
 							setStepsSurvived();
 							// DEBUGGING - DELETE WHEN DONE
-							cout << "Steps moved " << grid[row][0]->getStepsSurvived() << endl;
+							cout << "Steps moved " << getStepsSurvived() << endl;
 
 							// set old pointer to null
 							grid[row][col] = nullptr;
@@ -310,7 +310,7 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 							// update doodlebug stepsSurvived counter in doodlebug class
 							setStepsSurvived();
 							// DEBUGGING - DELETE WHEN DONE
-							cout << "Steps moved " << grid[row][col + 1]->getStepsSurvived() << endl;
+							cout << "Steps moved " << getStepsSurvived() << endl;
 
 							// set old pointer to null
 							grid[row][col] = nullptr;
