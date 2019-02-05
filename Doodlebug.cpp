@@ -121,7 +121,7 @@ bool Doodlebug::getCritterMoved() {
 /*********************************************************************
 ** Description:     description
 *********************************************************************/
-void Doodlebug::breed(Critter ***grid, int row, int col) {
+void Doodlebug::breed(Critter ***grid, int r_index, int c_index) {
 	// if a doodlebug survives for eight time steps, at the end of the
 	// time step, it will spawn off a new doodlebug in the same manner
 	// as the ant (only bree into an adjacent empty cell)
@@ -129,8 +129,19 @@ void Doodlebug::breed(Critter ***grid, int row, int col) {
 	if (stepsSurvived >= 8) {
 
 		// breed NORTH square
+
+		if (grid[r_index - 1][c_index] == nullptr && (r_index - 1) >= 0) {
+			grid[r_index - 1][c_index] = new Doodlebug(r_index-1, c_index);
+		}
+
 		// breed EAST square
+		if (grid[r_index][c_index + 1] == nullptr && (r_index + 1) < row  ) {
+			grid[r_index][c_index + 1] = new Doodlebug(r_index, c_index+1);
+		}
+
 		// breed SOUTH square
+
+
 		// breed WEST square
 
 
