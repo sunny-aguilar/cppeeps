@@ -178,7 +178,7 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 							// update doodlebug stepsSurvived counter in doodlebug class
 							setStepsSurvived();
 							// DEBUGGING - DELETE WHEN DONE
-							cout << "Steps moved by [" << row << "][" << col << "]" << getStepsSurvived() << endl;
+							cout << "Steps moved by [" << row << "][" << col << "] - " << getStepsSurvived() << endl;
 
 							// set old pointer to null
 							grid[row][col] = nullptr;
@@ -220,7 +220,7 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 							// update doodlebug stepsSurvived counter in doodlebug class
 							setStepsSurvived();
 							// DEBUGGING - DELETE WHEN DONE
-							cout << "Steps moved by [" << row << "][" << col << "]" << getStepsSurvived() << endl;
+							cout << "Steps moved by [" << row << "][" << col << "] - " << getStepsSurvived() << endl;
 
 							// delete old pointer here? I don't think so
 							// delete board[r_index][c_index];
@@ -269,7 +269,7 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 							// update doodlebug stepsSurvived counter in doodlebug class
 							setStepsSurvived();
 							// DEBUGGING - DELETE WHEN DONE
-							cout << "Steps moved by [" << row << "][" << col << "]" << getStepsSurvived() << endl;
+							cout << "Steps moved by [" << row << "][" << col << "] - " << getStepsSurvived() << endl;
 
 							// set old pointer to null
 							grid[row][col] = nullptr;
@@ -310,7 +310,7 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 							// update doodlebug stepsSurvived counter in doodlebug class
 							setStepsSurvived();
 							// DEBUGGING - DELETE WHEN DONE
-							cout << "Steps moved by [" << row << "][" << col << "]" << getStepsSurvived() << endl;
+							cout << "Steps moved by [" << row << "][" << col << "] - " << getStepsSurvived() << endl;
 
 							// set old pointer to null
 							grid[row][col] = nullptr;
