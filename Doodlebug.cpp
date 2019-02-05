@@ -102,6 +102,9 @@ void Doodlebug::move(Critter ***grid) {
 	// doodlebug stays in the current cell
 	// cout << "Doodlebug Row " << row << " Col " << col << endl;
 
+
+
+
 }
 
 /*********************************************************************
