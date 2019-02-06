@@ -342,178 +342,178 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 			break;
 		case DOWN: // get SOUTH square
 			{
-					if (row + 1 >= ROW) {  // if out of bounds SOUTH wall
-						if (grid[0][col] == nullptr) { // go to first row
+			    if (row + 1 >= ROW) {  // if out of bounds SOUTH wall
+			        if (grid[0][col] == nullptr) { // go to first row
 
-							// check if critter has already moved during time step
-							if (getCritterMoved()) {
-								// if critter already moved, do not move it again
-							}
-							else {
-								// DEBUGGING - DELETE WHEN DONE
-								cout <<  "Doodlebug move NORTH available, " << "Move to [" << 0 << "][" << col << "]" << endl;
+			            // check if critter has already moved during time step
+			            if (getCritterMoved()) {
+			                // if critter already moved, do not move it again
+			            }
+			            else {
+			                // DEBUGGING - DELETE WHEN DONE
+			                cout <<  "Doodlebug move NORTH available, " << "Move to [" << 0 << "][" << col << "]" << endl;
 
-								// set critter moved bool in Doodlebug to true
-								setCritterMoved(true);
+			                // set critter moved bool in Doodlebug to true
+			                setCritterMoved(true);
 
-                                // create new doodlebug
-                                Critter *temp = new Doodlebug(0, col);
+			                // create new doodlebug
+			                Critter *temp = new Doodlebug(0, col);
 
-								// move doodlebug
-								grid[0][col] = temp;
+			                // move doodlebug
+			                grid[0][col] = temp;
 
-                                grid[0][col]->setCritterMoved(true);
+			                grid[0][col]->setCritterMoved(true);
 
-								// update doodlebug row and col in doodlebug class
-								//setRow( 0 );
-								//setCol( col );
+			                // update doodlebug row and col in doodlebug class
+			                //setRow( 0 );
+			                //setCol( col );
 
-								// DEBUGGING - DELETE WHEN DONE
-								cout << "OLD Row " << getRow() << " Col " << getCol() << endl;
-								cout << "NEW Row " << grid[0][col]->getRow() << " Col " << grid[0][col]->getCol() << endl;
+			                // DEBUGGING - DELETE WHEN DONE
+			                cout << "OLD Row " << getRow() << " Col " << getCol() << endl;
+			                cout << "NEW Row " << grid[0][col]->getRow() << " Col " << grid[0][col]->getCol() << endl;
 
-								// update doodlebug stepsSurvived counter in doodlebug class
-								setStepsSurvived();
-								// DEBUGGING - DELETE WHEN DONE
-								cout << "Steps moved " << grid[0][col]->getStepsSurvived() << endl;
+			                // update doodlebug stepsSurvived counter in doodlebug class
+			                setStepsSurvived();
+			                // DEBUGGING - DELETE WHEN DONE
+			                cout << "Steps moved " << grid[0][col]->getStepsSurvived() << endl;
 
-								// set old pointer to null
-								temp = nullptr;
-								grid[row][col] = nullptr;
-							}
-						}
-						else {
-							// DEBUGGING - DELETE WHEN DONE
-							cout << "Doodlebug move SOUTH " << "[" << row << "][" << col << "]" << " unavailable\n";
-						}
-					}
-					else {
-						if (grid[row + 1][col] == nullptr) {
+			                // set old pointer to null
+			                temp = nullptr;
+			                grid[row][col] = nullptr;
+			            }
+			        }
+			        else {
+			            // DEBUGGING - DELETE WHEN DONE
+			            cout << "Doodlebug move SOUTH " << "[" << row << "][" << col << "]" << " unavailable\n";
+			        }
+			    }
+			    else {
+			        if (grid[row + 1][col] == nullptr) {
 
-							// check if critter has already moved during time step
-							if (getCritterMoved()) {
-								// if critter already moved, do not move it again
-							}
-							else {
-								// DEBUGGING - DELETE WHEN DONE
-								cout << "Doodlebug move SOUTH available, " << "Move to [" << row + 1 << "][" << col << "]" << endl;
+			            // check if critter has already moved during time step
+			            if (getCritterMoved()) {
+			                // if critter already moved, do not move it again
+			            }
+			            else {
+			                // DEBUGGING - DELETE WHEN DONE
+			                cout << "Doodlebug move SOUTH available, " << "Move to [" << row + 1 << "][" << col << "]" << endl;
 
-								// set critter moved bool in Doodlebug (must set bool before moving)
-								//setCritterMoved(true);
+			                // set critter moved bool in Doodlebug (must set bool before moving)
+			                //setCritterMoved(true);
 
-                                // create new doodlebug
-                                Critter *temp = new Doodlebug(row + 1, col);
+			                // create new doodlebug
+			                Critter *temp = new Doodlebug(row + 1, col);
 
-								// move doodlebug
-								grid[row + 1][col] = temp;
+			                // move doodlebug
+			                grid[row + 1][col] = temp;
 
-                                grid[row + 1][col]->setCritterMoved(true);
+			                grid[row + 1][col]->setCritterMoved(true);
 
-								// update doodlebug row and col in doodlebug class
-								//setRow( row + 1 );
-								//setCol( col );
+			                // update doodlebug row and col in doodlebug class
+			                //setRow( row + 1 );
+			                //setCol( col );
 
-								// DEBUGGING - DELETE WHEN DONE
-								cout << "OLD Row " << getRow() << " Col " << getCol() << endl;
-								cout << "NEW Row " << grid[row + 1][col]->getRow() << " Col " << grid[row + 1][col]->getCol() << endl;
+			                // DEBUGGING - DELETE WHEN DONE
+			                cout << "OLD Row " << getRow() << " Col " << getCol() << endl;
+			                cout << "NEW Row " << grid[row + 1][col]->getRow() << " Col " << grid[row + 1][col]->getCol() << endl;
 
-								// update doodlebug stepsSurvived counter in doodlebug class
-								setStepsSurvived();
-								// DEBUGGING - DELETE WHEN DONE
-								cout << "Steps moved " << grid[row + 1][col]->getStepsSurvived() << endl;
+			                // update doodlebug stepsSurvived counter in doodlebug class
+			                setStepsSurvived();
+			                // DEBUGGING - DELETE WHEN DONE
+			                cout << "Steps moved " << grid[row + 1][col]->getStepsSurvived() << endl;
 
-								// set old pointer to null
-								temp = nullptr;
-								grid[row][col] = nullptr;
-							}
-						}
-						else {
-							// DEBUGGING - DELETE WHEN DONE
-							cout << "Doodlebug move SOUTH " << "[" << row << "][" << col << "]" << " unavailable\n";
-						}
-					}
+			                // set old pointer to null
+			                temp = nullptr;
+			                grid[row][col] = nullptr;
+			            }
+			        }
+			        else {
+			            // DEBUGGING - DELETE WHEN DONE
+			            cout << "Doodlebug move SOUTH " << "[" << row << "][" << col << "]" << " unavailable\n";
+			        }
+			    }
 			}
 			break;
 		case LEFT: // get WEST square
 			{
-//					if ( (col - 1) < 0 ) {  // if out of bounds WEST wall
-//						if (grid[row][col - 1] == nullptr) {   // go to last col
-//
-//							// check if critter has already moved during time step
-//							if (getCritterMoved()) {
-//								// if critter already moved, do not move it again
-//							}
-//							else {
-//								// DEBUGGING - DELETE WHEN DONE
-//								cout << critter << " move WEST available, " << "Move to [" << row << "][" << col - 1 << "]" << endl;
-//
-//								// set critter moved bool in Doodlebug to true
-//								setCritterMoved(true);
-//
-//								// move doodlebug to last column
-//								grid[row][col - 1] = grid[row][col];
-//
-//								// update doodlebug row and col in doodlebug class
-//								setRow( row );
-//								setCol( col - 1 );
-//
-//								// DEBUGGING - DELETE WHEN DONE
-//								cout << "OLD Row " << getRow() << " Col " << getCol() << endl;
-//								cout << "NEW Row " << grid[row][col - 1]->getRow() << " Col " << grid[row][col - 1]->getCol() << endl;
-//
-//								// update doodlebug stepsSurvived counter in doodlebug class
-//								setStepsSurvived();
-//								// DEBUGGING - DELETE WHEN DONE
-//								cout << "Steps moved " << grid[row][col - 1]->getStepsSurvived() << endl;
-//
-//								// set old pointer to null
-//								grid[row][col] = nullptr;
-//							}
-//						}
-//						else {
-//							// DEBUGGING - DELETE WHEN DONE
-//							cout << critter << " move WEST " << "[" << row << "][" << col << "]" << " unavailable\n";
-//						}
-//					}
-//					else {
-//						if (grid[row][col - 1] == nullptr) {
-//
-//							// check if critter has already moved during time step
-//							if (getCritterMoved()) {
-//								// if critter already moved, do not move it again
-//							}
-//							else {
-//								// DEBUGGING - DELETE WHEN DONE
-//								cout << critter << " move WEST available, " << "Move to [" << row << "][" << col - 1 << "]" << endl;
-//
-//								// set critter moved bool in Doodlebug (must set bool before moving)
-//								setCritterMoved(true);
-//
-//								// move doodlebug
-//								grid[row][col - 1] = grid[row][col];
-//
-//								// update doodlebug row and col in doodlebug class
-//								setRow( row );
-//								setCol( col - 1 );
-//
-//								// DEBUGGING - DELETE WHEN DONE
-//								cout << "OLD Row " << getRow() << " Col " << getCol() << endl;
-//								cout << "NEW Row " << grid[row][col - 1]->getRow() << " Col " << grid[row][col - 1]->getCol() << endl;
-//
-//								// update doodlebug stepsSurvived counter in doodlebug class
-//								setStepsSurvived();
-//								// DEBUGGING - DELETE WHEN DONE
-//								cout << "Steps moved " << grid[row][col - 1]->getStepsSurvived() << endl;
-//
-//								// set old pointer to null
-//								grid[row][col] = nullptr;
-//							}
-//						}
-//						else {
-//							// DEBUGGING - DELETE WHEN DONE
-//							cout << critter << " move WEST " << "[" << row << "][" << col << "]" << " unavailable\n";
-//						}
-//					}
+					if ( (col - 1) < 0 ) {  // if out of bounds WEST wall
+						if (grid[row][col - 1] == nullptr) {   // go to last col
+
+							// check if critter has already moved during time step
+							if (getCritterMoved()) {
+								// if critter already moved, do not move it again
+							}
+							else {
+								// DEBUGGING - DELETE WHEN DONE
+								cout << critter << " move WEST available, " << "Move to [" << row << "][" << col - 1 << "]" << endl;
+
+								// set critter moved bool in Doodlebug to true
+								setCritterMoved(true);
+
+								// move doodlebug to last column
+								grid[row][col - 1] = grid[row][col];
+
+								// update doodlebug row and col in doodlebug class
+								setRow( row );
+								setCol( col - 1 );
+
+								// DEBUGGING - DELETE WHEN DONE
+								cout << "OLD Row " << getRow() << " Col " << getCol() << endl;
+								cout << "NEW Row " << grid[row][col - 1]->getRow() << " Col " << grid[row][col - 1]->getCol() << endl;
+
+								// update doodlebug stepsSurvived counter in doodlebug class
+								setStepsSurvived();
+								// DEBUGGING - DELETE WHEN DONE
+								cout << "Steps moved " << grid[row][col - 1]->getStepsSurvived() << endl;
+
+								// set old pointer to null
+								grid[row][col] = nullptr;
+							}
+						}
+						else {
+							// DEBUGGING - DELETE WHEN DONE
+							cout << critter << " move WEST " << "[" << row << "][" << col << "]" << " unavailable\n";
+						}
+					}
+					else {
+						if (grid[row][col - 1] == nullptr) {
+
+							// check if critter has already moved during time step
+							if (getCritterMoved()) {
+								// if critter already moved, do not move it again
+							}
+							else {
+								// DEBUGGING - DELETE WHEN DONE
+								cout << critter << " move WEST available, " << "Move to [" << row << "][" << col - 1 << "]" << endl;
+
+								// set critter moved bool in Doodlebug (must set bool before moving)
+								setCritterMoved(true);
+
+								// move doodlebug
+								grid[row][col - 1] = grid[row][col];
+
+								// update doodlebug row and col in doodlebug class
+								setRow( row );
+								setCol( col - 1 );
+
+								// DEBUGGING - DELETE WHEN DONE
+								cout << "OLD Row " << getRow() << " Col " << getCol() << endl;
+								cout << "NEW Row " << grid[row][col - 1]->getRow() << " Col " << grid[row][col - 1]->getCol() << endl;
+
+								// update doodlebug stepsSurvived counter in doodlebug class
+								setStepsSurvived();
+								// DEBUGGING - DELETE WHEN DONE
+								cout << "Steps moved " << grid[row][col - 1]->getStepsSurvived() << endl;
+
+								// set old pointer to null
+								grid[row][col] = nullptr;
+							}
+						}
+						else {
+							// DEBUGGING - DELETE WHEN DONE
+							cout << critter << " move WEST " << "[" << row << "][" << col << "]" << " unavailable\n";
+						}
+					}
 			}
 			break;
 		default:
