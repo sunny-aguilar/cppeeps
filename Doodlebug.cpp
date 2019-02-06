@@ -152,7 +152,7 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 							cout << "Doodlebug move NORTH available, " << "Move to [" << ROW - 1 << "][" << col << "]" << endl;
 
 							// set critter moved bool in Doodlebug to true
-							setCritterMoved(true);
+							//setCritterMoved(true);
 
 							// create new doodlebug
                             Critter *temp = new Doodlebug(ROW-1, col);
@@ -202,7 +202,7 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 							cout << "Doodlebug move NORTH available, " << "Move to [" << row - 1 << "][" << col << "]" << endl;
 
 							// set critter moved bool in Doodlebug (must set bool before moving)
-							setCritterMoved(true);
+							//setCritterMoved(true);
 
                             // create new doodlebug
                             Critter *temp = new Doodlebug(row-1, col);
@@ -256,7 +256,7 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 							cout << "Doodlebug move EAST available, " << "Move to [" << row << "][" << 0 << "]" << endl;
 
 							// set critter moved bool in Doodlebug to true
-							setCritterMoved(true);
+							//setCritterMoved(true);
 
                             // create new doodlebug
                             Critter *temp = new Doodlebug(row, 0);
@@ -304,7 +304,7 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 							cout <<  "Doodlebug move EAST available, " << "Move to [" << row << "][" << col + 1 << "]" << endl;
 
 							// set critter moved bool in Doodlebug (must set bool before moving)
-							setCritterMoved(true);
+							//setCritterMoved(true);
 
                             // create new doodlebug
                             Critter *temp = new Doodlebug(row, col + 1);
@@ -356,7 +356,7 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 			                cout <<  "Doodlebug move NORTH available, " << "Move to [" << 0 << "][" << col << "]" << endl;
 
 			                // set critter moved bool in Doodlebug to true
-			                setCritterMoved(true);
+			                //setCritterMoved(true);
 
 			                // create new doodlebug
 			                Critter *temp = new Doodlebug(0, col);
@@ -452,7 +452,7 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 								cout << "Doodlebug move WEST available, " << "Move to [" << row << "][" << col - 1 << "]" << endl;
 
 								// set critter moved bool in Doodlebug to true
-								setCritterMoved(true);
+								//setCritterMoved(true);
 
                                 // create new doodlebug
                                 Critter *temp = new Doodlebug(row, col - 1);
@@ -498,7 +498,7 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 								cout << "Doodlebug move WEST available, " << "Move to [" << row << "][" << col - 1 << "]" << endl;
 
 								// set critter moved bool in Doodlebug (must set bool before moving)
-								setCritterMoved(true);
+								//setCritterMoved(true);
 
                                 // create new doodlebug
                                 Critter *temp = new Doodlebug(row, col - 1);
