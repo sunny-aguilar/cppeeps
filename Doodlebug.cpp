@@ -93,7 +93,21 @@ void Doodlebug::eat(Critter *bug) {
 }
 
 /*********************************************************************
-** Description:     description
+** Description:     this function takes the type of critter to move
+**                  as a string parameter. This allows the function
+**                  to select the right type of critter to move. "X"
+**                  will move the doodlebugs and "O" will move the
+**                  ants. Two for-loops are used to iterate through
+**                  the board. If the space on the board is not empty,
+**                  then a random number from 1-4 will be generated to
+**                  select the direction to move the critter (1=NORTH,
+**                  2=EAST, 3=SOUTH, 4=WEST). A switch statement is
+**                  then used to move the critter in the randomly
+**                  selected direction. The critters are moved around
+**                  the board PACMAN style which is consistent with
+**                  keeping the boards on the grid. If the selected
+**                  direction is already occupied, then the critter
+**                  does not move (consistent with specifications).
 *********************************************************************/
 void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 	// for every time step, the doodlebug randomly moves up, down,
