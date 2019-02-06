@@ -93,15 +93,15 @@ void Doodlebug::eat(Critter *bug) {
 }
 
 /*********************************************************************
-** Description:     this function takes the type of critter to move
-**                  as a string parameter. This allows the function
-**                  to select the right type of critter to move. "X"
-**                  will move the doodlebugs and "O" will move the
-**                  ants. Two for-loops are used to iterate through
-**                  the board. If the space on the board is not empty,
-**                  then a random number from 1-4 will be generated to
-**                  select the direction to move the critter (1=NORTH,
-**                  2=EAST, 3=SOUTH, 4=WEST). A switch statement is
+** Description:     this function takes the board pointer and total
+**                  rows and columns as parameters to iterate through
+**                  the board and find an open square where a critter
+**                  can move to. This allows the function to
+**                  select the right type of critter to move. If the
+**                  space on the board is not empty, then a random
+**                  number from 1-4 will be generated to select
+**                  the direction to move the critter (1=UP,
+**                  2=RIGHT, 3=DOWN, 4=LEFT). A switch statement is
 **                  then used to move the critter in the randomly
 **                  selected direction. The critters are moved around
 **                  the board PACMAN style which is consistent with
@@ -114,10 +114,7 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 	// left, right. If the neighboring cell in the selected direction
 	// is occupied, or would move the ant off the grid, then the
 	// doodlebug stays in the current cell
-	// cout << "Doodlebug Row " << row << " Col " << col << endl;
 
-
-	// move critter by iterating through board
 	// generate a random direction to move critter
 	int direction;
 	direction = generateRandomNumber(1,4);
