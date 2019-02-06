@@ -358,6 +358,7 @@ void Game::moveCritters(string critterType) {
 
                 if (board[r_index][c_index]->getCritterType() == critterType) {
                     board[r_index][c_index]->move(board, row, col);
+                    cout << "Address held by old pointer in game : " << board[r_index][c_index] << endl;
                 }
 
             }

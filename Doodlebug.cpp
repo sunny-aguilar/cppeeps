@@ -205,7 +205,9 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 							setCritterMoved(true);
 
 							// move doodlebug
+                            cout << "Address held by new pointer in doodle : " << grid[row - 1][col] << endl;
 							grid[row - 1][col] = grid[row][col];
+                            cout << "Address held by new pointer after : " << grid[row - 1][col] << endl;
 
 							// DEBUGGING - DELETE WHEN DONE
 							cout << "OLD Row " << getRow() << " Col " << getCol() << endl;
