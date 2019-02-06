@@ -354,12 +354,9 @@ void Game::moveCritters(string critterType) {
 
     for (int r_index = 0; r_index < row; r_index++) {
         for (int c_index = 0; c_index < col; c_index++) {
-            if (board[r_index][c_index] != nullptr) {
+            if (board[r_index][c_index] != nullptr && board[r_index][c_index]->getCritterType() == critterType) {
 
-                if (board[r_index][c_index]->getCritterType() == critterType) {
                     board[r_index][c_index]->move(board, row, col);
-                    //cout << "Address held by old pointer in game : " << board[r_index][c_index] << endl;
-                }
 
             }
         }
