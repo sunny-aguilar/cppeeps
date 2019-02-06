@@ -38,7 +38,7 @@ public:
     Game();
     ~Game();
     void playGame();
-    void setCritters();
+    void setCritters(int);
     void initializeCritters();
     void nonrandomPlacement();
     void critterRandomPlacement();
