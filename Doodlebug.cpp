@@ -411,13 +411,13 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 			                //cout << "Doodlebug move WEST available, " << "Move to [" << row << "][" << col - 1 << "]" << endl;
 
 			                // create new doodlebug
-			                Critter *temp = new Doodlebug(row, col - 1);
+			                Critter *temp = new Doodlebug(row, COL - 1);
 
 			                // move doodlebug to last column
-			                grid[row][col - 1] = temp;
+			                grid[row][COL - 1] = temp;
 
 			                // set critter moved bool in Doodlebug to true
-			                grid[row][col - 1]->setCritterMoved(true);
+			                grid[row][COL - 1]->setCritterMoved(true);
 
 			                // DEBUGGING - DELETE WHEN DONE
 			                //cout << "OLD Row " << getRow() << " Col " << getCol() << endl;
