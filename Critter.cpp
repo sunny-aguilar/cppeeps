@@ -5,6 +5,9 @@
 ** Date:            02/17/2019
 ** Description:     Critter class description here
 *********************************************************************/
+
+#include <iostream>
+
 #include "Critter.hpp"
 
 #include <iostream>
@@ -56,7 +59,7 @@ void Critter::setCritterMoved(bool moved) { this->critterMoved = moved; }
 /***************************************************************************
 ** Description: A function to move a critter from current cell to new cell.
 ** 							1. current cell: grid[row][col]
-** 							1. new cell: grid[newRow][newCol]
+** 							2. new cell: grid[newRow][newCol]
 ** 							after move critter, set current location as null pointer,
 ** 							then set 'row' and 'col' value, which indication current location
 ** 							to 'newRow' and 'newCol' value.
