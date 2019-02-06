@@ -441,7 +441,7 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 		case LEFT: // get WEST square
 			{
 					if ( (col - 1) < 0 ) {  // if out of bounds WEST wall
-						if (grid[row][col - 1] == nullptr) {   // go to last col
+						if (grid[row][COL - 1] == nullptr) {   // go to last col
 
 							// check if critter has already moved during time step
 							if (getCritterMoved()) {
