@@ -38,13 +38,14 @@ public:
     Game();
     ~Game();
     void playGame();
-    void setCritters();
+    void setCritters(int);
     void initializeCritters();
     void nonrandomPlacement();
     void critterRandomPlacement();
     void critterActivities(int cstep);
     void eatAnts();
     void moveDoodlebugs();
+    void starvedDoodlebugs();
     void moveAnts();
     void moveCritters(string critterType);
     void spawnDoodlebugs();
