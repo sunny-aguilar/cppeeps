@@ -161,6 +161,9 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 							// set critter moved bool in Doodlebug to true
 							setCritterMoved(true);
 
+							// create new doodlebug
+                            grid[row - 1][col] = temp;
+
 							// move doodlebug
 							grid[ROW - 1][col] = grid[row][col];
 
