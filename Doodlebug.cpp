@@ -104,11 +104,6 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 
 
 	// move critter by iterating through board
-
-
-	// DELETE COUT STMT
-	cout << "Doodlebug selected to move \n";
-
 	// generate a random direction to move critter
 	int direction;
 	direction = generateRandomNumber(1,4);
@@ -149,9 +144,7 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 
 						// check if critter has already moved during time step
 						if (getCritterMoved()) {
-							cout << "Did critter move already? " << getCritterMoved() << endl;
 							// if critter already moved, do not move it again
-
 						}
 						else {
 							// DEBUGGING - DELETE WHEN DONE
@@ -162,18 +155,18 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 							setCritterMoved(true);
 
 							// create new doodlebug
-                            grid[row - 1][col] = temp;
+                            Critter *temp = new Doodlebug(ROW-1, col);
 
 							// move doodlebug
-							grid[ROW - 1][col] = grid[row][col];
+							grid[ROW - 1][col] = temp;
 
 
 							// DEBUGGING - DELETE WHEN DONE
 							cout << "OLD Row " << getRow() << " Col " << getCol() << endl;
 
 							// update doodlebug row and col in doodlebug class
-							setRow( ROW - 1 );
-							setCol( col );
+							//setRow( ROW - 1 );
+							//setCol( col );
 
 							// DEBUGGING - DELETE WHEN DONE
 							cout << "NEW Row " << getRow() << " Col " << getCol() << endl;
@@ -184,6 +177,8 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 							cout << "Steps moved by [" << row << "][" << col << "] - " << getStepsSurvived() << endl;
 
 							// set old pointer to null
+                            //delete temp;
+                            temp = nullptr;
 							grid[row][col] = nullptr;
 						}
 					}
@@ -207,17 +202,19 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 							// set critter moved bool in Doodlebug (must set bool before moving)
 							setCritterMoved(true);
 
+                            // create new doodlebug
+                            Critter *temp = new Doodlebug(row-1, col);
+
 							// move doodlebug
-                            cout << "Address held by new pointer in doodle : " << grid[row - 1][col] << endl;
-							grid[row - 1][col] = grid[row][col];
-                            cout << "Address held by new pointer after : " << grid[row - 1][col] << endl;
+							grid[row - 1][col] = temp;
+
 
 							// DEBUGGING - DELETE WHEN DONE
 							cout << "OLD Row " << getRow() << " Col " << getCol() << endl;
 
 							// update doodlebug row and col in doodlebug class
-							setRow( row - 1 );
-							setCol( col );
+							//setRow( row - 1 );
+							//setCol( col );
 
 							// DEBUGGING - DELETE WHEN DONE
 							cout << "NEW Row " << getRow() << " Col " << getCol() << endl;
@@ -231,6 +228,7 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 							// delete board[r_index][c_index];
 
 							// set old pointer to null
+                            temp = nullptr;
 							grid[row][col] = nullptr;
 						}
 					}
@@ -257,16 +255,19 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 							// set critter moved bool in Doodlebug to true
 							setCritterMoved(true);
 
+                            // create new doodlebug
+                            Critter *temp = new Doodlebug(row, 0);
+
 							// move doodlebug
-							grid[row][0] = grid[row][col];
+							grid[row][0] = temp;
 
 
 							// DEBUGGING - DELETE WHEN DONE
 							cout << "OLD Row " << getRow() << " Col " << getCol() << endl;
 
 							// update doodlebug row and col in doodlebug class
-							setRow( row );
-							setCol( 0 );
+							//setRow( row );
+							//setCol( 0 );
 
 							// DEBUGGING - DELETE WHEN DONE
 							cout << "NEW Row " << getRow() << " Col " << getCol() << endl;
@@ -277,6 +278,7 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 							cout << "Steps moved by [" << row << "][" << col << "] - " << getStepsSurvived() << endl;
 
 							// set old pointer to null
+							temp = nullptr;
 							grid[row][col] = nullptr;
 						}
 					}
@@ -299,15 +301,18 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 							// set critter moved bool in Doodlebug (must set bool before moving)
 							setCritterMoved(true);
 
+                            // create new doodlebug
+                            Critter *temp = new Doodlebug(row, col + 1);
+
 							// move doodlebug
-							grid[row][col + 1] = grid[row][col];
+							grid[row][col + 1] = temp;
 
 							// DEBUGGING - DELETE WHEN DONE
 							cout << "OLD Row " << getRow() << " Col " << getCol() << endl;
 
 							// update doodlebug row and col in doodlebug class
-							setRow( row );
-							setCol( col + 1 );
+							//setRow( row );
+							//setCol( col + 1 );
 
 							// DEBUGGING - DELETE WHEN DONE
 							cout << "NEW Row " << getRow() << " Col " << getCol() << endl;
@@ -318,6 +323,7 @@ void Doodlebug::move(Critter ***grid, int ROW, int COL) {
 							cout << "Steps moved by [" << row << "][" << col << "] - " << getStepsSurvived() << endl;
 
 							// set old pointer to null
+							temp = nullptr;
 							grid[row][col] = nullptr;
 						}
 					}

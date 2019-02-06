@@ -159,8 +159,8 @@ void Game::initializeCritters() {
 
     // this functions adds the critters to the board in a non-random
     // fashion (only temporary, must place them randomly)
-    //nonrandomPlacement();
-    critterRandomPlacement();
+    nonrandomPlacement();
+    //critterRandomPlacement();
 
     // display the initial board
     displayBoard();
@@ -358,7 +358,7 @@ void Game::moveCritters(string critterType) {
 
                 if (board[r_index][c_index]->getCritterType() == critterType) {
                     board[r_index][c_index]->move(board, row, col);
-                    cout << "Address held by old pointer in game : " << board[r_index][c_index] << endl;
+                    //cout << "Address held by old pointer in game : " << board[r_index][c_index] << endl;
                 }
 
             }
