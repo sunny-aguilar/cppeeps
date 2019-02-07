@@ -13,7 +13,7 @@
 class Doodlebug : public Critter
 {
 private:
-
+    int stepsStarved;
 protected:
 
 public:
@@ -22,9 +22,10 @@ public:
     ~Doodlebug();
     void setStepsSurvived() override;
     int getStepsSurvived() override;
-    void eat(Critter *ant);
-    void move(Critter ***&grid, int ROW, int COL) override;
+    void eat(Critter ***&grid);
+    void move(Critter ***&grid, int gridROW, int gridCOL) override;
     void breed(Critter ***&grid, int row, int col) override;
+    void checkAdjacentCells(Critter ***&grid, int gridROW, int gridCOL);
 };
 
 #endif // DOODLEBUG_HPP

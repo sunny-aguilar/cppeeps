@@ -27,26 +27,36 @@ protected:
     int critterBred;
     int readyToBreed;
     bool critterMoved;
-    int row;
-    int col;
-    void makeStepTo(int newRow, int newCol, Critter ***&grid);
+    int row, col, newRow, newCol;
+    void makeStepToNewCell(Critter ***&grid);
 
 public:
     Critter();
     Critter(string type, int row, int col);
     virtual  ~Critter();
+
     int getRow();
-    int getCol();
     void setRow(int row);
+
+    int getCol();
     void setCol(int col);
+
+    void setNewRow(int row);
+    int getNewRow();
+
+    void setNewCol(int col);
+    int getNewCol();
+
     bool getCritterMoved();
     void setCritterMoved(bool moved);
     string getCritterType();
 
     virtual void setStepsSurvived() = 0;
     virtual int getStepsSurvived() = 0;
+
     virtual void move(Critter ***&grid, int ROW, int COL) = 0;
     virtual void breed(Critter ***&grid, int row, int col) = 0;
+    void setNewRowColByDirection(int direction, int gridROW, int gridCOL);
 };
 
 #endif //CRITTER_HPP

@@ -19,6 +19,7 @@ Doodlebug::Doodlebug() : Critter() {}
 Doodlebug::Doodlebug(int row, int col) : Critter{"X", row, col}
 {
 	// this is being used for debugging - DELETE AFTER DEBUGGED
+	stepsStarved = 0;
 	static int num = 1;
 	cout << "Doodlebug #" << num << " created on Board[" << row << "][" << col << "]" << endl;
 	num++;
@@ -49,10 +50,16 @@ int Doodlebug::getStepsSurvived() {
 /*********************************************************************
 ** Description:     description
 *********************************************************************/
-void Doodlebug::eat(Critter *bug) {
-	// if (bug->getCritterType() == "O") {
-		// logic to show that ant has been eaten
-	// }
+void Doodlebug::eat(Critter ***&grid) {
+	if (grid[newRow][newCol] == nullptr) { return ; }
+
+	if (grid[newRow][newCol]->getCritterType() == "O") {
+		// DEBUG
+		cout << "\nEAT the ant at: " << newRow << ", " << newCol  << "\n\n";
+		delete grid[newRow][newCol];
+		grid[newRow][newCol] = nullptr;
+		stepsStarved = 0;
+	}
 }
 
 /*********************************************************************
@@ -73,14 +80,14 @@ void Doodlebug::eat(Critter *bug) {
 **                  does not move (consistent with specifications).
 *********************************************************************/
 void Doodlebug::move(Critter ***&grid, int gridROW, int gridCOL) {
+	if (this->getCritterMoved()) { return ; }
+
 	// for every time step, the doodlebug randomly moves up, down,
 	// left, right. If the neighboring cell in the selected direction
 	// is occupied, or would move the ant off the grid, then the
 	// doodlebug stays in the current cell
 
-	// generate a random direction to move critter
-	int direction;
-	direction = generateRandomNumber(1,4);
+	checkAdjacentCells(grid, gridROW, gridCOL);
 
 	// // use switch statement to display which direction critter went
 	// // DEBUGGING, DELETE THIS SWITCH STMT BEFORE SUBMITTING
@@ -101,48 +108,58 @@ void Doodlebug::move(Critter ***&grid, int gridROW, int gridCOL) {
 	// 		cout << "\nUnable to get direction to move to!\n";
 	// }
 
-	// cout << "Random direction generated " << direction << endl;
+	stepsStarved++;
+	eat(grid);
+	makeStepToNewCell(grid);
 
-	// use switch statement to move critter based on random number generated
-	// NOTES:
-	// row = specific doodle row
-	// gridROW = max ROW size
-	switch (direction) {
-		case UP: // get NORTH square
-			// if out of bounds NORTH wall, stay at current location
-			if (row == 0) { 
-				makeStepTo(gridROW - 1, col, grid);
-			} else {
-				makeStepTo(row - 1, col, grid);
+	// DEBUG
+	// cout << "stepsStarved: " << stepsStarved << endl;
+}
+
+/*********************************************************************
+** Description: A function that checks 4 adjacent cells.
+** 							firstly try to move to an adjacent cell containing 
+** 							an ant. If the cell contains the Ant, it sets the
+** 							newRow and newCol values and terminate the function.
+** 							If there are no ants in adjacent cells, it sets 
+** 							newCol/newRow values to the random dirction selected
+** 							in the very last order
+*********************************************************************/
+void Doodlebug::checkAdjacentCells(Critter ***&grid, int gridROW, int gridCOL) {
+	// to track which cell has been selected randomly,
+	// to avoid repeating the process.
+	int selectionRecord[4] = { 0, 0, 0, 0 };
+
+	// repeat until one animal give a birth, or all animal has been selected.
+	do {
+
+		// if the direction has not been selected before,
+		if (!selectionRecord[direction - 1]) {
+			// calculate the newRow and newCol value
+			int direction = generateRandomNumber(4);
+			setNewRowColByDirection(direction, gridROW, gridCOL);
+
+			// if the cell contains Ant, return direction value
+			if (grid[newRow][newCol] != nullptr) {
+				if (grid[newRow][newCol]->getCritterType() == "O") {
+					// DEBUG
+					// cout << "Selected Direction selected: " << direction;
+					return ;
+				}
 			}
-			break;
-		case RIGHT: // get EAST square
-			// if out of bounds EAST wall, stay
-			if ( col == gridCOL - 1 ) {
-				makeStepTo(row, 0, grid);
-			} else {
-				makeStepTo(row, col + 1, grid);
-			}
-			break;
-		case DOWN: // get SOUTH square
-			// if out of bounds SOUTH wall
-			if (row == gridROW - 1) {
-				makeStepTo(0, col, grid);
-			} else {
-				makeStepTo(row + 1, col, grid);
-			}
-			break;
-		case LEFT: // get WEST square
-			// if out of bounds WEST wall
-			if (col == 0) {
-				makeStepTo(row, gridCOL - 1, grid);
-			} else {
-				makeStepTo(row, col - 1, grid);
-			}
-			break;
-		default:
-			cout << "Unable to determine direction to move!\n";
-	}
+
+			// if the cell is empty or doodlebug (X)
+			// do nothing and mark at selectionRecord
+			selectionRecord[direction - 1] = 1;
+
+			// DEBUG: To check which cell has been selected so far.
+			// cout << selectionRecord[0] << selectionRecord[1] << selectionRecord[2] << selectionRecord[3] << endl;
+		}
+	// if all 4 cells has been selected, and no cell has an ant, terminate the loop
+	} while(!(selectionRecord[0] && selectionRecord[1] && selectionRecord[2] && selectionRecord[3]));
+	
+	// DEBUG
+	// cout << "random Direction selected: " << direction;
 }
 
 /*********************************************************************
