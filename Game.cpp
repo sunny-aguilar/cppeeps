@@ -66,7 +66,7 @@ void Game::playGame() {
 
             // make sure that total critters entered
             // by user does not exceed board space
-            setCritters();
+            setCritters(maxCritters);
 
             // board set-up
             initializeCritters();
@@ -100,22 +100,23 @@ void Game::playGame() {
 /*********************************************************************
 ** Description:     description here
 *********************************************************************/
-void Game::setCritters() {
+void Game::setCritters(int maxBugs) {
     // set critter qty variables
     const int MIN_DOODLES = 1;
-    const int MAX_DOODLES = 500;
     const int MIN_ANTS = 1;
-    const int MAX_ANTS = 1000;
-
+	int max_ants = maxBugs - 1; // set limit based on user input
+	int max_doodles; // dependent on user input
+	
     bool askAgain = true;
     do {
         // set total ants
-        menu.numAntsMenu(MIN_ANTS, MAX_ANTS);
-        antQty = menu.inputValidator(MIN_ANTS, MAX_ANTS);
-
+        menu.numAntsMenu(MIN_ANTS, max_ants);
+        antQty = menu.inputValidator(MIN_ANTS, max_ants);
+		
+		max_doodles = maxBugs - antQty; // total limit cannot exceed maximum amount of cells on grid
         // set total doodlebugs
-        menu.numDoodleBugsMenu(MIN_DOODLES, MAX_DOODLES);
-        doodlebugQty = menu.inputValidator(MIN_DOODLES, MAX_DOODLES);
+        menu.numDoodleBugsMenu(MIN_DOODLES, max_doodles);
+        doodlebugQty = menu.inputValidator(MIN_DOODLES, max_doodles);
 
         // add total critters entered by user
         int totalUserCritters = doodlebugQty + antQty;
@@ -238,18 +239,17 @@ void Game::critterActivities(int cStep) {
         // move doodlebugs
         moveDoodlebugs();
 
-        // spawn doodlebugs
-        //spawnDoodlebugs();
-
         // starve doodlebugs
+        starvedDoodlebugs();
+
+        // spawn doodlebugs
+        // spawnDoodlebugs();
 
         // move ants
-        //moveAnts();
+        // moveAnts();
 
         // spawn ants
         spawnAnts();
-
-        // starve doodlebugs
 
         // display updated board
         displayBoard(cStep);
@@ -324,6 +324,27 @@ void Game::moveDoodlebugs() {
 }
 
 /*********************************************************************
+** Description:     this function removes a doodlebug that starved
+**                  more than 3 times.
+*********************************************************************/
+void Game::starvedDoodlebugs() {
+    // iterate though board and select "Doodlebugs" and move them
+    for (int r_index = 0; r_index < row; r_index++) {
+        for (int c_index = 0; c_index < col; c_index++) {
+            if (board[r_index][c_index] != nullptr && board[r_index][c_index]->getCritterType() == "X") {
+                // DEBUG
+                if (board[r_index][c_index]->isStarved()) {
+                    cout << "Doodlebug starved at: " << r_index << ", " << c_index << endl;
+                    delete board[r_index][c_index];
+                    board[r_index][c_index] = nullptr;
+                }
+            }
+        }
+    }
+
+}
+
+/*********************************************************************
 ** Description:     this function calls a function and passes it an
 **                  argument to indicate that all the ants should be
 **                  moved.
@@ -356,9 +377,7 @@ void Game::moveCritters(string critterType) {
     for (int r_index = 0; r_index < row; r_index++) {
         for (int c_index = 0; c_index < col; c_index++) {
             if (board[r_index][c_index] != nullptr && board[r_index][c_index]->getCritterType() == critterType) {
-
-                    board[r_index][c_index]->move(board, row, col);
-
+                board[r_index][c_index]->move(board, row, col);
             }
         }
     }

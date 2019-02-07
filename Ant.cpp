@@ -10,7 +10,7 @@
 /*********************************************************************
 ** Description:     no-args default constructor
 *********************************************************************/
-Ant::Ant() {}
+Ant::Ant() : Critter() {}
 
 /*********************************************************************
 ** Description:     two-arg default constructor with base class
@@ -27,34 +27,6 @@ Ant::Ant(int row, int col) : Critter{"O", row, col} {
 ** Description:     destructor
 *********************************************************************/
 Ant::~Ant() {}
-
-/*********************************************************************
-** Description:     description
-*********************************************************************/
-int Ant::getRow() {
-	return row;
-}
-
-/*********************************************************************
-** Description:     description
-*********************************************************************/
-int Ant::getCol() {
-	return col;
-}
-
-/*********************************************************************
-** Description:     description
-*********************************************************************/
-void Ant::setRow(int row) {
-	this->row = row;
-}
-
-/*********************************************************************
-** Description:     description
-*********************************************************************/
-void Ant::setCol(int col) {
-	this->col = col;
-}
 
 /*********************************************************************
 ** Description:     description
@@ -76,39 +48,46 @@ int Ant::getStepsSurvived() {
 /*********************************************************************
 ** Description:     description
 *********************************************************************/
-string Ant::getCritterType() {
-	return critterType;
-}
+void Ant::move(Critter ***&grid, int gridROW, int gridCOL) {
+	if (this->getCritterMoved()) { return ; }
 
-/*********************************************************************
-** Description:     description
-*********************************************************************/
-void Ant::move(Critter ***grid, int ROW, int COL) {
-    // for every time step, the ant randomly moves up, down,
+	// for every time step, the ant randomly moves up, down,
 	// left, right. If the neighboring cell in the selected direction
-	// is occupied, or would move the ant off the grid, then the ant
-	// stays in the current cell
-	// cout << "Ant Row " << row << " Col " << col << endl;
+	// is occupied, or would move the ant off the grid, then the
+	// ant stays in the current cell
+
+	// generate a random direction to move critter
+	int direction = generateRandomNumber(1,4);
+
+	// // use switch statement to display which direction critter went
+	// // DEBUGGING, DELETE THIS SWITCH STMT BEFORE SUBMITTING
+	// switch (direction) {
+	// 	case UP:
+	// 		cout << "\nAnt randomly selected to go NORTH\n";
+	// 		break;
+	// 	case RIGHT:
+	// 		cout << "\nAnt randomly selected to go EAST\n";
+	// 		break;
+	// 	case DOWN:
+	// 		cout << "\nAnt randomly selected to go SOUTH\n";
+	// 		break;
+	// 	case LEFT:
+	// 		cout << "\nAnt randomly selected to go WEST\n";
+	// 		break;
+	// 	default:
+	// 		cout << "\nUnable to get direction to move to!\n";
+	// }
+
+	// cout << "Random direction generated " << direction << endl;
+
+	setNewRowColByDirection(direction, gridROW, gridCOL);
+	makeStepToNewCell(grid);
 }
 
 /*********************************************************************
 ** Description:     description
 *********************************************************************/
-void Ant::setCritterMoved(bool moved) {
-	critterMoved = moved;
-}
-
-/*********************************************************************
-** Description:     description
-*********************************************************************/
-bool Ant::getCritterMoved() {
-	return critterMoved;
-}
-
-/*********************************************************************
-** Description:     description
-*********************************************************************/
-void Ant::breed(Critter ***grid, int row, int col) {
+void Ant::breed(Critter ***&grid, int row, int col) {
 	// if an ant survives for three time steps, at the end of the time
 	// steps (after moving) the ant will breed by creating a new ant
 	// in an adjacent cell that is empty randomly
