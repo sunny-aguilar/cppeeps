@@ -7,6 +7,8 @@
 *********************************************************************/
 #include "Critter.hpp"
 
+#include <iostream>
+
 /*********************************************************************
 ** Description:     no-args default constructor
 *********************************************************************/
@@ -16,13 +18,13 @@ Critter::Critter() {}
 ** Description:     two-arg default constructor
 *********************************************************************/
 Critter::Critter(string type, int row, int col) :
-    critterType{type},
-    stepsSurvived{0},
-    critterBred{false},
-    readyToBreed{false},
-    critterMoved{false},
-    row{row},
-    col{col} {}
+	critterType{type},
+	stepsSurvived{0},
+	critterBred{false},
+	readyToBreed{false},
+	critterMoved{false},
+	row{row},
+	col{col} {}
 
 /***************************************************************************
 ** Description:     destructor
@@ -32,3 +34,7 @@ Critter::~Critter() {
 
 }
 
+int Critter::getRow() { return row; }
+int Critter::getCol() { return col; }
+void Critter::setRow(int row) { this->row = row; }
+void Critter::setCol(int col) { this->col = col; }

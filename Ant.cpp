@@ -31,34 +31,6 @@ Ant::~Ant() {}
 /*********************************************************************
 ** Description:     description
 *********************************************************************/
-int Ant::getRow() {
-	return row;
-}
-
-/*********************************************************************
-** Description:     description
-*********************************************************************/
-int Ant::getCol() {
-	return col;
-}
-
-/*********************************************************************
-** Description:     description
-*********************************************************************/
-void Ant::setRow(int row) {
-	this->row = row;
-}
-
-/*********************************************************************
-** Description:     description
-*********************************************************************/
-void Ant::setCol(int col) {
-	this->col = col;
-}
-
-/*********************************************************************
-** Description:     description
-*********************************************************************/
 void Ant::setStepsSurvived() {
 	stepsSurvived++;
 	if (stepsSurvived <= 3) {
@@ -83,7 +55,7 @@ string Ant::getCritterType() {
 /*********************************************************************
 ** Description:     description
 *********************************************************************/
-void Ant::move(Critter ***grid, int ROW, int COL) {
+void Ant::move(Critter ***&grid, int ROW, int COL) {
     // for every time step, the ant randomly moves up, down,
 	// left, right. If the neighboring cell in the selected direction
 	// is occupied, or would move the ant off the grid, then the ant
@@ -108,7 +80,7 @@ bool Ant::getCritterMoved() {
 /*********************************************************************
 ** Description:     description
 *********************************************************************/
-void Ant::breed(Critter ***grid, int row, int col) {
+void Ant::breed(Critter ***&grid, int row, int col) {
 	// if an ant survives for three time steps, at the end of the time
 	// steps (after moving) the ant will breed by creating a new ant
 	// in an adjacent cell that is empty randomly
