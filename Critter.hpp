@@ -29,22 +29,22 @@ protected:
     bool critterMoved;
     int row;
     int col;
+    int getRow();
+    int getCol();
+    void setRow(int row);
+    void setCol(int col);
 
 public:
     Critter();
     Critter(string type, int row, int col);
     virtual  ~Critter();
-    virtual int getRow() = 0;
-    virtual int getCol() = 0;
-    virtual void setRow(int row) = 0;
-    virtual void setCol(int col) = 0;
     virtual void setStepsSurvived() = 0;
     virtual int getStepsSurvived() = 0;
     virtual string getCritterType() = 0;
-    virtual void move(Critter ***grid, int ROW, int COL) = 0;
+    virtual void move(Critter ***&grid, int ROW, int COL) = 0;
     virtual void setCritterMoved(bool moved) = 0;
     virtual bool getCritterMoved() = 0;
-    virtual void breed(Critter ***grid, int row, int col) = 0;
+    virtual void breed(Critter ***&grid, int row, int col) = 0;
 };
 
 #endif //CRITTER_HPP

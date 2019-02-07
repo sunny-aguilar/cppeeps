@@ -20,17 +20,13 @@ public:
     Ant();
     Ant(int row, int col);
     ~Ant();
-    int getRow() override;
-    int getCol() override;
-    void setRow(int row) override;
-    void setCol(int col) override;
     void setStepsSurvived() override;
     int getStepsSurvived() override;
     string getCritterType() override;
-    void move(Critter ***grid, int ROW, int COL) override;
+    void move(Critter ***&grid, int ROW, int COL) override;
     void setCritterMoved(bool moved) override;
     bool getCritterMoved() override;
-    void breed(Critter ***grid, int row, int col) override;
+    void breed(Critter ***&grid, int row, int col) override;
 };
 
 #endif //ANT_HPP
