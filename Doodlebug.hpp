@@ -13,7 +13,6 @@
 class Doodlebug : public Critter
 {
 private:
-    void makeStepTo(int newRow, int newCol, Critter ***&grid);
 
 protected:
 
@@ -23,11 +22,8 @@ public:
     ~Doodlebug();
     void setStepsSurvived() override;
     int getStepsSurvived() override;
-    string getCritterType() override;
     void eat(Critter *ant);
     void move(Critter ***&grid, int ROW, int COL) override;
-    void setCritterMoved(bool moved) override;
-    bool getCritterMoved() override;
     void breed(Critter ***&grid, int row, int col) override;
 };
 

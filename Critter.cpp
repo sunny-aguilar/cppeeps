@@ -30,11 +30,46 @@ Critter::Critter(string type, int row, int col) :
 ** Description:     destructor
 ***************************************************************************/
 
-Critter::~Critter() {
-
-}
+Critter::~Critter() {}
 
 int Critter::getRow() { return row; }
 int Critter::getCol() { return col; }
+bool Critter::getCritterMoved() { return critterMoved; }
+
 void Critter::setRow(int row) { this->row = row; }
 void Critter::setCol(int col) { this->col = col; }
+void Critter::setCritterMoved(bool moved) { this->critterMoved = moved; }
+
+/***************************************************************************
+** Description:     destructor
+***************************************************************************/
+void Critter::makeStepTo(int newRow, int newCol, Critter ***&grid) {
+	// check if the cell to move is occupied.
+	if (grid[newRow][newCol] != nullptr) { return ;}
+
+	// check if critter has already moved during time step
+	if (getCritterMoved()) { return ;}
+
+	// TODO: REMOVE BEFORE SUBMITTING
+	// cout << "critter moved\n"
+	//   << "from [" << getRow() << "][" << getCol() << "]\n"
+	// 	<< "to [" << newRow << "][" << newCol << "]\n"
+	// 	<< "survived : " << getStepsSurvived() << "\n\n";
+
+	// move critter on the grid
+	grid[newRow][newCol] = grid[getRow()][getCol()];
+	grid[getRow()][getCol()] = nullptr;
+
+	// set critter moved bool in critter
+	setRow(newRow);
+	setCol(newCol);
+	setCritterMoved(true);
+	setStepsSurvived();
+}
+
+/*********************************************************************
+** Description:     description
+*********************************************************************/
+std::string Critter::getCritterType() {
+	return this->critterType;
+}
