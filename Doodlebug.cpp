@@ -132,11 +132,12 @@ void Doodlebug::checkAdjacentCells(Critter ***&grid, int gridROW, int gridCOL) {
 
 	// repeat until one animal give a birth, or all animal has been selected.
 	do {
+		// generate random direction
+		int direction = generateRandomNumber(4);
 
 		// if the direction has not been selected before,
 		if (!selectionRecord[direction - 1]) {
 			// calculate the newRow and newCol value
-			int direction = generateRandomNumber(4);
 			setNewRowColByDirection(direction, gridROW, gridCOL);
 
 			// if the cell contains Ant, return direction value
