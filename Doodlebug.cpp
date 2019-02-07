@@ -50,6 +50,13 @@ int Doodlebug::getStepsSurvived() {
 /*********************************************************************
 ** Description:     description
 *********************************************************************/
+bool Doodlebug::isStarved() {
+	return stepsStarved >= 3;
+}
+
+/*********************************************************************
+** Description:     description
+*********************************************************************/
 void Doodlebug::eat(Critter ***&grid) {
 	if (grid[newRow][newCol] == nullptr) { return ; }
 

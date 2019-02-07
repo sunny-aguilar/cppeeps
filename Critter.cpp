@@ -42,6 +42,7 @@ int Critter::getNewRow() { return newRow; }
 int Critter::getNewCol() { return newCol; }
 bool Critter::getCritterMoved() { return critterMoved; }
 std::string Critter::getCritterType() { return this->critterType; }
+bool Critter::isStarved() { return false; }
 
 /***************************************************************************
 ** Description:     setters

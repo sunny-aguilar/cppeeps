@@ -9,6 +9,7 @@
 // TODO REMOVE THIS BEFORE SUBMIT
 #include <chrono>
 #include <thread>
+#include <ostream>
 
 /***************************************************************************
 ** Description:     default constructor using initialization list
@@ -239,18 +240,17 @@ void Game::critterActivities(int cStep) {
         // move doodlebugs
         moveDoodlebugs();
 
+        // starve doodlebugs
+        starvedDoodlebugs();
+
         // spawn doodlebugs
         // spawnDoodlebugs();
-
-        // starve doodlebugs
 
         // move ants
         // moveAnts();
 
         // spawn ants
         spawnAnts();
-
-        // starve doodlebugs
 
         // display updated board
         displayBoard(cStep);
@@ -322,6 +322,27 @@ void Game::eatAnts() {
 void Game::moveDoodlebugs() {
     cout << "Moving doodlebugs" << endl;
     moveCritters("X");
+}
+
+/*********************************************************************
+** Description:     this function removes a doodlebug that starved
+**                  more than 3 times.
+*********************************************************************/
+void Game::starvedDoodlebugs() {
+    // iterate though board and select "Doodlebugs" and move them
+    for (int r_index = 0; r_index < row; r_index++) {
+        for (int c_index = 0; c_index < col; c_index++) {
+            if (board[r_index][c_index] != nullptr && board[r_index][c_index]->getCritterType() == "X") {
+                // DEBUG
+                if (board[r_index][c_index]->isStarved()) {
+                    cout << "Doodlebug starved at: " << r_index << ", " << c_index << endl;
+                    delete board[r_index][c_index];
+                    board[r_index][c_index] = nullptr;
+                }
+            }
+        }
+    }
+
 }
 
 /*********************************************************************

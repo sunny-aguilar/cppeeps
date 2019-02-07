@@ -45,6 +45,7 @@ public:
     void critterActivities(int cstep);
     void eatAnts();
     void moveDoodlebugs();
+    void starvedDoodlebugs();
     void moveAnts();
     void moveCritters(string critterType);
     void spawnDoodlebugs();
