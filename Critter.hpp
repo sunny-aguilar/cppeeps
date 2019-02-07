@@ -53,6 +53,7 @@ public:
 
     virtual void setStepsSurvived() = 0;
     virtual int getStepsSurvived() = 0;
+    virtual bool isStarved();
 
     virtual void move(Critter ***&grid, int ROW, int COL) = 0;
     virtual void breed(Critter ***&grid, int row, int col) = 0;
