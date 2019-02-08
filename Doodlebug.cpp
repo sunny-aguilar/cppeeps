@@ -37,10 +37,6 @@ void Doodlebug::setStepsSurvived() {
 	stepsSurvived++;
 }
 
-void Doodlebug::resetStepsSurvived() {
-	stepsSurvived = 0;
-}
-
 /*********************************************************************
 ** Description:     description
 *********************************************************************/
@@ -181,7 +177,7 @@ void Doodlebug::breed(Critter ***&grid, int gridROW, int gridCOL) {
 
 	// array to track adjacent cell searched for breeding
 	int directionTracker[] = {0,0,0,0};
-
+	//cout << "Doodlebug steps survived " << stepsSurvived << endl;
 	do {
 		// generate a random number 1-4
 		int direction = generateRandomNumber(4);
@@ -201,7 +197,7 @@ void Doodlebug::breed(Critter ***&grid, int gridROW, int gridCOL) {
 						grid[newRow][newCol] = new Doodlebug(newRow, newCol);
 						// mark parent doodlebug as already bred
 						grid[row][col]->setCritterBred(true);
-						// resets steps survived by parent ant
+						// resets steps survived by parent doodlebug
 						resetStepsSurvived();
 					}
 				}
@@ -209,7 +205,6 @@ void Doodlebug::breed(Critter ***&grid, int gridROW, int gridCOL) {
 		// update location searched
 		directionTracker[direction - 1] = 1;
 		}
-
 		// keep looping until all adjacent sides have been checked and ant has not bred
 	} while ( !grid[row][col]->getCritterBred() && !(directionTracker[0] && directionTracker[1] && directionTracker[2] && directionTracker[3]) );
 

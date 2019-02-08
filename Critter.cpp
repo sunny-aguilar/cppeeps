@@ -55,6 +55,7 @@ void Critter::setNewRow(int newRow) { this->newRow = newRow; }
 void Critter::setNewCol(int newCol) { this->newCol = newCol; }
 void Critter::setCritterMoved(bool moved) { this->critterMoved = moved; }
 void Critter::setCritterBred(bool bred) { this->critterBred = bred; }
+void Critter::resetStepsSurvived() { stepsSurvived = 0; }
 
 /***************************************************************************
 ** Description: A function to move a critter from current cell to new cell.
