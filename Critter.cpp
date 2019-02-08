@@ -106,24 +106,20 @@ void Critter::setNewRowColByDirection(int direction, int gridROW, int gridCOL) {
 	// with edge case handling.
 	switch (direction) {
 		case UP: // get NORTH square
-			// if out of bounds NORTH wall
-			if (row == 0) { newRow = gridROW - 1; }
-			else { newRow = row - 1; }
+			// only move when not out of bounds NORTH wall
+			if (row > 0) { newRow = row - 1; }
 			break;
 		case RIGHT: // get EAST square
-			// if out of bounds EAST wall
-			if ( col == gridCOL - 1 ) { newCol = 0; } 
-			else { newCol = col + 1; }
+			// only move when not out of bounds EAST wall
+			if ( col < gridCOL - 1 ) { newCol = col + 1; }
 			break;
 		case DOWN: // get SOUTH square
-			// if out of bounds SOUTH wall
-			if (row == gridROW - 1) { newRow = 0; }
-			else { newRow = row + 1; }
+			// only move when not out of bounds SOUTH wall
+			if (row < gridROW - 1) { newRow = row + 1; }
 			break;
 		case LEFT: // get WEST square
-			// if out of bounds WEST wall
-			if (col == 0) { newCol = gridCOL - 1; }
-			else { newCol = col - 1; }
+			// only move when not out of bounds WEST wall
+			if (col > 0) { newCol = col - 1; }
 			break;
 		default:
 			cout << "Unable to determine direction to move!\n";
