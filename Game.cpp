@@ -243,10 +243,10 @@ void Game::critterActivities(int cStep) {
         starvedDoodlebugs();
 
         // spawn doodlebugs
-        // spawnDoodlebugs();
+        spawnDoodlebugs();
 
         // move ants
-        // moveAnts();
+        moveAnts();
 
         // spawn ants
         spawnAnts();
