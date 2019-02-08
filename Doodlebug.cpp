@@ -35,9 +35,6 @@ Doodlebug::~Doodlebug() {}
 *********************************************************************/
 void Doodlebug::setStepsSurvived() {
 	stepsSurvived++;
-	if (stepsSurvived <= 8) {
-		readyToBreed = true;
-	}
 }
 
 void Doodlebug::resetStepsSurvived() {
