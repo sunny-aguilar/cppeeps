@@ -25,6 +25,7 @@ public:
     ~Doodlebug();
     void setStepsSurvived() override;
     int getStepsSurvived() override;
+    void resetStepsSurvived();
     bool isStarved() override;
     void move(Critter ***&grid, int gridROW, int gridCOL) override;
     void breed(Critter ***&grid, int row, int col) override;

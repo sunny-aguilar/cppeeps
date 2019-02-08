@@ -35,9 +35,10 @@ Doodlebug::~Doodlebug() {}
 *********************************************************************/
 void Doodlebug::setStepsSurvived() {
 	stepsSurvived++;
-	if (stepsSurvived <= 8) {
-		readyToBreed = true;
-	}
+}
+
+void Doodlebug::resetStepsSurvived() {
+	stepsSurvived = 0;
 }
 
 /*********************************************************************
@@ -173,122 +174,45 @@ void Doodlebug::checkAdjacentCells(Critter ***&grid, int gridROW, int gridCOL) {
 /*********************************************************************
 ** Description:     description
 *********************************************************************/
-void Doodlebug::breed(Critter ***&grid, int ROW, int COL) {
+void Doodlebug::breed(Critter ***&grid, int gridROW, int gridCOL) {
 	// if a doodlebug survives for eight time steps, at the end of the
 	// time step, it will spawn off a new doodlebug in the same manner
-	// as the ant (only bree into an adjacent empty cell)
-	cout << "Steps survived " << stepsSurvived << endl;
+	// as the ant (only breed into an adjacent empty cell)
 
-	int select = generateRandomNumber(1,4);
-	// find which spaces are empty and set to TRUE in array
-	bool keepLooking = true;
+	// array to track adjacent cell searched for breeding
+	int directionTracker[] = {0,0,0,0};
 
-	while (keepLooking) {
-		// generate a random number from 1-4
-		select = generateRandomNumber(1,4);
-		// if all four adjacent sides are occupied, do not breed
-		if ( (row > 0 && grid[row - 1][col] != nullptr) &&
-			(col < COL-1 && grid[row][col + 1] != nullptr) &&
-			(row < ROW-1 && grid[row + 1][col] != nullptr) &&
-			(col > 0 && grid[row][col - 1] != nullptr) ) {
+	do {
+		// generate a random number 1-4
+		int direction = generateRandomNumber(4);
 
-			// if all sides around doodlebug unavailable, do not spawn
-			select = 5;
-			keepLooking = false;
-			cout << "All sides are full\n";
+		// if adjacent cell has not been selected before
+		if (!directionTracker[direction - 1]) {
+			// get random direction
+			setNewRowColByDirection(direction, gridROW, gridCOL);
+
+			// if the cell is empty, breed in that cell
+			if (grid[newRow][newCol] == nullptr) {
+				// if the doodlebug has survived 8 steps, then breed
+				if(stepsSurvived == 8) {
+					// it doodlebug has not already bred, then breed
+					if (!getCritterBred()) {
+						// create new doodlebug
+						grid[newRow][newCol] = new Doodlebug(newRow, newCol);
+						// mark parent doodlebug as already bred
+						grid[row][col]->setCritterBred(true);
+						// resets steps survived by parent ant
+						resetStepsSurvived();
+					}
+				}
+			}
+		// update location searched
+		directionTracker[direction - 1] = 1;
 		}
 
-		// DEBUGGING - DELETE COUT WHEN DONE
-		cout << "Side selected " << select << endl;
+		// keep looping until all adjacent sides have been checked and ant has not bred
+	} while ( !grid[row][col]->getCritterBred() && !(directionTracker[0] && directionTracker[1] && directionTracker[2] && directionTracker[3]) );
 
-		// if adjacent sides available, randomly select one
-		// "select" variable will end while-loop and be input for
-		// next switch statement below that creates a new doodlebug
-		switch (select) {
-			case 1:
-				// NORTH
-				if ((row - 1) >= 0 && grid[row - 1][col] == nullptr) {
-					// DEBUGGING - DELETE COUT WHEN DONE
-					cout << "NORTH selected " << select << endl;
-				}
-				keepLooking = false;
-				break;
-			case 2:
-				// EAST
-				if ((col + 1) < COL && grid[row][col + 1] == nullptr) {
-					// DEBUGGING - DELETE COUT WHEN DONE
-					cout << "EAST selected " << select << endl;
-				}
-				keepLooking = false;
-				break;
-			case 3:
-				// SOUTH
-				if ((row + 1) < ROW && grid[row + 1][col] == nullptr) {
-					// DEBUGGING - DELETE COUT WHEN DONE
-					cout << "SOUTH selected " << select << endl;
-				}
-				keepLooking = false;
-				break;
-			case 4:
-				// WEST
-				if ((col - 1) >= 0 && grid[row][col - 1] == nullptr) {
-					// DEBUGGING - DELETE COUT WHEN DONE
-					cout << "WEST selected " << select << endl;
-				}
-				keepLooking = false;
-				break;
-			default:
-				cout << "Unable to determine selection!\n";
-		}
-	}
-
-	// if a doodlebug has survived for 8 steps or more, than the doodlebug
-	// should breed if there is space available
-	// NEED TO INCORPORATE EAT FUNCTION
-	if (stepsSurvived >= 8) {
-		switch (select) {
-			case 1:
-				// breed NORTH square
-				if ((row - 1) >= 0 && grid[row - 1][col] == nullptr) {
-					grid[row - 1][col] = new Doodlebug(row - 1, col);
-				}
-				else {
-					// DEBUGGING - this else stmt can be deleted
-					cout << "Unable to spawn a doodlebug\n";
-				}
-				break;
-			case 2:
-				// breed EAST square
-				if ((col + 1) < COL && grid[row][col + 1] == nullptr) {
-					grid[row][col + 1] = new Doodlebug(row, col + 1);
-				}
-				else {
-					// DEBUGGING - this else stmt can be deleted
-					cout << "Unable to spawn a doodlebug\n";
-				}
-				break;
-			case 3:
-				// breed SOUTH square
-				if ((row + 1) < ROW && grid[row + 1][col] == nullptr) {
-					grid[row + 1][col] = new Doodlebug(row + 1, col);
-				}
-				else {
-					// DEBUGGING - this else stmt can be deleted
-					cout << "Unable to spawn a doodlebug\n";
-				}
-				break;
-			case 4:
-				// breed WEST square
-				if ((col - 1) >= 0 && grid[row][col - 1] == nullptr) {
-					grid[row][col - 1] = new Doodlebug(row, col - 1);
-				}
-				else {
-					// DEBUGGING - this else stmt can be deleted
-					cout << "Unable to spawn a doodlebug\n";
-				}
-				break;
-			default:
-				cout << "Doodlebug unable to breed, all spaces occupied!\n";
-		}
-	}
+	// reset critter bred flag on parent
+	grid[row][col]->setCritterBred(false);
 }

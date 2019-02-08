@@ -44,6 +44,7 @@ int Critter::getNewCol() { return newCol; }
 bool Critter::getCritterMoved() { return critterMoved; }
 std::string Critter::getCritterType() { return this->critterType; }
 bool Critter::isStarved() { return false; }
+bool Critter::getCritterBred() { return critterBred; }
 
 /***************************************************************************
 ** Description:     setters
@@ -53,6 +54,7 @@ void Critter::setCol(int col) { this->col = col; }
 void Critter::setNewRow(int newRow) { this->newRow = newRow; }
 void Critter::setNewCol(int newCol) { this->newCol = newCol; }
 void Critter::setCritterMoved(bool moved) { this->critterMoved = moved; }
+void Critter::setCritterBred(bool bred) { this->critterBred = bred; }
 
 /***************************************************************************
 ** Description: A function to move a critter from current cell to new cell.
