@@ -196,7 +196,7 @@ void Doodlebug::breed(Critter ***&grid, int gridROW, int gridCOL) {
 
 			// if the cell is empty, breed in that cell
 			if (grid[newRow][newCol] == nullptr) {
-				// if the doodlebug has survied 8 steps, then breed
+				// if the doodlebug has survived 8 steps, then breed
 				if(stepsSurvived == 8) {
 					// it doodlebug has not already bred, then breed
 					if (!getCritterBred()) {
