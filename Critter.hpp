@@ -56,6 +56,7 @@ public:
 
     virtual void setStepsSurvived() = 0;
     virtual int getStepsSurvived() = 0;
+    void resetStepsSurvived();
     virtual bool isStarved();
 
     virtual void move(Critter ***&grid, int ROW, int COL) = 0;
