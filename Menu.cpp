@@ -114,7 +114,7 @@ void Menu::numDoodleBugsMenu(int min, int max)
 {
     cout << "\nDOODLEBUGS\n";
     cout << "Enter the number of doodlebugs you would like to have\n";
-    cout << "Enter the number of ants from " << min << " - " << max << " only\n";
+    cout << "Enter the number of doodlebugs from " << min << " - " << max << " only\n";
     cout << ">> ";
 }
 
