@@ -227,8 +227,7 @@ int Menu::inputValidator(int min, int max)
     do
     {
         numVerify = true; // reset bool value when loop repeats
-        cin.clear();      // clear buffer
-//        cout << "Please enter a number from " << min << " to " << max << endl;
+
         getline(cin, userInput);
 
         for (unsigned int numCheck = 0; numCheck < userInput.length(); numCheck++)
@@ -237,6 +236,10 @@ int Menu::inputValidator(int min, int max)
             {
                 numVerify = false;  // set boolean to false
             }
+        }
+        if (userInput.length() == 0)
+        {
+            numVerify = false; // do not accept no entry
         }
 
         if (numVerify)  // if boolean value still true
@@ -247,11 +250,12 @@ int Menu::inputValidator(int min, int max)
         // if number is out of range of acceptable values
         if(!numVerify || selection < min || selection > max)
         {
-            cout << "Invalid entry! You must choose number from " << min << " to " << max << endl << endl;
+            cout << "Invalid entry! You must choose number from " << min << " to " << max << ": ";
         }
 
     } while (!numVerify || selection < min || selection > max);
-
+    cin.clear();      // clear buffer
+    
     return selection;
 }
 
