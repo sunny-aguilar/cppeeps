@@ -73,10 +73,12 @@ Utils.o : utils.cpp utils.hpp
 .PHONY : clean
 clean:
 	rm -rf $(EXE) $(OBJECTS) $(HPPGCHs)
-
 .PHONY : debug
 debug:
 	valgrind -v --leak-check=full --show-leak-kinds=all --track-origins=yes ./predator-prey
 .PHONY : zip
 zip:
 	zip -D GroupProject_NAMES_HERE.zip $(CPPs) $(HPPs) $(TXTS) makefile *.txt *.pdf
+.PHONY : run
+run:
+	./predator-prey
