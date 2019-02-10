@@ -31,28 +31,31 @@ Doodlebug::Doodlebug(int row, int col) : Critter{"X", row, col}
 Doodlebug::~Doodlebug() {}
 
 /*********************************************************************
-** Description:     description
+** Description: Setter for stepSurvived. 
 *********************************************************************/
 void Doodlebug::setStepsSurvived() {
 	stepsSurvived++;
 }
 
 /*********************************************************************
-** Description:     description
+** Description: Getter for stepsSurvived.
 *********************************************************************/
 int Doodlebug::getStepsSurvived() {
 	return stepsSurvived;
 }
 
 /*********************************************************************
-** Description:     description
+** Description: Boolean method that checks if steps starved is 
+** greater than or equal to three.
 *********************************************************************/
 bool Doodlebug::isStarved() {
 	return stepsStarved >= 3;
 }
 
 /*********************************************************************
-** Description:     description
+** Description: Void method that takes in a grid of critters. 
+** Conditionally checks if a ant-type critter exists in a specific 
+** row/col, and then "eats" (deletes) it if it's the case.
 *********************************************************************/
 void Doodlebug::eat(Critter ***&grid) {
 	if (grid[newRow][newCol] == nullptr) { return ; }
