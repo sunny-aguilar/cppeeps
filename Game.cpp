@@ -1,8 +1,8 @@
 /*********************************************************************
 ** Program name: 		Game.cpp
-** Author: 				Kuljot Biring, Rachel Schlick, Ryan Gross,
-** 						Sandro Aguilar, Jeesoo Ryoo
-** Date: 				02/17/2019
+** Author: 			Kuljot Biring, Rachel Schlick, Ryan Gross,
+** 				Sandro Aguilar, Jeesoo Ryoo
+** Date: 			02/17/2019
 ** Description: 		Game class description here
 *********************************************************************/
 #include "Game.hpp"
@@ -233,9 +233,6 @@ void Game::critterActivities(int cStep) {
         // increase step count
         cStep++;
 
-        // doodlebugs eat ants
-        eatAnts();
-
         // move doodlebugs
         moveDoodlebugs();
 
@@ -304,13 +301,6 @@ void Game::displayBoard(int cStep) {
     } else if (isDebugMode == 2) {
         std::this_thread::sleep_for(std::chrono::milliseconds(300));
     }
-}
-
-/*********************************************************************
-** Description:     description here
-*********************************************************************/
-void Game::eatAnts() {
-    cout << "Doodlebugs are eating the ants" << endl;
 }
 
 /*********************************************************************
