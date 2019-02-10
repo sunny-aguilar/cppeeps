@@ -28,6 +28,7 @@ public:
     bool isStarved() override;
     void move(Critter ***&grid, int gridROW, int gridCOL) override;
     void breed(Critter ***&grid, int row, int col) override;
+    bool isSpaceAvailable(int*);
 };
 
 #endif // DOODLEBUG_HPP
