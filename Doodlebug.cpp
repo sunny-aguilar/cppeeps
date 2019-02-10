@@ -168,7 +168,12 @@ void Doodlebug::checkAdjacentCells(Critter ***&grid, int gridROW, int gridCOL) {
 }
 
 /*********************************************************************
-** Description:     description
+** Description: Void method that takes in an 2D array of critters,
+** an two integers (row/col for grid). Randomly selects an cell space,
+** which is then checked to see if it is empty. If so, a new bug is 
+** generated. Bug in current position is marked as already given birth,
+** and loops until critter cannot breed or if all adjacent sides 
+** are full.
 *********************************************************************/
 void Doodlebug::breed(Critter ***&grid, int gridROW, int gridCOL) {
 	// if a doodlebug survives for eight time steps, at the end of the
