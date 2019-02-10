@@ -206,8 +206,24 @@ void Doodlebug::breed(Critter ***&grid, int gridROW, int gridCOL) {
 		directionTracker[direction - 1] = 1;
 		}
 		// keep looping until all adjacent sides have been checked and ant has not bred
-	} while ( !grid[row][col]->getCritterBred() && !(directionTracker[0] && directionTracker[1] && directionTracker[2] && directionTracker[3]) );
+	} while ( !grid[row][col]->getCritterBred() && isSpaceAvailable(directionTracker));
 
 	// reset critter bred flag on parent
 	grid[row][col]->setCritterBred(false);
+}
+
+/*********************************************************************
+** Description: Method that iteratively checks adjacent sides to see
+** if they're available; used to verify if bug can breed in specific state.
+** Takes in an array of ints, representing the 4 cardinal points (NSEW).
+** Itertes through array; if value returns true 0 (false), space is
+** available and returned true. Returns false otherwise. 
+*********************************************************************/
+bool Doodlebug::isSpaceAvailable(int *array) {
+	for (int i = 0; i < 4; i++) {
+		 if (array[i] == false) {
+			 return true;
+		 }
+	}
+	return false;
 }
