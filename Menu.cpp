@@ -30,7 +30,30 @@ Menu::Menu() :
 ***************************************************************************/
 void Menu::startMenu()
 {
-    cout << "\nWELCOME TO THE PREDATOR-PREY SIMULATION\n\n";
+    cout<<"#############################################################"<<endl;
+    cout<<"#                                                           #"<<endl;
+    cout<<"#      WELCOME TO THE PREDATOR-PREY SIMULATION !!           #"<<endl;
+    cout<<"#            By:                                            #"<<endl;
+    cout<<"#                 Sandro Aguilar                            #"<<endl;
+    cout<<"#                 Kuljot Biring                             #"<<endl;
+    cout<<"#                 Ryan Gross                                #"<<endl;
+    cout<<"#                 Jeesoo Ryoo                               #"<<endl;
+    cout<<"#                 Rachel Schlick                            #"<<endl;
+    cout<<"#                                                           #"<<endl;
+    cout<<"#     ,_   _,         \\       /                             #"<<endl;
+    cout<<"#      '._.'           \\     /                              #"<<endl;
+    cout<<"# '-,   (_)   ,-'       \\.-./                               #"<<endl;
+    cout<<"#   '._ .:. _.'         (o\\^/o)  _   _   _     __           #"<<endl;
+    cout<<"#    _ '|Y|' _           ./ \\.\\ ( )-( )-( ) .-'  '-.        #"<<endl;
+    cout<<"#  ,` `>\\ /<` `,         {-} \\(//  ||   \\\\/ (   )) '-.      #"<<endl;
+    cout<<"# ` ,-`  I  `-, `           //-__||__.-\\\\.      _.-'        #"<<endl;
+    cout<<"#   |   /=\\   |            (/    ()     \\)'-._.-'           #"<<endl;
+    cout<<"# ,-'   |=|   '-,          ||    ||      \\\\                 #"<<endl;
+    cout<<"#       )-(                ('    ('       ')                #"<<endl;
+    cout<<"#       \\_/                                                 #"<<endl;
+    cout<<"#                                                           #"<<endl;
+    cout<<"#                                                           #"<<endl;
+    cout<<"#############################################################"<<endl;
     cout << "Please enter a choice listed below\n";
     cout << "1. Run Simulation\n";
     cout << "2. Exit Simulation\n";
@@ -193,7 +216,7 @@ void Menu::menuDisplayBoard(int col, int cStep, int doodleCt, int antCt, int ant
 ***************************************************************************/
 void Menu::menuPlayAgain()
 {
-    cout << "\nWould you like to run the simulation again using using"
+    cout << "\nWould you like to run the simulation again using "
             "a different number of steps?\n";
     cout << "Please enter a choice listed below\n";
     cout << "1. Changes Step count and rerun Simulation\n";
