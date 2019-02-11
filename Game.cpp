@@ -1,8 +1,8 @@
 /*********************************************************************
 ** Program name: 		Game.cpp
-** Author: 				Kuljot Biring, Rachel Schlick, Ryan Gross,
-** 						Sandro Aguilar, Jeesoo Ryoo
-** Date: 				02/17/2019
+** Author: 			Kuljot Biring, Rachel Schlick, Ryan Gross,
+** 				Sandro Aguilar, Jeesoo Ryoo
+** Date: 			02/17/2019
 ** Description: 		Game class description here
 *********************************************************************/
 #include "Game.hpp"
@@ -97,6 +97,7 @@ void Game::playGame() {
     }
 }
 
+
 /*********************************************************************
 ** Description:     description here
 *********************************************************************/
@@ -157,9 +158,7 @@ void Game::initializeCritters() {
             board[r_index][c_index] = nullptr;
         }
     }
-
-    // this functions adds the critters to the board in a non-random
-    // fashion (only temporary, must place them randomly)
+	
     //nonrandomPlacement();
     critterRandomPlacement();
 
@@ -233,26 +232,23 @@ void Game::critterActivities(int cStep) {
         // increase step count
         cStep++;
 
-        // doodlebugs eat ants
-        eatAnts();
-
         // move doodlebugs
-        moveDoodlebugs();
+        int antsEaten = moveDoodlebugs();
 
         // starve doodlebugs
-        starvedDoodlebugs();
+        int starvedDoodles = starvedDoodlebugs();
 
         // spawn doodlebugs
-        spawnDoodlebugs();
+        int newDoodles = spawnDoodlebugs();
 
         // move ants
         moveAnts();
 
         // spawn ants
-        spawnAnts();
-
-        // display updated board
-        displayBoard(cStep);
+        int newAnts = spawnAnts();
+		
+        // display updated board (new arguments for menu.displayboard)
+        displayBoard(cStep, antsEaten, newDoodles, newAnts, starvedDoodles);
 
 
     } while (cStep < steps);
@@ -261,8 +257,8 @@ void Game::critterActivities(int cStep) {
 /*********************************************************************
 ** Description:     description
 *********************************************************************/
-void Game::displayBoard(int cStep) {
-    menu.menuDisplayBoard(col, cStep);
+void Game::displayBoard(int cStep, int antsEaten, int newDoodles, int newAnts, int starvedDoodles) {
+    // <-- ADDED parameters to pass through to menu.displayboard
 
     // built top wall
     for (int index = 0; index < row; index++) {
@@ -293,8 +289,12 @@ void Game::displayBoard(int cStep) {
     for (int index = 0; index < row; index++) {
         cout << "--";
     }
-    cout << endl;
-
+    cout << "\n" << endl;
+	
+	// Get updated stats for the menu board
+	int doodleCt = getDoodleQty();
+	int antCt = getAntQty();
+	menu.menuDisplayBoard(col, cStep, doodleCt, antCt, antsEaten, newDoodles, newAnts, starvedDoodles);
 
     // TODO: REMOVE THIS CODE BEFORE SUBMIT
     cout << std::flush;
@@ -307,10 +307,21 @@ void Game::displayBoard(int cStep) {
 }
 
 /*********************************************************************
-** Description:     description here
+** Description:  Doodlebug accessors and mutators
 *********************************************************************/
-void Game::eatAnts() {
-    cout << "Doodlebugs are eating the ants" << endl;
+int Game::getDoodleQty() { return doodlebugQty; } // ADDED
+
+void Game::setDoodleQty(int doodleChange) {
+	doodlebugQty = doodlebugQty + doodleChange;
+}
+
+/*********************************************************************
+** Description:  Ant accumulators and mutators
+*********************************************************************/
+int Game::getAntQty() { return antQty; } // ADDED
+
+void Game::setAntQty(int antChange) {
+	antQty = antQty + antChange;
 }
 
 /*********************************************************************
@@ -318,17 +329,21 @@ void Game::eatAnts() {
 **                  argument to indicate that all the doodlebugs
 **                  should be moved.
 *********************************************************************/
-void Game::moveDoodlebugs() {
+int Game::moveDoodlebugs() { // <-- CHANGED void to int for tracking ants eaten
     cout << "Moving doodlebugs" << endl;
-    moveCritters("X");
+    int antChange = moveCritters("X");
+	setAntQty(antChange); // should be negative- decrease ant population
+	cout << "The number of ants eaten is: " << antChange << endl; // for testing
+	return abs(antChange); // report as a non-negative number
 }
 
 /*********************************************************************
-** Description:     this function removes a doodlebug that starved
+** Description:     this function removes a doodlebug that didn't eat
 **                  more than 3 times.
 *********************************************************************/
-void Game::starvedDoodlebugs() {
+int Game::starvedDoodlebugs() { // CHANGED void to int to return num starved
     // iterate though board and select "Doodlebugs" and move them
+	int starvedDoodles = 0;
     for (int r_index = 0; r_index < row; r_index++) {
         for (int c_index = 0; c_index < col; c_index++) {
             if (board[r_index][c_index] != nullptr && board[r_index][c_index]->getCritterType() == "X") {
@@ -337,10 +352,13 @@ void Game::starvedDoodlebugs() {
                     cout << "Doodlebug starved at: " << r_index << ", " << c_index << endl;
                     delete board[r_index][c_index];
                     board[r_index][c_index] = nullptr;
+					setDoodleQty(-1); // <-- ADDED remove one doodlebug from total
+					starvedDoodles++; // <-- ADDED
                 }
             }
         }
     }
+	return starvedDoodles; // <-- ADDED
 
 }
 
@@ -351,7 +369,9 @@ void Game::starvedDoodlebugs() {
 *********************************************************************/
 void Game::moveAnts() {
     cout << "Moving ants" << endl;
-    moveCritters("O");
+    int doodleChange = moveCritters("O");
+	setDoodleQty(doodleChange); // should be zero
+	cout << "The number of doodles changed in ant move is: " << doodleChange << endl; // test print to ensure no non-zero values
 }
 
 /*********************************************************************
@@ -371,13 +391,13 @@ void Game::moveAnts() {
 **                  direction is already occupied, then the critter
 **                  does not move (consistent with specifications).
 *********************************************************************/
-void Game::moveCritters(string critterType) {
-
+int Game::moveCritters(string critterType) { // <--CHANGED void to int
+	int critterChange = 0; // added to track ants eaten
     // iterate though board and select "Doodlebugs" and move them
     for (int r_index = 0; r_index < row; r_index++) {
         for (int c_index = 0; c_index < col; c_index++) {
             if (board[r_index][c_index] != nullptr && board[r_index][c_index]->getCritterType() == critterType) {
-                board[r_index][c_index]->move(board, row, col);
+                critterChange += (board[r_index][c_index]->move(board, row, col));
             }
         }
     }
@@ -395,38 +415,45 @@ void Game::moveCritters(string critterType) {
             }
         }
     }
+	return critterChange; // <--ADDED
 }
 
 /*********************************************************************
 ** Description:     description
 *********************************************************************/
-void Game::spawnDoodlebugs() {
+int Game::spawnDoodlebugs() { // <-- CHANGED from void to int
     cout << "Spawning doodlebugs" << endl;
+	int newDoodles = 0;
     for (int r_index = 0; r_index < row; r_index++) {
         for (int c_index = 0; c_index < col; c_index++) {
             if (board[r_index][c_index] != nullptr && board[r_index][c_index]->getCritterType() == "X") {
 
-                board[r_index][c_index]->breed(board, row, col);
-
+                // should return an integer to add to count of baby doodles
+				newDoodles += (board[r_index][c_index]->breed(board, row, col));
             }
         }
     }
+	setDoodleQty(newDoodles); // <-- ADDED to track total
+	return newDoodles; // <-- ADDED to track breed this step
 }
 
 /*********************************************************************
 ** Description:     description
 *********************************************************************/
-void Game::spawnAnts() {
+int Game::spawnAnts() { // <-- CHANGED from void to int
     cout << "Spawning ants" << endl;
+	int newAnts = 0;
     for (int r_index = 0; r_index < row; r_index++) {
         for (int c_index = 0; c_index < col; c_index++) {
             if (board[r_index][c_index] != nullptr && board[r_index][c_index]->getCritterType() == "O") {
 
-                board[r_index][c_index]->breed(board, row, col);
+                newAnts += (board[r_index][c_index]->breed(board, row, col));
 
             }
         }
     }
+	setAntQty(newAnts); // <-- ADDED to track total 
+	return newAnts; // <--ADDED to track new ants each step
 }
 
 /*********************************************************************
