@@ -59,8 +59,8 @@ public:
     void resetStepsSurvived();
     virtual bool isStarved();
 
-    virtual void move(Critter ***&grid, int ROW, int COL) = 0;
-    virtual void breed(Critter ***&grid, int row, int col) = 0;
+    virtual int move(Critter ***&grid, int ROW, int COL) = 0; // <-- CHANGED VOID TO INT
+    virtual int breed(Critter ***&grid, int row, int col) = 0;
     void setNewRowColByDirection(int direction, int gridROW, int gridCOL);
 };
 
