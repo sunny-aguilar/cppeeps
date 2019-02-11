@@ -30,8 +30,8 @@ public:
     int move(Critter ***&grid, int gridROW, int gridCOL) override; // CHANGED void to int
     int breed(Critter ***&grid, int row, int col) override;
     bool isSpaceAvailable(int*);
-	int getDoodleCt(); // <-- ADDED
-	void setDoodleCt(int); // <-- ADDED 
+	  int getDoodleCt(); // <-- ADDED
+	  void setDoodleCt(int); // <-- ADDED 
 };
 
 #endif // DOODLEBUG_HPP

@@ -194,7 +194,6 @@ int Doodlebug::breed(Critter ***&grid, int gridROW, int gridCOL) {
 		}
 		// keep looping until all adjacent sides have been checked and ant has not bred
 	} while ( !grid[row][col]->getCritterBred() && isSpaceAvailable(directionTracker));
-	
 
 	// reset critter bred flag on parent
 	grid[row][col]->setCritterBred(false);
@@ -216,3 +215,4 @@ bool Doodlebug::isSpaceAvailable(int *array) {
 	}
 	return false;
 }
+
