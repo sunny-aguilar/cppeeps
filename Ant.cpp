@@ -1,5 +1,5 @@
 /*********************************************************************
-** Program name:    Ant.hpp
+** Program name:    Ant.cpp
 ** Author:          Kuljot Biring, Rachel Schlick, Ryan Gross,
 **                  Sandro Aguilar, Jeesoo Ryoo
 ** Date:            02/17/2019
@@ -48,10 +48,11 @@ int Ant::getStepsSurvived() {
 /*********************************************************************
 ** Description:     description
 *********************************************************************/
-void Ant::move(Critter ***&grid, int gridROW, int gridCOL) {
-	if (this->getCritterMoved()) { return ; }
+int Ant::move(Critter ***&grid, int gridROW, int gridCOL) {
+	if (this->getCritterMoved()) { return 0 ; } // <-- CHANGED void to int
 
 	// for every time step, the ant randomly moves up, down,
+	// left, right. If the neighboring cell in the selected direction
 	// left, right. If the neighboring cell in the selected direction
 	// is occupied, or would move the ant off the grid, then the
 	// ant stays in the current cell
@@ -82,18 +83,20 @@ void Ant::move(Critter ***&grid, int gridROW, int gridCOL) {
 
 	setNewRowColByDirection(direction, gridROW, gridCOL);
 	makeStepToNewCell(grid);
+	return 0; // <-- ADDED (ants do not eat, always return 0)
 }
 
 /*********************************************************************
 ** Description:     description
 *********************************************************************/
-void Ant::breed(Critter ***&grid, int gridROW, int gridCOL) {
+int Ant::breed(Critter ***&grid, int gridROW, int gridCOL) {
 	// if an ant survives for three time steps, at the end of the time
 	// steps (after moving) the ant will breed by creating a new ant
 	// in an adjacent cell that is empty randomly
 
 	// array to track adjacent cell searched for breeding
 	int directionTracker[] = {0,0,0,0};
+	int antBabyTracker = 0;
 	//cout << "Ant steps survived " << stepsSurvived << endl;
 	do {
 		// generate a random number 1-4
@@ -114,6 +117,8 @@ void Ant::breed(Critter ***&grid, int gridROW, int gridCOL) {
 						grid[newRow][newCol] = new Ant(newRow, newCol);
 						// mark parent ant as already bred
 						grid[row][col]->setCritterBred(true);
+						// increment baby tracker
+						antBabyTracker++;
 						// resets steps survived by parent ant
 						resetStepsSurvived();
 					}
@@ -124,7 +129,8 @@ void Ant::breed(Critter ***&grid, int gridROW, int gridCOL) {
 		}
 		// keep looping until all adjacent sides have been checked and ant has not bred
 	} while( !grid[row][col]->getCritterBred() && !(directionTracker[0] && directionTracker[1] && directionTracker[2] && directionTracker[3]) );
-
+	
+	return antBabyTracker;
 	// reset critter bred flag on parent
 	grid[row][col]->setCritterBred(false);
 }
