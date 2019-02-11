@@ -15,8 +15,9 @@ class Doodlebug : public Critter
 private:
     int stepsStarved;
     void checkAdjacentCells(Critter ***&grid, int gridROW, int gridCOL);
-    void eat(Critter ***&grid);
-
+    int eat(Critter ***&grid); // <-- CHANGED void to int
+	int numberDoodlebugs;
+	
 protected:
 
 public:
@@ -26,8 +27,11 @@ public:
     void setStepsSurvived() override;
     int getStepsSurvived() override;
     bool isStarved() override;
-    void move(Critter ***&grid, int gridROW, int gridCOL) override;
-    void breed(Critter ***&grid, int row, int col) override;
+    int move(Critter ***&grid, int gridROW, int gridCOL) override; // CHANGED void to int
+    int breed(Critter ***&grid, int row, int col) override;
+    bool isSpaceAvailable(int*);
+	int getDoodleCt(); // <-- ADDED
+	void setDoodleCt(int); // <-- ADDED 
 };
 
 #endif // DOODLEBUG_HPP
