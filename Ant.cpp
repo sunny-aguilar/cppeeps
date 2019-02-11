@@ -130,7 +130,8 @@ int Ant::breed(Critter ***&grid, int gridROW, int gridCOL) {
 		// keep looping until all adjacent sides have been checked and ant has not bred
 	} while( !grid[row][col]->getCritterBred() && !(directionTracker[0] && directionTracker[1] && directionTracker[2] && directionTracker[3]) );
 	
-	return antBabyTracker;
+
 	// reset critter bred flag on parent
 	grid[row][col]->setCritterBred(false);
+	return antBabyTracker;
 }
