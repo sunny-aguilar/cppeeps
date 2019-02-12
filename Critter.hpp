@@ -12,15 +12,21 @@
 #include "utils.hpp"
 #include <iostream>
 #include <string>
-using std::string;
 using std::cout;
 using std::endl;
+using std::string;
 
-enum Direction {UP = 1, RIGHT, DOWN, LEFT};
+enum Direction
+{
+    UP = 1,
+    RIGHT,
+    DOWN,
+    LEFT
+};
 
 class Critter
 {
-protected:
+  protected:
     Direction direction;
     std::string critterType;
     int stepsSurvived;
@@ -30,10 +36,10 @@ protected:
     int row, col, newRow, newCol;
     void makeStepToNewCell(Critter ***&grid);
 
-public:
+  public:
     Critter();
     Critter(string type, int row, int col);
-    virtual  ~Critter();
+    virtual ~Critter();
 
     int getRow();
     void setRow(int row);
@@ -62,6 +68,6 @@ public:
     virtual int move(Critter ***&grid, int ROW, int COL) = 0; // <-- CHANGED VOID TO INT
     virtual int breed(Critter ***&grid, int row, int col) = 0;
     void setNewRowColByDirection(int direction, int gridROW, int gridCOL);
+    bool isSpaceAvailable(int *);
 };
-
 #endif //CRITTER_HPP

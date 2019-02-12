@@ -10,23 +10,23 @@
 #include "Critter.hpp"
 
 /*********************************************************************
-** Description:     no-args default constructor
+** Description: Default Constructor
 *********************************************************************/
 Critter::Critter() {}
 
 /*********************************************************************
-** Description:     two-arg default constructor
+** Description: Constructor; takes in a string and two ints. Sets 
+** boolean falgs to false.
 *********************************************************************/
-Critter::Critter(string type, int row, int col) :
-	critterType{type},
-	stepsSurvived{0},
-	critterBred{false},
-	readyToBreed{false},
-	critterMoved{false},
-	row{row},
-	col{col},
-	newRow{row},
-	newCol{col} {}
+Critter::Critter(string type, int row, int col) : critterType{type},
+												  stepsSurvived{0},
+												  critterBred{false},
+												  readyToBreed{false},
+												  critterMoved{false},
+												  row{row},
+												  col{col},
+												  newRow{row},
+												  newCol{col} {}
 
 /***************************************************************************
 ** Description: Destructor
@@ -116,17 +116,24 @@ void Critter::resetStepsSurvived() { stepsSurvived = 0; }
 ** 							then set 'row' and 'col' value, which indication current location
 ** 							to 'newRow' and 'newCol' value.
 ***************************************************************************/
-void Critter::makeStepToNewCell(Critter ***&grid) {
+void Critter::makeStepToNewCell(Critter ***&grid)
+{
 	// check if the cell to move is occupied.
-	if (grid[newRow][newCol] != nullptr) { return ; }
+	if (grid[newRow][newCol] != nullptr)
+	{
+		return;
+	}
 
 	// check if critter has already moved during time step
-	if (getCritterMoved()) { return ; }
+	if (getCritterMoved())
+	{
+		return;
+	}
 
 	// TODO: REMOVE BEFORE SUBMITTING
 	// cout << "critter moved: "
 	//   << "from [" << getRow() << "][" << getCol() << "]\n"
-		// << "to [" << newRow << "][" << newCol << "]\n";
+	// << "to [" << newRow << "][" << newCol << "]\n";
 	// 	<< "survived : " << getStepsSurvived() << "\n\n";
 
 	// move critter on the grid
@@ -151,31 +158,64 @@ void Critter::makeStepToNewCell(Critter ***&grid) {
 ** 							This function handles edge case to send the critter
 ** 							to the other side of the board.
 *********************************************************************/
-void Critter::setNewRowColByDirection(int direction, int gridROW, int gridCOL) {
+void Critter::setNewRowColByDirection(int direction, int gridROW, int gridCOL)
+{
 	// reset row/col before calculation
 	newRow = row;
 	newCol = col;
 
 	// set proper newCol and newRow value based on the given direction,
 	// with edge case handling.
-	switch (direction) {
-		case UP: // get NORTH square
-			// only move when not out of bounds NORTH wall
-			if (row > 0) { newRow = row - 1; }
-			break;
-		case RIGHT: // get EAST square
-			// only move when not out of bounds EAST wall
-			if ( col < gridCOL - 1 ) { newCol = col + 1; }
-			break;
-		case DOWN: // get SOUTH square
-			// only move when not out of bounds SOUTH wall
-			if (row < gridROW - 1) { newRow = row + 1; }
-			break;
-		case LEFT: // get WEST square
-			// only move when not out of bounds WEST wall
-			if (col > 0) { newCol = col - 1; }
-			break;
-		default:
-			cout << "Unable to determine direction to move!\n";
+	switch (direction)
+	{
+	case UP: // get NORTH square
+		// only move when not out of bounds NORTH wall
+		if (row > 0)
+		{
+			newRow = row - 1;
+		}
+		break;
+	case RIGHT: // get EAST square
+		// only move when not out of bounds EAST wall
+		if (col < gridCOL - 1)
+		{
+			newCol = col + 1;
+		}
+		break;
+	case DOWN: // get SOUTH square
+		// only move when not out of bounds SOUTH wall
+		if (row < gridROW - 1)
+		{
+			newRow = row + 1;
+		}
+		break;
+	case LEFT: // get WEST square
+		// only move when not out of bounds WEST wall
+		if (col > 0)
+		{
+			newCol = col - 1;
+		}
+		break;
+	default:
+		cout << "Unable to determine direction to move!\n";
 	}
+}
+
+/*********************************************************************
+** Description: Method that iteratively checks adjacent sides to see
+** if they're available; used to verify if bug can breed in specific state.
+** Takes in an array of ints, representing the 4 cardinal points (NSEW).
+** Itertes through array; if value returns true 0 (false), space is
+** available and returned true. Returns false otherwise. 
+*********************************************************************/
+bool Critter::isSpaceAvailable(int *array)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (array[i] == false)
+		{
+			return true;
+		}
+	}
+	return false;
 }
