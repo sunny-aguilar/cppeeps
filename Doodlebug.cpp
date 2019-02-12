@@ -1,5 +1,5 @@
 /*********************************************************************
-** Program name:    Doodlebug.hpp
+** Program name:    Doodlebug.cpp
 ** Author:          Kuljot Biring, Rachel Schlick, Ryan Gross,
 **                  Sandro Aguilar, Jeesoo Ryoo
 ** Date:            02/17/2019
@@ -57,16 +57,18 @@ bool Doodlebug::isStarved() {
 ** Conditionally checks if a ant-type critter exists in a specific 
 ** row/col, and then "eats" (deletes) it if it's the case.
 *********************************************************************/
-void Doodlebug::eat(Critter ***&grid) {
-	if (grid[newRow][newCol] == nullptr) { return ; }
-
+int Doodlebug::eat(Critter ***&grid) { // CHANGED FROM VOID
+	if (grid[newRow][newCol] == nullptr) { return 0; }
+	int antEaten = 0; // <-- ADDED
 	if (grid[newRow][newCol]->getCritterType() == "O") {
 		// DEBUG
 		cout << "\nEAT the ant at: " << newRow << ", " << newCol  << "\n\n";
 		delete grid[newRow][newCol];
 		grid[newRow][newCol] = nullptr;
 		stepsStarved = 0;
+		antEaten--; // <-- ADDED (should be negative)
 	}
+	return antEaten; // <-- ADDED
 }
 
 /*********************************************************************
@@ -86,8 +88,8 @@ void Doodlebug::eat(Critter ***&grid) {
 **                  direction is already occupied, then the critter
 **                  does not move (consistent with specifications).
 *********************************************************************/
-void Doodlebug::move(Critter ***&grid, int gridROW, int gridCOL) {
-	if (this->getCritterMoved()) { return ; }
+int Doodlebug::move(Critter ***&grid, int gridROW, int gridCOL) {
+	if (this->getCritterMoved()) { return 0; } // <-- CHANGED void to int
 
 	// for every time step, the doodlebug randomly moves up, down,
 	// left, right. If the neighboring cell in the selected direction
@@ -96,28 +98,10 @@ void Doodlebug::move(Critter ***&grid, int gridROW, int gridCOL) {
 
 	checkAdjacentCells(grid, gridROW, gridCOL);
 
-	// // use switch statement to display which direction critter went
-	// // DEBUGGING, DELETE THIS SWITCH STMT BEFORE SUBMITTING
-	// switch (direction) {
-	// 	case UP:
-	// 		cout << "\nDoodlebug randomly selected to go NORTH\n";
-	// 		break;
-	// 	case RIGHT:
-	// 		cout << "\nDoodlebug randomly selected to go EAST\n";
-	// 		break;
-	// 	case DOWN:
-	// 		cout << "\nDoodlebug randomly selected to go SOUTH\n";
-	// 		break;
-	// 	case LEFT:
-	// 		cout << "\nDoodlebug randomly selected to go WEST\n";
-	// 		break;
-	// 	default:
-	// 		cout << "\nUnable to get direction to move to!\n";
-	// }
-
 	stepsStarved++;
-	eat(grid);
+	int antEaten = eat(grid); // <-- CHANGED TO ACCEPT RETURN INT
 	makeStepToNewCell(grid);
+	return antEaten; // <-- ADDED
 
 	// DEBUG
 	// cout << "stepsStarved: " << stepsStarved << endl;
@@ -178,18 +162,19 @@ void Doodlebug::checkAdjacentCells(Critter ***&grid, int gridROW, int gridCOL) {
 ** and loops until critter cannot breed or if all adjacent sides 
 ** are full.
 *********************************************************************/
-void Doodlebug::breed(Critter ***&grid, int gridROW, int gridCOL) {
+int Doodlebug::breed(Critter ***&grid, int gridROW, int gridCOL) {
 	// if a doodlebug survives for eight time steps, at the end of the
 	// time step, it will spawn off a new doodlebug in the same manner
 	// as the ant (only breed into an adjacent empty cell)
 
 	// array to track adjacent cell searched for breeding
 	int directionTracker[] = {0,0,0,0};
+	// to track number of doodlebugs bred this step
+	int doodleBabyTracker = 0;
 	//cout << "Doodlebug steps survived " << stepsSurvived << endl;
 	do {
 		// generate a random number 1-4
 		int direction = generateRandomNumber(4);
-
 		// if adjacent cell has not been selected before
 		if (!directionTracker[direction - 1]) {
 			// get random direction
@@ -205,6 +190,8 @@ void Doodlebug::breed(Critter ***&grid, int gridROW, int gridCOL) {
 						grid[newRow][newCol] = new Doodlebug(newRow, newCol);
 						// mark parent doodlebug as already bred
 						grid[row][col]->setCritterBred(true);
+						// update quantity of doodlebugs
+						doodleBabyTracker++;
 						// resets steps survived by parent doodlebug
 						resetStepsSurvived();
 					}
@@ -218,6 +205,7 @@ void Doodlebug::breed(Critter ***&grid, int gridROW, int gridCOL) {
 
 	// reset critter bred flag on parent
 	grid[row][col]->setCritterBred(false);
+	return doodleBabyTracker;
 }
 
 /*********************************************************************
@@ -235,3 +223,4 @@ bool Doodlebug::isSpaceAvailable(int *array) {
 	}
 	return false;
 }
+

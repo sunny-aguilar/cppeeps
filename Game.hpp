@@ -44,14 +44,18 @@ public:
     void critterRandomPlacement();
     void critterActivities(int cstep);
     void eatAnts();
-    void moveDoodlebugs();
-    void starvedDoodlebugs();
+    int moveDoodlebugs();
+    int starvedDoodlebugs(); 
     void moveAnts();
-    void moveCritters(string critterType);
-    void spawnDoodlebugs();
-    void spawnAnts();
-    void displayBoard(int cStep = 0);
+    int moveCritters(string critterType);
+    int spawnDoodlebugs();
+    int spawnAnts();
+    void displayBoard(int cStep = 0, int antsEaten = 0, int newDoodles = 0, int newAnts = 0, int starvedDoodles = 0); // <-- CHANGED
     bool goAgain();
+	int getDoodleQty(); // <-- ADDED 
+	void setDoodleQty(int); // <-- ADDED
+	int getAntQty(); // <--ADDED 
+	void setAntQty(int); // <-- ADDED
 };
 
 #endif //GAME_HPP

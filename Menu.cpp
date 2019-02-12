@@ -30,7 +30,30 @@ Menu::Menu() :
 ***************************************************************************/
 void Menu::startMenu()
 {
-    cout << "\nWELCOME TO THE PREDATOR-PREY SIMULATION\n\n";
+    cout<<"#############################################################"<<endl;
+    cout<<"#                                                           #"<<endl;
+    cout<<"#      WELCOME TO THE PREDATOR-PREY SIMULATION !!           #"<<endl;
+    cout<<"#            By:                                            #"<<endl;
+    cout<<"#                 Sandro Aguilar                            #"<<endl;
+    cout<<"#                 Kuljot Biring                             #"<<endl;
+    cout<<"#                 Ryan Gross                                #"<<endl;
+    cout<<"#                 Jeesoo Ryoo                               #"<<endl;
+    cout<<"#                 Rachel Schlick                            #"<<endl;
+    cout<<"#                                                           #"<<endl;
+    cout<<"#     ,_   _,         \\       /                             #"<<endl;
+    cout<<"#      '._.'           \\     /                              #"<<endl;
+    cout<<"# '-,   (_)   ,-'       \\.-./                               #"<<endl;
+    cout<<"#   '._ .:. _.'         (o\\^/o)  _   _   _     __           #"<<endl;
+    cout<<"#    _ '|Y|' _           ./ \\.\\ ( )-( )-( ) .-'  '-.        #"<<endl;
+    cout<<"#  ,` `>\\ /<` `,         {-} \\(//  ||   \\\\/ (   )) '-.      #"<<endl;
+    cout<<"# ` ,-`  I  `-, `           //-__||__.-\\\\.      _.-'        #"<<endl;
+    cout<<"#   |   /=\\   |            (/    ()     \\)'-._.-'           #"<<endl;
+    cout<<"# ,-'   |=|   '-,          ||    ||      \\\\                 #"<<endl;
+    cout<<"#       )-(                ('    ('       ')                #"<<endl;
+    cout<<"#       \\_/                                                 #"<<endl;
+    cout<<"#                                                           #"<<endl;
+    cout<<"#                                                           #"<<endl;
+    cout<<"#############################################################"<<endl;
     cout << "Please enter a choice listed below\n";
     cout << "1. Run Simulation\n";
     cout << "2. Exit Simulation\n";
@@ -169,13 +192,23 @@ int Menu::getCritterSteps()
 /*********************************************************************
 ** Description:     description
 *********************************************************************/
-void Menu::menuDisplayBoard(int col, int cStep) {
-    cout << "\nDISPLAYING BOARD ";
+void Menu::menuDisplayBoard(int col, int cStep, int doodleCt, int antCt, int antsEaten, int newDoodles, int newAnts, int starvedDoodles) {
+    cout << "\nCURRENT STATS" << endl;
     for (int count = 0; count < col; count++) {
         cout << "* ";
     }
     cout << endl;
-    cout << "Total steps taken " << cStep << endl;
+    cout << std::left << setw(30) << "Current steps taken: " << cStep << endl;
+	cout << std::left << setw(30) << "Ants on board: " << antCt << endl;
+	cout << std::left << setw(30) <<"Doodlebugs on board: " << doodleCt << endl;
+	cout << std::left << setw(30) <<"Ants eaten this step: " << antsEaten << endl;
+	cout << std::left << setw(30) <<"Ants bred this step: " << newAnts << endl;
+	cout << std::left << setw(30) <<"Doodlebugs bred this step: " << newDoodles << endl;
+	cout << std::left << setw(30) <<"Doodlebugs starved this step: " << starvedDoodles << endl;
+	for (int count = 0; count < col; count++) {
+        cout << "* ";
+    }
+	cout << endl;
 }
 
 /***************************************************************************
@@ -183,7 +216,7 @@ void Menu::menuDisplayBoard(int col, int cStep) {
 ***************************************************************************/
 void Menu::menuPlayAgain()
 {
-    cout << "\nWould you like to run the simulation again using using"
+    cout << "\nWould you like to run the simulation again using "
             "a different number of steps?\n";
     cout << "Please enter a choice listed below\n";
     cout << "1. Changes Step count and rerun Simulation\n";
