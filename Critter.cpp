@@ -7,7 +7,6 @@
 *********************************************************************/
 
 #include <iostream>
-
 #include "Critter.hpp"
 
 /*********************************************************************
@@ -30,31 +29,83 @@ Critter::Critter(string type, int row, int col) :
 	newCol{col} {}
 
 /***************************************************************************
-** Description:     destructor
+** Description: Destructor
 ***************************************************************************/
 Critter::~Critter() {}
 
 /***************************************************************************
-** Description:     getters
+** Description: Getter for row
 ***************************************************************************/
 int Critter::getRow() { return row; }
+
+/***************************************************************************
+** Description: Getter for column
+***************************************************************************/
 int Critter::getCol() { return col; }
+
+/***************************************************************************
+** Description: Getter for new row
+***************************************************************************/
 int Critter::getNewRow() { return newRow; }
+
+/***************************************************************************
+** Description: Getter for new column
+***************************************************************************/
 int Critter::getNewCol() { return newCol; }
+
+/***************************************************************************
+** Description: Getter for conditional if critter moved.
+***************************************************************************/
 bool Critter::getCritterMoved() { return critterMoved; }
+
+/***************************************************************************
+** Description: Getter for critter type
+***************************************************************************/
 std::string Critter::getCritterType() { return this->critterType; }
+
+/***************************************************************************
+** Description: Getter for conditional if critter starved
+***************************************************************************/
 bool Critter::isStarved() { return false; }
+
+/***************************************************************************
+** Description: Getter for conditional if critter bred
+***************************************************************************/
 bool Critter::getCritterBred() { return critterBred; }
 
 /***************************************************************************
-** Description:     setters
+** Description: Setter for row
 ***************************************************************************/
 void Critter::setRow(int row) { this->row = row; }
+
+/***************************************************************************
+** Description: Setter for column
+***************************************************************************/
 void Critter::setCol(int col) { this->col = col; }
+
+/***************************************************************************
+** Description: Setter for new row
+***************************************************************************/
 void Critter::setNewRow(int newRow) { this->newRow = newRow; }
+
+/***************************************************************************
+** Description: Setter for new column
+***************************************************************************/
 void Critter::setNewCol(int newCol) { this->newCol = newCol; }
+
+/***************************************************************************
+** Description: Setter for conditional if critter moved
+***************************************************************************/
 void Critter::setCritterMoved(bool moved) { this->critterMoved = moved; }
+
+/***************************************************************************
+** Description: Setter for conditional if critter bred
+***************************************************************************/
 void Critter::setCritterBred(bool bred) { this->critterBred = bred; }
+
+/***************************************************************************
+** Description: Void method that changes the value of steps survived to 0
+***************************************************************************/
 void Critter::resetStepsSurvived() { stepsSurvived = 0; }
 
 /***************************************************************************
