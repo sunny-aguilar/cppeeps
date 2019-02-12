@@ -26,33 +26,36 @@ Doodlebug::Doodlebug(int row, int col) : Critter{"X", row, col}
 }
 
 /*********************************************************************
-** Description:     destructor
+** Description: Destructor
 *********************************************************************/
 Doodlebug::~Doodlebug() {}
 
 /*********************************************************************
-** Description:     description
+** Description: Setter for steps survived
 *********************************************************************/
 void Doodlebug::setStepsSurvived() {
 	stepsSurvived++;
 }
 
 /*********************************************************************
-** Description:     description
+** Description: Getter for steps survived
 *********************************************************************/
 int Doodlebug::getStepsSurvived() {
 	return stepsSurvived;
 }
 
 /*********************************************************************
-** Description:     description
+** Description: Getter for conditional of whether said bug is starving.
 *********************************************************************/
 bool Doodlebug::isStarved() {
 	return stepsStarved >= 3;
 }
 
 /*********************************************************************
-** Description:     description
+** Description: Takes in a dynamically allocated 2D array of Critters,
+** Looks at the destination (cell @ row/col) it should move to. If
+** it is already occupied by an Ant, said ant is removed and replaced
+** by said bug. Returns an int.
 *********************************************************************/
 int Doodlebug::eat(Critter ***&grid) { // CHANGED FROM VOID
 	if (grid[newRow][newCol] == nullptr) { return 0; }
@@ -152,7 +155,10 @@ void Doodlebug::checkAdjacentCells(Critter ***&grid, int gridROW, int gridCOL) {
 }
 
 /*********************************************************************
-** Description:     description
+** Description: Takes in a dynamically allocated 2D array of doodlebugs,
+** and two ints (row/col). Iteratively checks a randomly selected
+** adjacent cell. If it's empty, a new bug is created. Returns
+** the # of bugs created.
 *********************************************************************/
 int Doodlebug::breed(Critter ***&grid, int gridROW, int gridCOL) {
 	// if a doodlebug survives for eight time steps, at the end of the
@@ -199,20 +205,3 @@ int Doodlebug::breed(Critter ***&grid, int gridROW, int gridCOL) {
 	grid[row][col]->setCritterBred(false);
 	return doodleBabyTracker;
 }
-
-/*********************************************************************
-** Description: Method that iteratively checks adjacent sides to see
-** if they're available; used to verify if bug can breed in specific state.
-** Takes in an array of ints, representing the 4 cardinal points (NSEW).
-** Itertes through array; if value returns true 0 (false), space is
-** available and returned true. Returns false otherwise. 
-*********************************************************************/
-bool Doodlebug::isSpaceAvailable(int *array) {
-	for (int i = 0; i < 4; i++) {
-		 if (array[i] == false) {
-			 return true;
-		 }
-	}
-	return false;
-}
-
