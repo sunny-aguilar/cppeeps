@@ -234,7 +234,7 @@ void Game::displayBoard(int cStep, int antsEaten, int newDoodles, int newAnts, i
     // <-- ADDED parameters to pass through to menu.displayboard
 
     // built top wall
-    for (int index = 0; index < row; index++) {
+    for (int index = 0; index < col; index++) {
         cout << "__";
     }
     cout << endl;
@@ -259,7 +259,7 @@ void Game::displayBoard(int cStep, int antsEaten, int newDoodles, int newAnts, i
     }
 
     // build bottom wall
-    for (int index = 0; index < row; index++) {
+    for (int index = 0; index < col; index++) {
         cout << "--";
     }
     cout << "\n" << endl;
