@@ -40,10 +40,8 @@ public:
     void playGame();
     void setCritters(int);
     void initializeCritters();
-    void nonrandomPlacement();
     void critterRandomPlacement();
     void critterActivities(int cstep);
-    void eatAnts();
     int moveDoodlebugs();
     int starvedDoodlebugs(); 
     void moveAnts();
@@ -52,7 +50,7 @@ public:
     int spawnAnts();
     void displayBoard(int cStep = 0, int antsEaten = 0, int newDoodles = 0, int newAnts = 0, int starvedDoodles = 0); // <-- CHANGED
     bool goAgain();
-	int getDoodleQty(); // <-- ADDED 
+	int getDoodleQty(); // <-- ADDED
 	void setDoodleQty(int); // <-- ADDED
 	int getAntQty(); // <--ADDED 
 	void setAntQty(int); // <-- ADDED

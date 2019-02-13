@@ -167,35 +167,6 @@ void Game::initializeCritters() {
 }
 
 /*********************************************************************
-** Description:     this function creates ants and doodle bug
-**                  instances and adds them to the board in a
-**                  a non-random fashion
-**                  NOTE - only use this function for debugging
-*********************************************************************/
-void Game::nonrandomPlacement() {
-    // add the doodlebugs and ants to the array
-    // NOTE! - need to place them randomly on board, see function
-    // critterRandomPlacement()
-
-    int antsAdded = 0;
-    int doodlesAdded = 0;
-
-    for (int r_index = 0; r_index < row; r_index++) {
-        for (int c_index = 0; c_index < col; c_index++) {
-            // create a ant and pass in row and col location
-            if (antsAdded < antQty) {
-                board[r_index][c_index] = new Ant(r_index, c_index);
-                antsAdded++;
-            }
-            else if ( doodlesAdded < doodlebugQty ) {
-                board[r_index][c_index] = new Doodlebug(r_index, c_index);
-                doodlesAdded++;
-            }
-        }
-    }
-}
-
-/*********************************************************************
 ** Description:     creates doodlebugs and ants and randomly places
 **                  them on the board
 *********************************************************************/
@@ -330,7 +301,6 @@ void Game::setAntQty(int antChange) {
 **                  should be moved.
 *********************************************************************/
 int Game::moveDoodlebugs() { // <-- CHANGED void to int for tracking ants eaten
-    cout << "Moving doodlebugs" << endl;
     int antChange = moveCritters("X");
 	setAntQty(antChange); // should be negative- decrease ant population
 	cout << "The number of ants eaten is: " << antChange << endl; // for testing
@@ -368,7 +338,6 @@ int Game::starvedDoodlebugs() { // CHANGED void to int to return num starved
 **                  moved.
 *********************************************************************/
 void Game::moveAnts() {
-    cout << "Moving ants" << endl;
     int doodleChange = moveCritters("O");
 	setDoodleQty(doodleChange); // should be zero
 	cout << "The number of doodles changed in ant move is: " << doodleChange << endl; // test print to ensure no non-zero values
@@ -441,7 +410,6 @@ int Game::spawnDoodlebugs() { // <-- CHANGED from void to int
 ** Description:     description
 *********************************************************************/
 int Game::spawnAnts() { // <-- CHANGED from void to int
-    cout << "Spawning ants" << endl;
 	int newAnts = 0;
     for (int r_index = 0; r_index < row; r_index++) {
         for (int c_index = 0; c_index < col; c_index++) {
