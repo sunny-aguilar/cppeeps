@@ -61,46 +61,25 @@ void Menu::startMenu()
 }
 
 /***************************************************************************
-** Description:     mutator function set play or quit choice option
+** Description:     prompt user to for row size
 ***************************************************************************/
-void Menu::setStartQuitChoice(int startQuitChoice)
+void Menu::boardRowSizeMenu(int min, int max)
 {
-    this->startQuitChoice = startQuitChoice;
-}
-
-/***************************************************************************
-** Description:   accessor function get play or quit choice option
-***************************************************************************/
-int Menu::getStartQuitChoice()
-{
-    return startQuitChoice;
-}
-
-/***************************************************************************
-** Description:     prompt user to for board size
-***************************************************************************/
-void Menu::boardSizeMenu(int row, int col)
-{
-    cout << "\nBOARD SIZE\n";
-    cout << "Please enter the size of the game board \n";
-    cout << "Enter the length and width of the board from " << row << " - " << col << " only\n";
+    cout << "\nROW SIZE\n";
+    cout << "Please enter the number of rows for the game board \n";
+    cout << "Enter the length of the board from " << min << " - " << max << " only\n";
     cout << ">> ";
 }
 
 /***************************************************************************
-** Description:     mutator function set length and width of board
+** Description:     prompt user to for column size
 ***************************************************************************/
-void Menu::setBoardSize(int boardSize)
+void Menu::boardColSizeMenu(int min, int max)
 {
-    this->boardSize = boardSize;
-}
-
-/***************************************************************************
-** Description:   accessor function get size of board
-***************************************************************************/
-int Menu::getBoardSize()
-{
-    return boardSize;
+    cout << "\nCOLUMN SIZE\n";
+    cout << "Please enter the number of columns for the game board \n";
+    cout << "Enter the width of the board from " << min << " - " << max << " only\n";
+    cout << ">> ";
 }
 
 /***************************************************************************
@@ -112,22 +91,6 @@ void Menu::numAntsMenu(int min, int max)
     cout << "Enter the number of ants you would like to have\n";
     cout << "Enter the number of ants from " << min << " - " << max << " only\n";
     cout << ">> ";
-}
-
-/***************************************************************************
-** Description:     EXTRA CREDIT: mutator function set length number of ants
-***************************************************************************/
-void Menu::setNumAnts(int numAnts)
-{
-    this->numAnts = numAnts;
-}
-
-/***************************************************************************
-** Description:   EXTRA CREDIT: accessor function get number of ants
-***************************************************************************/
-int Menu::getNumAnts()
-{
-    return numAnts;
 }
 
 /***************************************************************************
@@ -148,22 +111,6 @@ void Menu::menuRandomPlacement() {
     cout << "\nAnts and Doodlebugs have been randomly placed on the board\n";
 }
 
-/***************************************************************************
-** Description:  EXTRA CREDIT: mutator function set length number of doodlebugs
-***************************************************************************/
-void Menu::setNumDoodleBugs(int numDoodleBugs)
-{
-    this->numDoodleBugs = numDoodleBugs;
-}
-
-/***************************************************************************
-** Description:  EXTRA CREDIT: accessor function get number of doodlebugs
-***************************************************************************/
-int Menu::getNumDoodleBugs()
-{
-    return numDoodleBugs;
-}
-
 /*********************************************************************
 ** Description:  Ant steps prompt for total board movement
 *********************************************************************/
@@ -171,22 +118,6 @@ void Menu::critterStepsPrompt()
 {
     cout << "\nSTEPS\n";
     cout << "Enter the total number of steps the ant should walk from 1 through 20000 only" << endl;
-}
-
-/***************************************************************************
-** Description:  EXTRA CREDIT: mutator function set length number of doodlebugs
-***************************************************************************/
-void Menu::setCritterSteps(int critterSteps)
-{
-    this->critterSteps = critterSteps;
-}
-
-/*********************************************************************
-** Description:     get total ant steps on the board
-*********************************************************************/
-int Menu::getCritterSteps()
-{
-    return critterSteps;
 }
 
 /*********************************************************************
@@ -228,22 +159,6 @@ void Menu::menuPlayAgain()
 ***************************************************************************/
 void Menu::menuExitGameMessage() {
     cout << "\nNow exiting the predator-prey simulation" << endl;
-}
-
-/***************************************************************************
-** Description:   mutator function set continue or quit choice option
-***************************************************************************/
-void Menu::setContinueStopChoice(int continueStopChoice)
-{
-    this->continueStopChoice = continueStopChoice;
-}
-
-/***************************************************************************
-** Description:   accessor function get continue or quit choice option
-***************************************************************************/
-int Menu::getContinueStopChoice()
-{
-    return continueStopChoice;
 }
 
 /****************************************************************************

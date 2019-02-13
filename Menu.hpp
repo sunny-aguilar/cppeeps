@@ -37,26 +37,15 @@ public:
     Menu();
     int inputValidator(int min, int max);
     void startMenu();
-    void setStartQuitChoice(int startQuitChoice);
-    int getStartQuitChoice();
-    void boardSizeMenu(int row, int col);
-    void setBoardSize(int boardSize);
-    int getBoardSize();
+    void boardRowSizeMenu(int min, int max);
+    void boardColSizeMenu(int min, int max);
     void numAntsMenu(int min, int max);
-    void setNumAnts(int numAnts);
-    int getNumAnts();
     void numDoodleBugsMenu(int min, int max);
     void menuRandomPlacement();
-    void setNumDoodleBugs(int numDoodleBugs);
-    int getNumDoodleBugs();
     void critterStepsPrompt();
-    void setCritterSteps(int critterSteps);
-    int getCritterSteps();
     void menuDisplayBoard(int col=0, int cStep=0, int doodleCt=0, int antCt=0, int antsEaten=0, int newDoodles=0, int newAnts=0, int starvedDoodles=0);
     void menuPlayAgain();
     void menuExitGameMessage();
-    void setContinueStopChoice(int continueStopChoice);
-    int getContinueStopChoice();
 
     // TODO: REMOVE DEBUG MODE BEFORE SUBMIT
     void menuDebugMode();

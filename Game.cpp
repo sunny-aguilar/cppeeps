@@ -60,8 +60,10 @@ void Game::playGame() {
         case 1:
             // set game parameters
             // set board rows and columns
-            menu.boardSizeMenu(MIN_SIZE, MAX_SIZE);
-            row = col = menu.inputValidator(MIN_SIZE, MAX_SIZE);
+            menu.boardRowSizeMenu(MIN_SIZE, MAX_SIZE);
+            row = menu.inputValidator(MIN_SIZE, MAX_SIZE);
+            menu.boardColSizeMenu(MIN_SIZE, MAX_SIZE);
+            col = menu.inputValidator(MIN_SIZE, MAX_SIZE);
             maxCritters = row * col;
 
             // make sure that total critters entered
