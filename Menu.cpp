@@ -126,11 +126,16 @@ void Menu::critterStepsPrompt()
 ** Description:     description
 *********************************************************************/
 void Menu::menuDisplayBoard(int col, int cStep, int doodleCt, int antCt, int antsEaten, int newDoodles, int newAnts, int starvedDoodles) {
-    cout << "\nCURRENT STATS" << endl;
-    for (int count = 0; count < col; count++) {
-        cout << "* ";
+	int displayWidth = 30; 
+    for (int count = 0; count < displayWidth; count++) {
+        cout << "__";
     }
-    cout << endl;
+	cout << endl;
+    cout << std::right << "\n" << setw(40) << "Predator VS Prey - CURRENT STATS" << endl;
+    for (int count = 0; count < displayWidth; count++) {
+        cout << "__";
+    }
+    cout << "\n" << endl;
     cout << std::left << setw(30) << "Current steps taken: " << cStep << endl;
 	cout << std::left << setw(30) << "Ants on board: " << antCt << endl;
 	cout << std::left << setw(30) <<"Doodlebugs on board: " << doodleCt << endl;
@@ -138,8 +143,9 @@ void Menu::menuDisplayBoard(int col, int cStep, int doodleCt, int antCt, int ant
 	cout << std::left << setw(30) <<"Ants bred this step: " << newAnts << endl;
 	cout << std::left << setw(30) <<"Doodlebugs bred this step: " << newDoodles << endl;
 	cout << std::left << setw(30) <<"Doodlebugs starved this step: " << starvedDoodles << endl;
-	for (int count = 0; count < col; count++) {
-        cout << "* ";
+	cout << endl;
+	for (int count = 0; count < displayWidth; count++) {
+        cout << "__";
     }
 	cout << endl;
 }
