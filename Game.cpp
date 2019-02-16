@@ -287,7 +287,6 @@ void Game::setAntQty(int antChange) {
 int Game::moveDoodlebugs() { // <-- CHANGED void to int for tracking ants eaten
     int antChange = moveCritters("X");
 	setAntQty(antChange); // should be negative- decrease ant population
-	cout << "The number of ants eaten is: " << antChange << endl; // for testing
 	return abs(antChange); // report as a non-negative number
 }
 
@@ -302,7 +301,6 @@ int Game::starvedDoodlebugs() { // CHANGED void to int to return num starved
         for (int c_index = 0; c_index < col; c_index++) {
             if (board[r_index][c_index] != nullptr && board[r_index][c_index]->getCritterType() == "X") {
                 if (board[r_index][c_index]->isStarved()) {
-                    cout << "Doodlebug starved at: " << r_index << ", " << c_index << endl;
                     delete board[r_index][c_index];
                     board[r_index][c_index] = nullptr;
 					setDoodleQty(-1); // <-- ADDED remove one doodlebug from total
@@ -323,7 +321,6 @@ int Game::starvedDoodlebugs() { // CHANGED void to int to return num starved
 void Game::moveAnts() {
     int doodleChange = moveCritters("O");
 	setDoodleQty(doodleChange); // should be zero
-	cout << "The number of doodles changed in ant move is: " << doodleChange << endl; // test print to ensure no non-zero values
 }
 
 /*********************************************************************
@@ -374,7 +371,6 @@ int Game::moveCritters(string critterType) { // <--CHANGED void to int
 ** Description:     description
 *********************************************************************/
 int Game::spawnDoodlebugs() { // <-- CHANGED from void to int
-    cout << "Spawning doodlebugs" << endl;
 	int newDoodles = 0;
     for (int r_index = 0; r_index < row; r_index++) {
         for (int c_index = 0; c_index < col; c_index++) {
