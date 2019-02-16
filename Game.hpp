@@ -30,9 +30,6 @@ private:
     int maxCritters;
     int steps;
 
-    // TODO: REMOVE THIS VARIABLE BEFORE SUBMIT
-    int isDebugMode;
-
 public:
     Game();
     ~Game();

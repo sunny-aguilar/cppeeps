@@ -13,8 +13,6 @@ using std::cin;
 using std::endl;
 
 int main() {
-    auto seed = static_cast<unsigned int>(time(nullptr));
-    srand(seed);                // random number generator
     Game game;                  // create game object
     game.playGame();            // start simulation
     return 0;

@@ -40,9 +40,6 @@ public:
     void menuDisplayBoard(int col=0, int cStep=0, int doodleCt=0, int antCt=0, int antsEaten=0, int newDoodles=0, int newAnts=0, int starvedDoodles=0);
     void menuPlayAgain();
     void menuExitGameMessage();
-
-    // TODO: REMOVE DEBUG MODE BEFORE SUBMIT
-    void menuDebugMode();
 };
 
 #endif //MENU_HPP
