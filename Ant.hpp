@@ -12,10 +12,6 @@
 
 class Ant : public Critter
 {
-private:
-
-protected:
-
 public:
     Ant();
     Ant(int row, int col);

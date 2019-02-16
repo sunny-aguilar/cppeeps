@@ -18,7 +18,6 @@ Doodlebug::Doodlebug() : Critter() {}
 *********************************************************************/
 Doodlebug::Doodlebug(int row, int col) : Critter{"X", row, col}
 {
-	// this is being used for debugging - DELETE AFTER DEBUGGED
 	stepsStarved = 0;
 	static int num = 1;
 	cout << "Doodlebug #" << num << " created on Board[" << row << "][" << col << "]" << endl;
@@ -61,8 +60,7 @@ int Doodlebug::eat(Critter ***&grid) { // CHANGED FROM VOID
 	if (grid[newRow][newCol] == nullptr) { return 0; }
 	int antEaten = 0; // <-- ADDED
 	if (grid[newRow][newCol]->getCritterType() == "O") {
-		// DEBUG
-		cout << "\nEAT the ant at: " << newRow << ", " << newCol  << "\n\n";
+		cout << "Doodlebug ate the ant at: " << newRow << ", " << newCol  << "\n";
 		delete grid[newRow][newCol];
 		grid[newRow][newCol] = nullptr;
 		stepsStarved = 0;
@@ -102,9 +100,6 @@ int Doodlebug::move(Critter ***&grid, int gridROW, int gridCOL) {
 	int antEaten = eat(grid); // <-- CHANGED TO ACCEPT RETURN INT
 	makeStepToNewCell(grid);
 	return antEaten; // <-- ADDED
-
-	// DEBUG
-	// cout << "stepsStarved: " << stepsStarved << endl;
 }
 						
 /*********************************************************************
@@ -134,8 +129,6 @@ void Doodlebug::checkAdjacentCells(Critter ***&grid, int gridROW, int gridCOL) {
 			// if the cell contains Ant, return direction value
 			if (grid[newRow][newCol] != nullptr) {
 				if (grid[newRow][newCol]->getCritterType() == "O") {
-					// DEBUG
-					// cout << "Selected Direction selected: " << direction;
 					return ;
 				}
 			}
@@ -143,15 +136,9 @@ void Doodlebug::checkAdjacentCells(Critter ***&grid, int gridROW, int gridCOL) {
 			// if the cell is empty or doodlebug (X)
 			// do nothing and mark at selectionRecord
 			selectionRecord[direction - 1] = 1;
-
-			// DEBUG: To check which cell has been selected so far.
-			// cout << selectionRecord[0] << selectionRecord[1] << selectionRecord[2] << selectionRecord[3] << endl;
 		}
 	// if all 4 cells has been selected, and no cell has an ant, terminate the loop
 	} while(!(selectionRecord[0] && selectionRecord[1] && selectionRecord[2] && selectionRecord[3]));
-	
-	// DEBUG
-	// cout << "random Direction selected: " << direction;
 }
 
 /*********************************************************************
