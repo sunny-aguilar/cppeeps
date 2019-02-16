@@ -6,7 +6,6 @@
 ** Description:     Critter class description here
 *********************************************************************/
 
-#include <iostream>
 #include "Critter.hpp"
 
 /*********************************************************************
@@ -129,12 +128,6 @@ void Critter::makeStepToNewCell(Critter ***&grid)
 	{
 		return;
 	}
-
-	// TODO: REMOVE BEFORE SUBMITTING
-	// cout << "critter moved: "
-	//   << "from [" << getRow() << "][" << getCol() << "]\n"
-	// << "to [" << newRow << "][" << newCol << "]\n";
-	// 	<< "survived : " << getStepsSurvived() << "\n\n";
 
 	// move critter on the grid
 	grid[newRow][newCol] = grid[getRow()][getCol()];

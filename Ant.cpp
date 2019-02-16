@@ -15,13 +15,7 @@ Ant::Ant() : Critter() {}
 /*********************************************************************
 ** Description: Constructor; takes in two ints.
 *********************************************************************/
-Ant::Ant(int row, int col) : Critter{"O", row, col}
-{
-	// this is being used for debugging - DELETE AFTER DEBUGGED
-	//	static int num = 1;
-	//	cout << "Ant #" << num << " created on Board[" << row << "][" << col << "]" << endl;
-	//	num++;
-}
+Ant::Ant(int row, int col) : Critter{"O", row, col} {}
 
 /*********************************************************************
 ** Description: Destructor
@@ -34,9 +28,6 @@ Ant::~Ant() {}
 void Ant::setStepsSurvived()
 {
 	stepsSurvived++;
-	//	if (stepsSurvived <= 3) {
-	//		readyToBreed = true;
-	//	}
 }
 
 /*********************************************************************
@@ -58,7 +49,7 @@ int Ant::move(Critter ***&grid, int gridROW, int gridCOL)
 	if (this->getCritterMoved())
 	{
 		return 0;
-	} // <-- CHANGED void to int
+	}
 
 	// for every time step, the ant randomly moves up, down,
 	// left, right. If the neighboring cell in the selected direction
@@ -69,30 +60,9 @@ int Ant::move(Critter ***&grid, int gridROW, int gridCOL)
 	// generate a random direction to move critter
 	int direction = generateRandomNumber(1, 4);
 
-	// // use switch statement to display which direction critter went
-	// // DEBUGGING, DELETE THIS SWITCH STMT BEFORE SUBMITTING
-	// switch (direction) {
-	// 	case UP:
-	// 		cout << "\nAnt randomly selected to go NORTH\n";
-	// 		break;
-	// 	case RIGHT:
-	// 		cout << "\nAnt randomly selected to go EAST\n";
-	// 		break;
-	// 	case DOWN:
-	// 		cout << "\nAnt randomly selected to go SOUTH\n";
-	// 		break;
-	// 	case LEFT:
-	// 		cout << "\nAnt randomly selected to go WEST\n";
-	// 		break;
-	// 	default:
-	// 		cout << "\nUnable to get direction to move to!\n";
-	// }
-
-	// cout << "Random direction generated " << direction << endl;
-
 	setNewRowColByDirection(direction, gridROW, gridCOL);
 	makeStepToNewCell(grid);
-	return 0; // <-- ADDED (ants do not eat, always return 0)
+	return 0;
 }
 
 /*********************************************************************

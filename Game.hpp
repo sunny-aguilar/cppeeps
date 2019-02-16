@@ -21,7 +21,6 @@ class Game {
 private:
     Menu menu;
     Critter ***board;
-    Move move;
     bool playAgain;
     int row;
     int col;

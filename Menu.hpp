@@ -25,13 +25,7 @@ class Menu
 private:
     bool numVerify;
     string userInput;
-    int startQuitChoice;
     int selection;
-    int boardSize;
-    int numAnts;
-    int numDoodleBugs;
-    int critterSteps;
-    int continueStopChoice;
 
 public:
     Menu();
