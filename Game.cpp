@@ -1,14 +1,11 @@
 /*********************************************************************
-** Program name: 		Game.cpp
-** Author: 			Kuljot Biring, Rachel Schlick, Ryan Gross,
-** 				Sandro Aguilar, Jeesoo Ryoo
-** Date: 			02/17/2019
-** Description: 		Game class description here
+** Program name: Game.cpp
+** Author:       Kuljot Biring, Rachel Schlick, Ryan Gross,
+**               Sandro Aguilar, Jeesoo Ryoo
+** Date:         02/17/2019
+** Description:  Game class description here
 *********************************************************************/
 #include "Game.hpp"
-// TODO REMOVE THIS BEFORE SUBMIT
-#include <chrono>
-#include <thread>
 
 /***************************************************************************
 ** Description:     default constructor using initialization list
@@ -47,12 +44,6 @@ void Game::playGame() {
     const int MAX_SIZE = 100;
     const int MIN_STEPS = 1;
     const int MAX_STEPS = 20000;
-
-    // TODO: REMOVE THIS FUNCTION BEFORE SUBMIT
-    // menuDebugMode:
-    // prompt to press enter before displaying board in each step. 
-    menu.menuDebugMode();
-    isDebugMode = menu.inputValidator(1, 3);
 
     // display start menu
     menu.startMenu();
@@ -268,15 +259,6 @@ void Game::displayBoard(int cStep, int antsEaten, int newDoodles, int newAnts, i
 	int doodleCt = getDoodleQty();
 	int antCt = getAntQty();
 	menu.menuDisplayBoard(col, cStep, doodleCt, antCt, antsEaten, newDoodles, newAnts, starvedDoodles);
-
-    // TODO: REMOVE THIS CODE BEFORE SUBMIT
-    cout << std::flush;
-    if (isDebugMode == 1) {
-        cout << "Press enter to continue\n";
-        cin.ignore();
-    } else if (isDebugMode == 2) {
-        std::this_thread::sleep_for(std::chrono::milliseconds(300));
-    }
 }
 
 /*********************************************************************

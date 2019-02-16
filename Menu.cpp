@@ -67,7 +67,7 @@ void Menu::startMenu()
 ***************************************************************************/
 void Menu::boardRowSizeMenu(int min, int max)
 {
-    cout << "\nROW SIZE\n";
+    cout << "\n[Extra Credit] ROW SIZE\n";
     cout << "Please enter the number of rows for the game board \n";
     cout << "Enter the length of the board from " << min << " - " << max << " only\n";
     cout << ">> ";
@@ -78,7 +78,7 @@ void Menu::boardRowSizeMenu(int min, int max)
 ***************************************************************************/
 void Menu::boardColSizeMenu(int min, int max)
 {
-    cout << "\nCOLUMN SIZE\n";
+    cout << "\n[Extra Credit] COLUMN SIZE\n";
     cout << "Please enter the number of columns for the game board \n";
     cout << "Enter the width of the board from " << min << " - " << max << " only\n";
     cout << ">> ";
@@ -89,7 +89,7 @@ void Menu::boardColSizeMenu(int min, int max)
 ***************************************************************************/
 void Menu::numAntsMenu(int min, int max)
 {
-    cout << "\nANTS\n";
+    cout << "\n[Extra Credit] ANTS\n";
     cout << "Enter the number of ants you would like to have\n";
     cout << "Enter the number of ants from " << min << " - " << max << " only\n";
     cout << ">> ";
@@ -100,7 +100,7 @@ void Menu::numAntsMenu(int min, int max)
 ***************************************************************************/
 void Menu::numDoodleBugsMenu(int min, int max)
 {
-    cout << "\nDOODLEBUGS\n";
+    cout << "\n[Extra Credit] DOODLEBUGS\n";
     cout << "Enter the number of doodlebugs you would like to have\n";
     cout << "Enter the number of doodlebugs from " << min << " - " << max << " only\n";
     cout << ">> ";
@@ -207,16 +207,4 @@ int Menu::inputValidator(int min, int max)
     cin.clear();      // clear buffer
     
     return selection;
-}
-
-// TODO: REMOVE THIS FUNCTION BEFORE SUBMIT
-/***************************************************************************
-** Description:   
-***************************************************************************/
-void Menu::menuDebugMode() {
-    cout << "TODO: remove debug mode before submit\n"
-    << "\nDo you want to display as debug mode?\n"
-    << "1. press enter for each step\n"
-    << "2. pause 0.3 second for each step\n"
-    << "3. no (play as regular mode)\n";
 }
