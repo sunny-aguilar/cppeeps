@@ -19,9 +19,6 @@ Doodlebug::Doodlebug() : Critter() {}
 Doodlebug::Doodlebug(int row, int col) : Critter{"X", row, col}
 {
 	stepsStarved = 0;
-	static int num = 1;
-	cout << "Doodlebug #" << num << " created on Board[" << row << "][" << col << "]" << endl;
-	num++;
 }
 
 /*********************************************************************
@@ -60,7 +57,6 @@ int Doodlebug::eat(Critter ***&grid) { // CHANGED FROM VOID
 	if (grid[newRow][newCol] == nullptr) { return 0; }
 	int antEaten = 0; // <-- ADDED
 	if (grid[newRow][newCol]->getCritterType() == "O") {
-		cout << "Doodlebug ate the ant at: " << newRow << ", " << newCol  << "\n";
 		delete grid[newRow][newCol];
 		grid[newRow][newCol] = nullptr;
 		stepsStarved = 0;
