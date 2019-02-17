@@ -1,8 +1,11 @@
 /*********************************************************************
-** Author:          Kuljot Biring, Rachel Schlick, Ryan Gross,
-**                  Sandro Aguilar, Jeesoo Ryoo
-** Date:            02/17/2019
-** Description:     Header file for critter parent base class
+** Program Name:  Predator vs. Prey
+** Class Name:    Critter 
+** Children:      Ant, Doodlebug
+** Author:        Kuljot Biring, Rachel Schlick, Ryan Gross,
+**                Sandro Aguilar, Jeesoo Ryoo
+** Date:          02/17/2019
+** Description:   Class specification file for Critter base class.
 *********************************************************************/
 #ifndef CRITTER_HPP
 #define CRITTER_HPP
