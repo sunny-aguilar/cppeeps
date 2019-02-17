@@ -1,13 +1,16 @@
 /*********************************************************************
+** Program Name:    Predator vs. Prey
+** Class Name:      Menu
 ** Author:          Kuljot Biring, Rachel Schlick, Ryan Gross,
 **                  Sandro Aguilar, Jeesoo Ryoo
 ** Date:            02/17/2019
+** Description:     Class implementation file for Menu class.
 *********************************************************************/
 #include "Menu.hpp"
 
 /***************************************************************************
 ** Description: Default Constructor; sets default values for number 
-** verification, user input, and user selection.
+**              verification, user input, and user selection.
 ***************************************************************************/
 Menu::Menu() : numVerify{true},
                userInput{},
@@ -16,6 +19,7 @@ Menu::Menu() : numVerify{true},
 }
 
 /***************************************************************************
+** Name:        startMenu
 ** Description: Void method that prompts user to start or exit game.
 ***************************************************************************/
 void Menu::startMenu()
@@ -28,6 +32,7 @@ void Menu::startMenu()
 }
 
 /***************************************************************************
+** Name:        boardRowSizeMenu
 ** Description: Void method that prompts user for # of board rows.
 ***************************************************************************/
 void Menu::boardRowSizeMenu(int min, int max)
@@ -39,6 +44,7 @@ void Menu::boardRowSizeMenu(int min, int max)
 }
 
 /***************************************************************************
+** Name:        boardColSizeMenu
 ** Description: Void method that prompts user for # of board columns.
 ***************************************************************************/
 void Menu::boardColSizeMenu(int min, int max)
@@ -50,6 +56,7 @@ void Menu::boardColSizeMenu(int min, int max)
 }
 
 /***************************************************************************
+** Name:        numAntsMenu
 ** Description: Void method that prompts user for # of ants.
 ***************************************************************************/
 void Menu::numAntsMenu(int min, int max)
@@ -61,6 +68,7 @@ void Menu::numAntsMenu(int min, int max)
 }
 
 /***************************************************************************
+** Name:        numDoodlebugsMenu
 ** Description: Void method that prompts user for # of doodlebugs.
 ***************************************************************************/
 void Menu::numDoodleBugsMenu(int min, int max)
@@ -72,8 +80,9 @@ void Menu::numDoodleBugsMenu(int min, int max)
 }
 
 /***************************************************************************
+** Name:        menuRandomPlacement
 ** Description: Void method that outputs that critters have been placed
-** to console.
+**              to console.
 ***************************************************************************/
 void Menu::menuRandomPlacement()
 {
@@ -81,8 +90,9 @@ void Menu::menuRandomPlacement()
 }
 
 /*********************************************************************
+** Name:        critterStepsPrompt
 ** Description: Void method that prompts user for # of steps ants 
-** should take.
+**              should take.
 *********************************************************************/
 void Menu::critterStepsPrompt()
 {
@@ -91,8 +101,10 @@ void Menu::critterStepsPrompt()
 }
 
 /*********************************************************************
+** Name:        menuDisplayBoard
 ** Description: Void method that displays the current board state
-** along w/ stats for current step, # of critters eaten, bred, etc.
+**              along w/ stats for current step, # of critters eaten, 
+**              bred, etc.
 *********************************************************************/
 void Menu::menuDisplayBoard(int col, int cStep, int doodleCt, int antCt, int antsEaten, int newDoodles, int newAnts, int starvedDoodles)
 {
@@ -126,8 +138,9 @@ void Menu::menuDisplayBoard(int col, int cStep, int doodleCt, int antCt, int ant
 }
 
 /***************************************************************************
+** Name:        menuPlayAgain
 ** Description: Void method used to ask user if he/she wants to
-** play another round or quit the game.
+**              play another round or quit the game.
 ***************************************************************************/
 void Menu::menuPlayAgain()
 {
@@ -138,6 +151,7 @@ void Menu::menuPlayAgain()
 }
 
 /***************************************************************************
+** Name:        menuExitGameMessage
 ** Description: Void method used to notify user of game termination.
 ***************************************************************************/
 void Menu::menuExitGameMessage()
@@ -146,8 +160,10 @@ void Menu::menuExitGameMessage()
 }
 
 /****************************************************************************
+** Name:        inputValidator
 ** Description: Input validation method that takes in two ints (min/max range).
-** Iterative loops until value is entered that is within range. Returns an int.
+**              Iterative loops until value is entered that is within range. 
+**              Returns an int.
 ****************************************************************************/
 int Menu::inputValidator(int min, int max)
 {
