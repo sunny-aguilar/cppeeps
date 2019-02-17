@@ -1,8 +1,11 @@
 /*********************************************************************
-** Author:          Kuljot Biring, Rachel Schlick, Ryan Gross,
-**                  Sandro Aguilar, Jeesoo Ryoo
-** Date:            02/17/2019
-** Description:     Header for utility class
+** Program Name:  Predator vs. Prey
+** Class Name:    utils
+** Author:        Kuljot Biring, Rachel Schlick, Ryan Gross,
+**                Sandro Aguilar, Jeesoo Ryoo
+** Date:          02/17/2019
+** Description:   Class specification file for utils class.
+** Methods:       printWelcomeScreen, generateRandomNumber 
 *********************************************************************/
 #include <iostream>
 #include <random>
