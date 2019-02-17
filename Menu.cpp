@@ -1,216 +1,187 @@
 /*********************************************************************
-** Program name:    Menu.cpp
 ** Author:          Kuljot Biring, Rachel Schlick, Ryan Gross,
 **                  Sandro Aguilar, Jeesoo Ryoo
 ** Date:            02/17/2019
-** Description:     Meny class description here
 *********************************************************************/
 #include "Menu.hpp"
-// this is how the menus are displayed and input is validated
-// startQuitMenu(); <-- menu prompts user
-// setStartQuitChoice(inputValidator(1,2)) <-- returns a validated value
 
 /***************************************************************************
-** Description:     default constructor using initialization list
+** Description: Default Constructor; sets default values for number 
+** verification, user input, and user selection.
 ***************************************************************************/
-Menu::Menu() :
-    numVerify{true},
-    userInput{},
-    selection{0} {
+Menu::Menu() : numVerify{true},
+               userInput{},
+               selection{0}
+{
 }
 
 /***************************************************************************
-** Description:     prompt user to start or quit game
+** Description: Void method that prompts user to start or exit game.
 ***************************************************************************/
 void Menu::startMenu()
 {
-    cout << "\n\n\n"
-    << "###################################################################################################\n"
-    << "#                                                                                                 #\n"
-    << "#      WELCOME TO THE PREDATOR-PREY SIMULATION !!                                                 #\n"
-    << "#      By:   Sandro Aguilar, Kuljot Biring,                                                       #\n"
-    << "#            Ryan Gross, Jeesoo Ryoo, Rachel Schlick                                              #\n"
-    << "#                                                                                                 #\n"
-    << "#                                                                            ,_   _,              #\n"
-    << "#      ________               _________        _____                          '._.'               #\n"
-    << "#      ___  __ \\_____________ ______  /______ ___  /_______ ________     '-,   (_)   ,-'          #\n"
-    << "#      __  /_/ /__  ___/_  _ \\_  __  / _  __ `/_  __/_  __ \\__  ___/       '._ .:. _.'            #\n"
-    << "#      _  ____/ _  /    /  __// /_/ /  / /_/ / / /_  / /_/ /_  /            _ '|Y|' _             #\n"
-    << "#      /_/      /_/     \\___/ \\__,_/   \\__,_/  \\__/  \\____/ /_/           ,` `>\\ /<` `,           #\n"
-    << "#                                                                        ` ,-`  I  `-, `          #\n"
-    << "#      \\       /                             _   __ ____                   |   /=\\   |            #\n"
-    << "#       \\     /                             | | / // __/                 ,-'   |=|   '-,          #\n"
-    << "#        \\.-./                              | |/ /_\\ \\                         )-(                #\n"
-    << "#        (o\\^/o)  _   _   _     __          |___//___/                         \\_/                #\n"
-    << "#         ./ \\.\\ ( )-( )-( ) .-'  '-.                      ________                               #\n"
-    << "#          {-} \\(//  ||   \\\\/ (   )) '-.                   ___  __ \\_____________ _____  __       #\n"
-    << "#            //-__||__.-\\\\.      _.-'                      __  /_/ /__  ___/_  _ \\__  / / /       #\n"
-    << "#            (/    ()     \\)'-._.-'                        _  ____/ _  /    /  __/_  /_/ /        #\n"
-    << "#           ||    ||      \\\\                               /_/      /_/     \\___/ _\\__, /         #\n"
-    << "#           ('    ('       ')                                                     /____/          #\n"
-    << "#                                                                                                 #\n"
-    << "#                                                                                                 #\n"
-    << "#      [Extra Credit]                                                                             #\n"
-    << "#      * The size of the grid rows and columns                                                    #\n"
-    << "#      * The number of ants                                                                       #\n"
-    << "#      * The number of doodlebugs                                                                 #\n"
-    << "#                                                                                                 #\n"
-    << "###################################################################################################\n\n";
-    cout << "Please enter a choice listed below\n";
-    cout << "1. Run Simulation\n";
-    cout << "2. Exit Simulation\n";
+    printWelcomeScreen();
+    cout << USER_CHOICE_PROMPT;
+    cout << RUN_PROMPT;
+    cout << EXIT_PROMPT;
     cout << ">> ";
 }
 
 /***************************************************************************
-** Description:     prompt user to for row size
+** Description: Void method that prompts user for # of board rows.
 ***************************************************************************/
 void Menu::boardRowSizeMenu(int min, int max)
 {
-    cout << "\n[Extra Credit] ROW SIZE\n";
-    cout << "Please enter the number of rows for the game board \n";
-    cout << "Enter the length of the board from " << min << " - " << max << " only\n";
+    cout << EC_ROW_SIZE_PROMPT;
+    cout << ROW_RANGE_PROMPT;
+    cout << BOARD_LENGTH_PROMPT << min << " - " << max << " only\n";
     cout << ">> ";
 }
 
 /***************************************************************************
-** Description:     prompt user to for column size
+** Description: Void method that prompts user for # of board columns.
 ***************************************************************************/
 void Menu::boardColSizeMenu(int min, int max)
 {
-    cout << "\n[Extra Credit] COLUMN SIZE\n";
-    cout << "Please enter the number of columns for the game board \n";
-    cout << "Enter the width of the board from " << min << " - " << max << " only\n";
+    cout << EC_COL_SIZE_PROMPT;
+    cout << COL_RANGE_PROMPT;
+    cout << BOARD_WIDTH_PROMPT << min << " - " << max << " only\n";
     cout << ">> ";
 }
 
 /***************************************************************************
-** Description:     EXTRA CREDIT: prompt user for number of ants
+** Description: Void method that prompts user for # of ants.
 ***************************************************************************/
 void Menu::numAntsMenu(int min, int max)
 {
-    cout << "\n[Extra Credit] ANTS\n";
-    cout << "Enter the number of ants you would like to have\n";
-    cout << "Enter the number of ants from " << min << " - " << max << " only\n";
+    cout << EC_NUM_OF_ANTS_PROMPT;
+    cout << ANT_USER_INPUT_PROMPT;
+    cout << ANT_RANGE_PROMPT << min << " - " << max << " only\n";
     cout << ">> ";
 }
 
 /***************************************************************************
-** Description:     EXTRA CREDIT: prompt user for number of doodlebugs
+** Description: Void method that prompts user for # of doodlebugs.
 ***************************************************************************/
 void Menu::numDoodleBugsMenu(int min, int max)
 {
-    cout << "\n[Extra Credit] DOODLEBUGS\n";
-    cout << "Enter the number of doodlebugs you would like to have\n";
-    cout << "Enter the number of doodlebugs from " << min << " - " << max << " only\n";
+    cout << EC_NUM_OF_DOODLEBUGS_PROMPT;
+    cout << DOODLEBUG_USER_INPUT_PROMPT;
+    cout << DOODLEBUG_RANGE_PROMPT << min << " - " << max << " only\n";
     cout << ">> ";
 }
 
 /***************************************************************************
-** Description:  description
+** Description: Void method that outputs that critters have been placed
+** to console.
 ***************************************************************************/
-void Menu::menuRandomPlacement() {
-    cout << "\nAnts and Doodlebugs have been randomly placed on the board\n";
+void Menu::menuRandomPlacement()
+{
+    cout << CRITTER_PLACEMENT_NOTIFICATION;
 }
 
 /*********************************************************************
-** Description:  Ant steps prompt for total board movement
+** Description: Void method that prompts user for # of steps ants 
+** should take.
 *********************************************************************/
 void Menu::critterStepsPrompt()
 {
-    cout << "\nSTEPS\n";
-    cout << "Enter the total number of steps the ant should walk from 1 through 20000 only" << endl;
+    cout << EC_ANT_STEPS_PROMPT;
+    cout << ANT_STEPS_USER_INPUT_PROMPT << endl;
 }
 
 /*********************************************************************
-** Description:     description
+** Description: Void method that displays the current board state
+** along w/ stats for current step, # of critters eaten, bred, etc.
 *********************************************************************/
-void Menu::menuDisplayBoard(int col, int cStep, int doodleCt, int antCt, int antsEaten, int newDoodles, int newAnts, int starvedDoodles) {
-	int displayWidth = 30; 
-    for (int count = 0; count < displayWidth; count++) {
+void Menu::menuDisplayBoard(int col, int cStep, int doodleCt, int antCt, int antsEaten, int newDoodles, int newAnts, int starvedDoodles)
+{
+    int displayWidth = 30;
+    for (int count = 0; count < displayWidth; count++)
+    {
         cout << "__";
     }
-	cout << endl;
-    cout << std::right << "\n" << setw(40) << "Predator VS Prey - CURRENT STATS" << endl;
-    for (int count = 0; count < displayWidth; count++) {
+    cout << endl;
+    cout << std::right << "\n"
+         << setw(40) << CURRENT_STATS_NOTIFICATION << endl;
+    for (int count = 0; count < displayWidth; count++)
+    {
         cout << "__";
     }
-    cout << "\n" << endl;
-    cout << std::left << setw(30) << "Current steps taken: " << cStep << endl;
-	cout << std::left << setw(30) << "Ants on board: " << antCt << endl;
-	cout << std::left << setw(30) <<"Doodlebugs on board: " << doodleCt << endl;
-	cout << std::left << setw(30) <<"Ants eaten this step: " << antsEaten << endl;
-	cout << std::left << setw(30) <<"Ants bred this step: " << newAnts << endl;
-	cout << std::left << setw(30) <<"Doodlebugs bred this step: " << newDoodles << endl;
-	cout << std::left << setw(30) <<"Doodlebugs starved this step: " << starvedDoodles << endl;
-	cout << endl;
-	for (int count = 0; count < displayWidth; count++) {
+    cout << "\n"
+         << endl;
+    cout << std::left << setw(30) << CURRENT_STEPS_TAKEN_NOTIFICATION << cStep << endl;
+    cout << std::left << setw(30) << ANT_AMT_NOTIFICATION << antCt << endl;
+    cout << std::left << setw(30) << DOODLEBUG_AMT_NOTIFICATION << doodleCt << endl;
+    cout << std::left << setw(30) << ANTS_EATEN_NOTIFICATION << antsEaten << endl;
+    cout << std::left << setw(30) << ANTS_BRED_NOTIFICATION << newAnts << endl;
+    cout << std::left << setw(30) << DOODLEBUGS_BRED_NOTIFICATION << newDoodles << endl;
+    cout << std::left << setw(30) << DOODLEBUGS_STARVED_NOTIFICATION << starvedDoodles << endl;
+    cout << endl;
+    for (int count = 0; count < displayWidth; count++)
+    {
         cout << "__";
     }
-	cout << endl;
+    cout << endl;
 }
 
 /***************************************************************************
-** Description:   prompt user to continue or quit game
+** Description: Void method used to ask user if he/she wants to
+** play another round or quit the game.
 ***************************************************************************/
 void Menu::menuPlayAgain()
 {
-    cout << "\nWould you like to run the simulation again using "
-            "a different number of steps?\n";
-    cout << "Please enter a choice listed below\n";
-    cout << "1. Changes Step count and rerun Simulation\n";
-    cout << "2. Quit Simulation\n";
+    cout << GAME_RERUN_PROMPT;
+    cout << ENTER_CHOICE_PROMPT;
+    cout << RERUN_SELECTION;
+    cout << QUIT_SELECTION;
 }
 
 /***************************************************************************
-** Description:   prompt user to continue or quit game
+** Description: Void method used to notify user of game termination.
 ***************************************************************************/
-void Menu::menuExitGameMessage() {
-    cout << "\nNow exiting the predator-prey simulation" << endl;
+void Menu::menuExitGameMessage()
+{
+    cout << EXITING_PROMPT << endl;
 }
 
 /****************************************************************************
-** Description: generic input validation that checks if the input is
-** numerical. If not the bool flag is set to false. Otherwise a stringstream
-** object is created and that is inserted into an integer variable. The
-** function then checks if the flag was true and if the input is within
-** the min and max ranges passed to it. The do while checks if these
-** three conditions are violated and if so jumps back to the top of the
-** loop resetting the bool flag to true.
+** Description: Input validation method that takes in two ints (min/max range).
+** Iterative loops until value is entered that is within range. Returns an int.
 ****************************************************************************/
 int Menu::inputValidator(int min, int max)
 {
     do
     {
-        numVerify = true; // reset bool value when loop repeats
+        numVerify = true;
 
         getline(cin, userInput);
 
         for (unsigned int numCheck = 0; numCheck < userInput.length(); numCheck++)
         {
-            if (!isdigit(userInput[numCheck]))  // if entry is not a number
+            if (!isdigit(userInput[numCheck]))
             {
-                numVerify = false;  // set boolean to false
+                numVerify = false;
             }
         }
         if (userInput.length() == 0)
         {
-            numVerify = false; // do not accept no entry
+            numVerify = false;
         }
 
-        if (numVerify)  // if boolean value still true
+        if (numVerify)
         {
-            stringstream sstream(userInput);   // create string stream object
-            sstream >> selection;  // put string into integer
+            stringstream sstream(userInput);
+            sstream >> selection;
         }
-        // if number is out of range of acceptable values
-        if(!numVerify || selection < min || selection > max)
+
+        if (!numVerify || selection < min || selection > max)
         {
-            cout << "Invalid entry! You must choose number from " << min << " to " << max << ": ";
+            cout << INVALID_ENTRY_PROMPT << min << " to " << max << ": ";
         }
 
     } while (!numVerify || selection < min || selection > max);
-    cin.clear();      // clear buffer
-    
+    cin.clear();
+
     return selection;
 }

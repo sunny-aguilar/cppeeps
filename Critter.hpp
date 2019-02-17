@@ -1,10 +1,8 @@
 /*********************************************************************
-** Program name:    Critter.hpp
 ** Author:          Kuljot Biring, Rachel Schlick, Ryan Gross,
 **                  Sandro Aguilar, Jeesoo Ryoo
 ** Date:            02/17/2019
-** Description:     Critter class description here. Critter is an
-**                  abstract base class
+** Description:     Header file for critter parent base class
 *********************************************************************/
 #ifndef CRITTER_HPP
 #define CRITTER_HPP
@@ -18,56 +16,57 @@ using std::string;
 
 enum Direction
 {
-    UP = 1,
-    RIGHT,
-    DOWN,
-    LEFT
+  UP = 1,
+  RIGHT,
+  DOWN,
+  LEFT
 };
 
 class Critter
 {
-  protected:
-    Direction direction;
-    std::string critterType;
-    int stepsSurvived;
-    bool critterBred;
-    int readyToBreed;
-    bool critterMoved;
-    int row, col, newRow, newCol;
-    void makeStepToNewCell(Critter ***&grid);
+protected:
+  const std::string UNABLE_TO_MOVE_PROMPT = "Unable to determine direction to move!\n";
+  Direction direction;
+  std::string critterType;
+  int stepsSurvived;
+  bool critterBred;
+  int readyToBreed;
+  bool critterMoved;
+  int row, col, newRow, newCol;
+  void makeStepToNewCell(Critter ***&grid);
 
-  public:
-    Critter();
-    Critter(string type, int row, int col);
-    virtual ~Critter();
+public:
+  Critter();
+  Critter(string type, int row, int col);
+  virtual ~Critter();
 
-    int getRow();
-    void setRow(int row);
+  int getRow();
+  void setRow(int row);
 
-    int getCol();
-    void setCol(int col);
+  int getCol();
+  void setCol(int col);
 
-    void setNewRow(int row);
-    int getNewRow();
+  void setNewRow(int row);
+  int getNewRow();
 
-    void setNewCol(int col);
-    int getNewCol();
+  void setNewCol(int col);
+  int getNewCol();
 
-    bool getCritterMoved();
-    void setCritterMoved(bool moved);
-    string getCritterType();
+  bool getCritterMoved();
+  void setCritterMoved(bool moved);
+  string getCritterType();
 
-    void setCritterBred(bool bred);
-    bool getCritterBred();
+  void setCritterBred(bool bred);
+  bool getCritterBred();
 
-    virtual void setStepsSurvived() = 0;
-    virtual int getStepsSurvived() = 0;
-    void resetStepsSurvived();
-    virtual bool isStarved();
+  virtual void setStepsSurvived() = 0;
+  virtual int getStepsSurvived() = 0;
+  void resetStepsSurvived();
+  virtual bool isStarved();
 
-    virtual int move(Critter ***&grid, int ROW, int COL) = 0; // <-- CHANGED VOID TO INT
-    virtual int breed(Critter ***&grid, int row, int col) = 0;
-    void setNewRowColByDirection(int direction, int gridROW, int gridCOL);
-    bool isSpaceAvailable(int *);
+  virtual int move(Critter ***&grid, int ROW, int COL) = 0;
+  virtual int breed(Critter ***&grid, int row, int col) = 0;
+  void setNewRowColByDirection(int direction, int gridROW, int gridCOL);
+  bool isSpaceAvailable(int *);
 };
 #endif //CRITTER_HPP

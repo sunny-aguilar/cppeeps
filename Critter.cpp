@@ -1,9 +1,7 @@
 /*********************************************************************
-** Program name:    Critter.cpp
 ** Author:          Kuljot Biring, Rachel Schlick, Ryan Gross,
 **                  Sandro Aguilar, Jeesoo Ryoo
 ** Date:            02/17/2019
-** Description:     Critter class description here
 *********************************************************************/
 
 #include "Critter.hpp"
@@ -108,33 +106,25 @@ void Critter::setCritterBred(bool bred) { this->critterBred = bred; }
 void Critter::resetStepsSurvived() { stepsSurvived = 0; }
 
 /***************************************************************************
-** Description: A function to move a critter from current cell to new cell.
-** 							1. current cell: grid[row][col]
-** 							2. new cell: grid[newRow][newCol]
-** 							after move critter, set current location as null pointer,
-** 							then set 'row' and 'col' value, which indication current location
-** 							to 'newRow' and 'newCol' value.
+** Description: Void method that takes in the dynamic 2D Critter array. 
+** Moves critter to new section (row/col) in array, and then sets its old 
+** location in said array to a nullptr.
 ***************************************************************************/
 void Critter::makeStepToNewCell(Critter ***&grid)
 {
-	// check if the cell to move is occupied.
 	if (grid[newRow][newCol] != nullptr)
 	{
 		return;
 	}
 
-	// check if critter has already moved during time step
 	if (getCritterMoved())
 	{
 		return;
 	}
 
-	// move critter on the grid
 	grid[newRow][newCol] = grid[getRow()][getCol()];
 	grid[getRow()][getCol()] = nullptr;
 
-	// set critter's variables to new values
-	// row / col / critterMoved / stepsSurvived
 	setRow(newRow);
 	setCol(newCol);
 	setCritterMoved(true);
@@ -142,55 +132,44 @@ void Critter::makeStepToNewCell(Critter ***&grid)
 }
 
 /*********************************************************************
-** Description: A function calculating and setting newRow and 
-** 							newCol value based on the given direction parameter. 
-** 							1. UP: decrease row by -1
-** 							2. RIGHT: increase col by 1
-** 							3. DOWN: increase row by 1
-** 							4. LEFT: decrease col by -1
-** 							This function handles edge case to send the critter
-** 							to the other side of the board.
+** Description: Void method that takes in three ints, representing a
+** a cardinal direction, row, and column. Sets critter's new location
+** based on said parameters, and also prevents it from going off the board
+** via the direction parameter.
 *********************************************************************/
 void Critter::setNewRowColByDirection(int direction, int gridROW, int gridCOL)
 {
-	// reset row/col before calculation
 	newRow = row;
 	newCol = col;
 
-	// set proper newCol and newRow value based on the given direction,
-	// with edge case handling.
 	switch (direction)
 	{
-	case UP: // get NORTH square
-		// only move when not out of bounds NORTH wall
+	case UP:
 		if (row > 0)
 		{
 			newRow = row - 1;
 		}
 		break;
-	case RIGHT: // get EAST square
-		// only move when not out of bounds EAST wall
+	case RIGHT:
 		if (col < gridCOL - 1)
 		{
 			newCol = col + 1;
 		}
 		break;
-	case DOWN: // get SOUTH square
-		// only move when not out of bounds SOUTH wall
+	case DOWN:
 		if (row < gridROW - 1)
 		{
 			newRow = row + 1;
 		}
 		break;
-	case LEFT: // get WEST square
-		// only move when not out of bounds WEST wall
+	case LEFT:
 		if (col > 0)
 		{
 			newCol = col - 1;
 		}
 		break;
 	default:
-		cout << "Unable to determine direction to move!\n";
+		cout << UNABLE_TO_MOVE_PROMPT;
 	}
 }
 
