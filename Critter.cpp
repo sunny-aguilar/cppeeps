@@ -1,7 +1,11 @@
 /*********************************************************************
+** Program Name:    Predator vs. Prey
+** Class Name:      Critter 
+** Children:        Ant, Doodlebug
 ** Author:          Kuljot Biring, Rachel Schlick, Ryan Gross,
 **                  Sandro Aguilar, Jeesoo Ryoo
 ** Date:            02/17/2019
+** Description:     Class implementation file for Critter base class.
 *********************************************************************/
 
 #include "Critter.hpp"
@@ -13,7 +17,7 @@ Critter::Critter() {}
 
 /*********************************************************************
 ** Description: Constructor; takes in a string and two ints. Sets 
-** boolean falgs to false.
+**              boolean falgs to false.
 *********************************************************************/
 Critter::Critter(string type, int row, int col) : critterType{type},
 												  stepsSurvived{0},
@@ -101,14 +105,16 @@ void Critter::setCritterMoved(bool moved) { this->critterMoved = moved; }
 void Critter::setCritterBred(bool bred) { this->critterBred = bred; }
 
 /***************************************************************************
+** Name:        resetStepsSurvived
 ** Description: Void method that changes the value of steps survived to 0
 ***************************************************************************/
 void Critter::resetStepsSurvived() { stepsSurvived = 0; }
 
 /***************************************************************************
+** Name:        makeStepToNewCell
 ** Description: Void method that takes in the dynamic 2D Critter array. 
-** Moves critter to new section (row/col) in array, and then sets its old 
-** location in said array to a nullptr.
+**              Moves critter to new section (row/col) in array, and then 
+**              sets its old location in said array to a nullptr.
 ***************************************************************************/
 void Critter::makeStepToNewCell(Critter ***&grid)
 {
@@ -132,10 +138,11 @@ void Critter::makeStepToNewCell(Critter ***&grid)
 }
 
 /*********************************************************************
+** Name:        setNewRowColByDirection
 ** Description: Void method that takes in three ints, representing a
-** a cardinal direction, row, and column. Sets critter's new location
-** based on said parameters, and also prevents it from going off the board
-** via the direction parameter.
+**              a cardinal direction, row, and column. Sets critter's 
+**              new location based on said parameters, and also prevents 
+**              it from going off the board via the direction parameter.
 *********************************************************************/
 void Critter::setNewRowColByDirection(int direction, int gridROW, int gridCOL)
 {
@@ -174,11 +181,13 @@ void Critter::setNewRowColByDirection(int direction, int gridROW, int gridCOL)
 }
 
 /*********************************************************************
+** Name:        isSpaceAvailable
 ** Description: Method that iteratively checks adjacent sides to see
-** if they're available; used to verify if bug can breed in specific state.
-** Takes in an array of ints, representing the 4 cardinal points (NSEW).
-** Itertes through array; if value returns true 0 (false), space is
-** available and returned true. Returns false otherwise. 
+**              if they're available; used to verify if bug can breed 
+**              in specific state. Takes in an array of ints, representing 
+**              the 4 cardinal points (NSEW). Iterates through array; 
+**              if value returns true 0 (false), space is available 
+**              and returned true. Returns false otherwise. 
 *********************************************************************/
 bool Critter::isSpaceAvailable(int *array)
 {
