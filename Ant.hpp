@@ -1,8 +1,11 @@
 /*********************************************************************
-** Author:          Kuljot Biring, Rachel Schlick, Ryan Gross,
-**                  Sandro Aguilar, Jeesoo Ryoo
-** Date:            02/17/2019
-** Description:     Header file for ant subclass
+** Program Name:  Predator vs. Prey
+** Class Name:    Ant
+** Parent:        Critter
+** Author:        Kuljot Biring, Rachel Schlick, Ryan Gross,
+**                Sandro Aguilar, Jeesoo Ryoo
+** Date:          02/17/2019
+** Description:   Class specification file for Ant class.
 *********************************************************************/
 #ifndef ANT_HPP
 #define ANT_HPP
