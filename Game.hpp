@@ -1,8 +1,10 @@
 /*********************************************************************
-** Author: 				Kuljot Biring, Rachel Schlick, Ryan Gross,
-** 						Sandro Aguilar, Jeesoo Ryoo
-** Date: 				02/17/2019
-** Description: 		Header file for game class
+** Program Name:    Predator vs. Prey
+** Class Name:      Game
+** Author:          Kuljot Biring, Rachel Schlick, Ryan Gross,
+**                  Sandro Aguilar, Jeesoo Ryoo
+** Date:            02/17/2019
+** Description:     Class specification file for Game class.
 *********************************************************************/
 #ifndef GAME_HPP
 #define GAME_HPP
