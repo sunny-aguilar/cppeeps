@@ -1,13 +1,18 @@
 /*********************************************************************
+** Program Name:    Predator vs. Prey
+** Class Name:      utils
 ** Author:          Kuljot Biring, Rachel Schlick, Ryan Gross,
 **                  Sandro Aguilar, Jeesoo Ryoo
 ** Date:            02/17/2019
+** Description:     Class implementation file for utils class.
+** Methods:         printWelcomeScreen, generateRandomNumber 
 *********************************************************************/
 #include "utils.hpp"
 
 /***************************************************************************
-Description: Void method that prints welcome screen in menu; implemented
-** here to avoid bloat in menu class.
+** Name:        printWelcomeScreen 
+** Description: Void method that prints welcome screen in menu; implemented
+**              here to avoid bloat in menu class.
 ***************************************************************************/
 void printWelcomeScreen()
 {
@@ -46,11 +51,9 @@ void printWelcomeScreen()
 }
 
 /***************************************************************************
-Description: Method that generates a random number based on the input parameters
-** (min/max); returns an int.
-** References Used: https://en.cppreference.com/w/cpp/numeric/random/rand
-**			  		https://en.cppreference.com/w/cpp/numeric/random
-**			  		http://www.cplusplus.com/reference/random/
+** Name:        generateRandomNumber
+** Description: Method that generates a random number based on the input parameters
+**              (min/max); returns an int. Ref (1), (2), (3) 		  		
 ***************************************************************************/
 int generateRandomNumber(int min, int max)
 {
@@ -62,10 +65,16 @@ int generateRandomNumber(int min, int max)
 }
 
 /***************************************************************************
-Description: Takes in a max range as an int and returns a randomly generated
-** int within said range.
+** Name:        generateRandomNumber
+** Description: Takes in a max range as an int and returns a randomly generated
+**              int within said range.
 ***************************************************************************/
 int generateRandomNumber(int max)
 {
 	return generateRandomNumber(1, max);
 }
+
+// References
+// (1) https://en.cppreference.com/w/cpp/numeric/random/rand
+// (2) https://en.cppreference.com/w/cpp/numeric/random
+// (3) http://www.cplusplus.com/reference/random/
