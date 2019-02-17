@@ -1,19 +1,19 @@
 /*********************************************************************
-** Program name:    main.cpp
 ** Author:          Kuljot Biring, Rachel Schlick, Ryan Gross,
 **                  Sandro Aguilar, Jeesoo Ryoo
 ** Date:            02/17/2019
-** Description:     Util functions can be used in multiple places
+** Description:     Runs instance of "predator-prey" game
+** Note: Run make, then ./predator-prey
 *********************************************************************/
 #include <iostream>
-
 #include "Game.hpp"
-using std::cout;
 using std::cin;
+using std::cout;
 using std::endl;
 
-int main() {
-    Game game;                  // create game object
-    game.playGame();            // start simulation
+int main()
+{
+    Game game;
+    game.playGame();
     return 0;
 }
