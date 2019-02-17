@@ -1,7 +1,11 @@
 /*********************************************************************
-** Author:          Kuljot Biring, Rachel Schlick, Ryan Gross,
-**                  Sandro Aguilar, Jeesoo Ryoo
-** Date:            02/17/2019
+** Program Name: 	Predator vs. Prey
+** Class Name:		Ant
+** Parent:		Critter
+** Author:         	Kuljot Biring, Rachel Schlick, Ryan Gross,
+**                  	Sandro Aguilar, Jeesoo Ryoo
+** Date:            	02/17/2019
+** Description:     	Class implementation file for Ant class.
 *********************************************************************/
 #include "Ant.hpp"
 
@@ -37,10 +41,12 @@ int Ant::getStepsSurvived()
 }
 
 /*********************************************************************
+** Name: 	move
 ** Description: Takes in a dynamically allocated array of Critters and
-** two ints (row/col). If specific critter has moved, return 0. Else,
-** a random direction is generated, the bug's target destination is 
-** updated, and then moves to said destination. Returns 0.
+** 		two ints (row/col). If specific critter has moved, 
+**		return 0. Else, a random direction is generated, 
+**		the bug's target destination is updated, and then moves 
+**		to said destination. Returns 0.
 *********************************************************************/
 int Ant::move(Critter ***&grid, int gridROW, int gridCOL)
 {
@@ -57,10 +63,12 @@ int Ant::move(Critter ***&grid, int gridROW, int gridCOL)
 }
 
 /*********************************************************************
+** Name: 	breed
 ** Description: Takes in a dynamically allocated 2D array of doodlebugs,
-** and two ints (row/col). Iteratively checks a randomly selected
-** adjacent cell. If it's empty, a new bug is created. Returns
-** the # of bugs created. Ant breeds after surviving three iterations.
+** 		and two ints (row/col). Iteratively checks a randomly 
+**		selected adjacent cell. If it's empty, a new bug is 
+**		created. Returns the # of bugs created. 
+**		Ant breeds after surviving three iterations.
 *********************************************************************/
 int Ant::breed(Critter ***&grid, int gridROW, int gridCOL)
 {
