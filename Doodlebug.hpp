@@ -1,8 +1,11 @@
 /*********************************************************************
-** Author:          Kuljot Biring, Rachel Schlick, Ryan Gross,
-**                  Sandro Aguilar, Jeesoo Ryoo
-** Date:            02/17/2019
-** Description:     Header file for doodlebug subclass.
+** Program Name:  Predator vs. Prey
+** Class Name:    Doodlebug
+** Parent:        Critter
+** Author:        Kuljot Biring, Rachel Schlick, Ryan Gross,
+**                Sandro Aguilar, Jeesoo Ryoo
+** Date:          02/17/2019
+** Description:   Class specification file for Doodlebug class.
 *********************************************************************/
 #ifndef DOODLEBUG_HPP
 #define DOODLEBUG_HPP
