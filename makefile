@@ -1,6 +1,6 @@
 # Program Name: Group Project 1 - Predator Prey Game
 # Author: 	Kuljot Biring, Rachel Schlick, Ryan Gross, Sandro Aguilar, Jeesoo Ryoo
-# Date: 	February 2019
+# Date: 	February 17, 2019
 # Description:	Makefile for Group Project
 
 CXX = g++
