@@ -60,7 +60,7 @@ debug:
 	valgrind -v --leak-check=full --show-leak-kinds=all --track-origins=yes ./predator-prey
 .PHONY : zip
 zip:
-	zip -D GroupProject_NAMES_HERE.zip $(CPPs) $(HPPs) $(TXTS) makefile *.txt *.pdf
+	zip -D GroupProject_Group20.zip $(CPPs) $(HPPs) $(TXTS) makefile *.txt *.pdf
 .PHONY : run
 run:
 	./predator-prey
