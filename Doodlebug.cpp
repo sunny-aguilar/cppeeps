@@ -1,7 +1,11 @@
 /*********************************************************************
+** Program Name:    Predator vs. Prey
+** Class Name:      Doodlebug
+** Parent:          Critter
 ** Author:          Kuljot Biring, Rachel Schlick, Ryan Gross,
 **                  Sandro Aguilar, Jeesoo Ryoo
 ** Date:            02/17/2019
+** Description:     Class implementation file for Doodlebug class.
 *********************************************************************/
 #include "Doodlebug.hpp"
 
@@ -12,7 +16,7 @@ Doodlebug::Doodlebug() : Critter() {}
 
 /*********************************************************************
 ** Description: Constructor that takes in two ints (row/col);
-** sets default # of steps to 0
+**              sets default # of steps to 0
 *********************************************************************/
 Doodlebug::Doodlebug(int row, int col) : Critter{"X", row, col}
 {
@@ -49,10 +53,11 @@ bool Doodlebug::isStarved()
 }
 
 /*********************************************************************
+** Name:        eat
 ** Description: Takes in a dynamically allocated 2D array of Critters,
-** Looks at the destination (cell @ row/col) it should move to. If
-** it is already occupied by an Ant, said ant is removed and replaced
-** by said bug. Returns an int.
+**              Looks at the destination (cell @ row/col) it should move 
+**              to. If it is already occupied by an Ant, said ant is 
+**              removed and replaced by said bug. Returns an int.
 *********************************************************************/
 int Doodlebug::eat(Critter ***&grid)
 {
@@ -72,11 +77,13 @@ int Doodlebug::eat(Critter ***&grid)
 }
 
 /*********************************************************************
+** Name:        move
 ** Description: Takes in the 2D dynamic array of Critters and two 
-** ints (row/col). Iterates through the "board" to see what available 
-** moves can be made, randomly determines what direction it shoukd move
-** to. If selected direction is already occupied, said object does not move.
-** Returns an int.
+**              ints (row/col). Iterates through the "board" to see what 
+**              available moves can be made, randomly determines what 
+**              direction it should move to. If selected direction is 
+**              already occupied, said object does not move.
+**              Returns an int.
 *********************************************************************/
 int Doodlebug::move(Critter ***&grid, int gridROW, int gridCOL)
 {
@@ -93,10 +100,12 @@ int Doodlebug::move(Critter ***&grid, int gridROW, int gridCOL)
 }
 
 /*********************************************************************
+** Name:        checkAdjacentCells
 ** Description: Void methiod that takes in the 2D dynamic array of Critters
-** and two ints (row/col). Tries to move to an adjacent cell containing an 
-** ant; if it can, sets object's new row/col values and exits. Else,
-** if sets such values to the randomly generated direction.
+**              and two ints (row/col). Tries to move to an adjacent 
+**              cell containing an ant; if it can, sets object's new 
+**              row/col values and exits. Else, if sets such values 
+**              to the randomly generated direction.
 *********************************************************************/
 void Doodlebug::checkAdjacentCells(Critter ***&grid, int gridROW, int gridCOL)
 {
@@ -123,10 +132,11 @@ void Doodlebug::checkAdjacentCells(Critter ***&grid, int gridROW, int gridCOL)
 }
 
 /*********************************************************************
+** Name:        breed
 ** Description: Takes in a dynamically allocated 2D array of doodlebugs,
-** and two ints (row/col). Iteratively checks a randomly selected
-** adjacent cell. If it's empty, a new bug is created. Returns
-** the # of bugs created.
+**              and two ints (row/col). Iteratively checks a randomly 
+**              selected adjacent cell. If it's empty, a new bug is 
+**              created. Returns the # of bugs created.
 *********************************************************************/
 int Doodlebug::breed(Critter ***&grid, int gridROW, int gridCOL)
 {
