@@ -1,8 +1,10 @@
 /*********************************************************************
-** Author: 				Kuljot Biring, Rachel Schlick, Ryan Gross,
-** 	    					Sandro Aguilar, Jeesoo Ryoo
-** Date: 				  02/17/2019
-** Description:   Header file for menu class.
+** Program Name:  Predator vs Prey
+** Class Name:    Menu
+** Author:        Kuljot Biring, Rachel Schlick, Ryan Gross,
+**                Sandro Aguilar, Jeesoo Ryoo
+** Date:          02/17/2019
+** Description:   Class specification file for Menu class.
 *********************************************************************/
 #ifndef MENU_HPP
 #define MENU_HPP
