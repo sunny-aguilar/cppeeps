@@ -1,7 +1,10 @@
 /*********************************************************************
-** Author:       Kuljot Biring, Rachel Schlick, Ryan Gross,
-**               Sandro Aguilar, Jeesoo Ryoo
-** Date:         02/17/2019
+** Program Name:  Predator vs. Prey
+** Class Name:    Game
+** Author:        Kuljot Biring, Rachel Schlick, Ryan Gross,
+**                Sandro Aguilar, Jeesoo Ryoo
+** Date:          02/17/2019
+** Description:   Class implementation file for Game class.
 *********************************************************************/
 #include "Game.hpp"
 
@@ -37,9 +40,10 @@ Game::~Game()
 }
 
 /*********************************************************************
+** Name:        playGame
 ** Description: Void method that sets up the dynamic 2D array
-** ("game board"), and then runs an instance of the game. Iterates 
-** until user requests to terminate it.
+**              ("game board"), and then runs an instance of the game. 
+**              Iterates until user requests to terminate it.
 *********************************************************************/
 void Game::playGame()
 {
@@ -82,9 +86,10 @@ void Game::playGame()
 }
 
 /*********************************************************************
+** Name:        setCritters
 ** Description: Void method that sets the amount of Critters on the 
-** board as per user input, specifying how many Doodlebugs and Ants.
-** Notifies user if input exceeds amount of available spaces in board.
+**              board as per user input, specifying how many Doodlebugs 
+**              and Ants. Notifies user if input exceeds available spaces.
 *********************************************************************/
 void Game::setCritters(int maxBugs)
 {
@@ -121,8 +126,9 @@ void Game::setCritters(int maxBugs)
 }
 
 /*********************************************************************
+** Name:        initializeCritters
 ** Description: Void method that dynamically creats as board based
-** on the rows/cols determined via user input.
+**              on the rows/cols determined via user input.
 *********************************************************************/
 void Game::initializeCritters()
 {
@@ -145,8 +151,9 @@ void Game::initializeCritters()
 }
 
 /*********************************************************************
+** Name:        critterRandomPlacement
 ** Description: Void method that creates ant and doodlebug objects and
-** randomly places them on the board.
+**              randomly places them on the board.
 *********************************************************************/
 void Game::critterRandomPlacement()
 {
@@ -177,8 +184,9 @@ void Game::critterRandomPlacement()
 }
 
 /*********************************************************************
+** Name:        critterActivities
 ** Description: Void method that controls moment, spawning, and starvation
-** of critters on board; displays board afterward.
+**              of critters on board; displays board afterward.
 *********************************************************************/
 void Game::critterActivities(int cStep)
 {
@@ -196,9 +204,10 @@ void Game::critterActivities(int cStep)
 }
 
 /*********************************************************************
+** Name:        displayBoard
 ** Description: Void method that takes in 5 ints; step iteration,
-** ants eaten, doodlebugs created, ants created, and starved doodlebugs
-** Displays updated board. 
+**              ants eaten, doodlebugs created, ants created, and 
+**              starved doodlebugs. Displays updated board. 
 *********************************************************************/
 void Game::displayBoard(int cStep, int antsEaten, int newDoodles, int newAnts, int starvedDoodles)
 {
@@ -271,8 +280,9 @@ void Game::setAntQty(int antChange)
 }
 
 /*********************************************************************
+** Name:        moveDoodlebugs
 ** Description: Method that moves critters and sets qty of ants.
-** Returns an int
+**              Returns an int
 *********************************************************************/
 int Game::moveDoodlebugs()
 {
@@ -282,8 +292,9 @@ int Game::moveDoodlebugs()
 }
 
 /*********************************************************************
+** Name:        starvedDoodlebugs
 ** Description: Iterates through board and removes doodlebugs from
-** board that have not eaten more than 3x; returns an int.
+**              board that have not eaten more than 3x; returns an int.
 *********************************************************************/
 int Game::starvedDoodlebugs()
 {
@@ -308,8 +319,10 @@ int Game::starvedDoodlebugs()
 }
 
 /*********************************************************************
+** Name:        moveAnts
 ** Description: Void method that calls function to move critters and 
-** then sets quantity for specific type.
+**              then sets quantity for specific type.
+**              doodleChange from ant move always 0.
 *********************************************************************/
 void Game::moveAnts()
 {
@@ -318,10 +331,11 @@ void Game::moveAnts()
 }
 
 /*********************************************************************
+** Name:        moveCritters       
 ** Description: Takes in a string (critter type); iterates through the board
-** and will move critter accordingly based on said type. If space on board
-** is occupied, a direction is randomly generated to pick which 
-** direction the critter should move.
+**              and will move critter accordingly based on said type. 
+**              If space on board is occupied, a direction is randomly 
+**              generated to pick which direction the critter should move.
 *********************************************************************/
 int Game::moveCritters(string critterType)
 {
@@ -359,8 +373,9 @@ int Game::moveCritters(string critterType)
 }
 
 /*********************************************************************
+** Name:        spawnDoodlebugs
 ** Description: Method used to create new doodlebugs on board.
-** Returns an int.
+**              Returns an int number of new doodlebugs.
 *********************************************************************/
 int Game::spawnDoodlebugs()
 {
@@ -380,8 +395,9 @@ int Game::spawnDoodlebugs()
 }
 
 /*********************************************************************
+** Name:        spawnAnts
 ** Description: Method used to create new ants on board.
-** Returns an int.
+**              Returns an int number of new ants.
 *********************************************************************/
 int Game::spawnAnts()
 {
@@ -402,8 +418,9 @@ int Game::spawnAnts()
 }
 
 /*********************************************************************
+** Name:        goAgain
 ** Description: Method that returns a boolean, representing if 
-** another round of the game should occur.
+**              another round of the game should occur.
 *********************************************************************/
 bool Game::goAgain()
 {
